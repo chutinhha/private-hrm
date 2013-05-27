@@ -35,7 +35,7 @@ namespace HS.UI.Forms
             this.mnuHeThong = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuNhomTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTaiKhoan = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSendMailTest = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuThoat = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -65,7 +65,7 @@ namespace HS.UI.Forms
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHeThong,
-            this.toolStripMenuItem3,
+            this.mnuSendMailTest,
             this.toolStripSeparator1,
             this.mnuThoat});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
@@ -78,7 +78,7 @@ namespace HS.UI.Forms
             this.mnuNhomTaiKhoan,
             this.mnuTaiKhoan});
             this.mnuHeThong.Name = "mnuHeThong";
-            this.mnuHeThong.Size = new System.Drawing.Size(180, 22);
+            this.mnuHeThong.Size = new System.Drawing.Size(152, 22);
             this.mnuHeThong.Text = "Hệ thống";
             // 
             // mnuNhomTaiKhoan
@@ -95,21 +95,22 @@ namespace HS.UI.Forms
             this.mnuTaiKhoan.Text = "Tài &khoản";
             this.mnuTaiKhoan.Click += new System.EventHandler(this.mnuTaiKhoan_Click);
             // 
-            // toolStripMenuItem3
+            // mnuSendMailTest
             // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem3.Text = "toolStripMenuItem3";
+            this.mnuSendMailTest.Name = "mnuSendMailTest";
+            this.mnuSendMailTest.Size = new System.Drawing.Size(152, 22);
+            this.mnuSendMailTest.Text = "Send Mail test";
+            this.mnuSendMailTest.Click += new System.EventHandler(this.mnuSendMailTest_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // mnuThoat
             // 
             this.mnuThoat.Name = "mnuThoat";
-            this.mnuThoat.Size = new System.Drawing.Size(180, 22);
+            this.mnuThoat.Size = new System.Drawing.Size(152, 22);
             this.mnuThoat.Text = "&Thoát";
             // 
             // statusStrip1
@@ -223,7 +224,7 @@ namespace HS.UI.Forms
         private System.Windows.Forms.ToolStripMenuItem mnuHeThong;
         private System.Windows.Forms.ToolStripMenuItem mnuNhomTaiKhoan;
         private System.Windows.Forms.ToolStripMenuItem mnuTaiKhoan;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem mnuSendMailTest;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem mnuThoat;
         private System.Windows.Forms.Panel panel1;

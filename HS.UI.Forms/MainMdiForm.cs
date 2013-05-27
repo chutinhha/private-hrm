@@ -214,6 +214,11 @@ namespace HS.UI.Forms
             AddFormToTab(new HS.UI.Forms.Config.frmUser());
         }
 
+        private void mnuSendMailTest_Click(object sender, EventArgs e)
+        {
+            AddFormToTab(new test_project.SendMailTest());
+        }
+
         #endregion
 
         #region Build ToolbarItem
@@ -325,6 +330,10 @@ namespace HS.UI.Forms
                 toolStrip.Items.Add(button);
             }
         }
+
+        #endregion
+
+        #region API Tool test
 
         #endregion
 
