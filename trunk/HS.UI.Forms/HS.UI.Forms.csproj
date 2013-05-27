@@ -81,6 +81,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="microsoft.web.services3, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\Work\iStock\SourceCode\Source\VCiStock\Library\microsoft.web.services3.dll</HintPath>
+    </Reference>
     <Reference Include="System">
       <Name>System</Name>
     </Reference>
@@ -202,8 +205,14 @@
       <Project>{46760E59-4B39-49D7-B64D-48FC7A1CC016}</Project>
       <Name>HS.UI.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\test_project\test_project.csproj">
+      <Project>{8FA0F3F9-5BA9-4A9D-BD8F-1751D954934A}</Project>
+      <Name>test_project</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Test\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent />
