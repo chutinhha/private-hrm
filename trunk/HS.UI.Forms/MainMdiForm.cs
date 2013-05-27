@@ -26,14 +26,12 @@ namespace HS.UI.Forms
 
             Connection = ConnectionBase.Connection;
 
-            
-
             this.Text = ConfigurationManager.AppSettings["AppName"];
         }
 
         #region Tab Events
 
-        private void AddFormToTab(MdiChildForm childForm)
+        public void AddFormToTab(MdiChildForm childForm)
         {
             // kiểm tra xem childForm có là unique không
             // nếu là unique form
@@ -45,6 +43,8 @@ namespace HS.UI.Forms
                     // nếu tab nào có tag trùng với tag của form cần thêm
                     if (object.Equals(page.Tag, childForm.Tag))
                     {
+                        // active Tab đó
+                        tabMDI.SelectedTab = page;
                         // bỏ qua không thêm vào nữa
                         return;
                     }
@@ -70,7 +70,7 @@ namespace HS.UI.Forms
 #endif
 
             // tạo tab mới
-            TabPage newTabTop = new TabPage()
+            TabPage newTabPage = new TabPage()
             {
                 Location = new System.Drawing.Point(4, 22),
                 Padding = new System.Windows.Forms.Padding(3),
@@ -82,23 +82,23 @@ namespace HS.UI.Forms
             };
 
             // thêm tabpage vào tabMdi 
-            tabMDI.TabPages.Insert(0, newTabTop);
+            tabMDI.TabPages.Insert(0, newTabPage);
 
             // thêm Form vào Tab
             childForm.MdiParent = this;
-            childForm.Parent = newTabTop;
+            childForm.Parent = newTabPage;
             childForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
 
             // active form vừa tạo
-            tabMDI.SelectedTab = newTabTop;
+            tabMDI.SelectedTab = newTabPage;
 
             // Thêm form vào contextmenu tab
             ToolStripMenuItem newMenuItem = new ToolStripMenuItem()
             {
                 Text = childForm.Text,
                 CheckState = System.Windows.Forms.CheckState.Checked,
-                Tag = newTabTop
+                Tag = newTabPage
             };
 
             newMenuItem.Click += delegate(object sender, EventArgs e)

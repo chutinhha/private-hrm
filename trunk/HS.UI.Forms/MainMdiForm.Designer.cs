@@ -161,6 +161,7 @@ namespace HS.UI.Forms
             // btnCloseActiveTab
             // 
             this.btnCloseActiveTab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCloseActiveTab.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnCloseActiveTab.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseActiveTab.Location = new System.Drawing.Point(16, -1);
             this.btnCloseActiveTab.Name = "btnCloseActiveTab";
@@ -173,6 +174,7 @@ namespace HS.UI.Forms
             // btnShowListWindow
             // 
             this.btnShowListWindow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnShowListWindow.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.btnShowListWindow.Font = new System.Drawing.Font("Arial", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowListWindow.Location = new System.Drawing.Point(-1, -1);
             this.btnShowListWindow.Name = "btnShowListWindow";

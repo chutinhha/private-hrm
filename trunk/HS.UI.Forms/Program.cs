@@ -11,6 +11,7 @@ namespace HS.UI.Forms
     {
 
         public static OleDbConnection Connection;
+        public static MainMdiForms MainForm;
         /// <summary>
         /// Program entry point.
         /// </summary>
@@ -26,7 +27,8 @@ namespace HS.UI.Forms
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainMdiForms());
+            MainForm = new MainMdiForms();
+            Application.Run(MainForm);
         }
     }
 }
