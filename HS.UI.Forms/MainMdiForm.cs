@@ -216,7 +216,7 @@ namespace HS.UI.Forms
 
         private void mnuSendMailTest_Click(object sender, EventArgs e)
         {
-            AddFormToTab(new test_project.SendMailTest());
+            //AddFormToTab(new test_project.SendMailTest());
         }
 
         #endregion
