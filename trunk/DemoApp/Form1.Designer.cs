@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            PresentationControls.CheckBoxProperties checkBoxProperties1 = new PresentationControls.CheckBoxProperties();
-            PresentationControls.CheckBoxProperties checkBoxProperties2 = new PresentationControls.CheckBoxProperties();
-            PresentationControls.CheckBoxProperties checkBoxProperties3 = new PresentationControls.CheckBoxProperties();
-            PresentationControls.CheckBoxProperties checkBoxProperties4 = new PresentationControls.CheckBoxProperties();
+            System.Windows.Forms.ExControls.CheckBoxProperties checkBoxProperties1 = new System.Windows.Forms.ExControls.CheckBoxProperties();
+            System.Windows.Forms.ExControls.CheckBoxProperties checkBoxProperties2 = new System.Windows.Forms.ExControls.CheckBoxProperties();
+            System.Windows.Forms.ExControls.CheckBoxProperties checkBoxProperties3 = new System.Windows.Forms.ExControls.CheckBoxProperties();
+            System.Windows.Forms.ExControls.CheckBoxProperties checkBoxProperties4 = new System.Windows.Forms.ExControls.CheckBoxProperties();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,10 +41,10 @@
             this.btnCheckDDDD = new System.Windows.Forms.Button();
             this.btnCheckItem5 = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.checkBoxComboBox1 = new PresentationControls.CheckBoxComboBox();
-            this.cmbDataTableDataSource = new PresentationControls.CheckBoxComboBox();
-            this.cmbIListDataSource = new PresentationControls.CheckBoxComboBox();
-            this.cmbManual = new PresentationControls.CheckBoxComboBox();
+            this.checkBoxComboBox1 = new System.Windows.Forms.ExControls.CheckBoxComboBox();
+            this.cmbDataTableDataSource = new System.Windows.Forms.ExControls.CheckBoxComboBox();
+            this.cmbIListDataSource = new System.Windows.Forms.ExControls.CheckBoxComboBox();
+            this.cmbManual = new System.Windows.Forms.ExControls.CheckBoxComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -217,14 +217,14 @@
 
         #endregion
 
-        private PresentationControls.CheckBoxComboBox cmbManual;
+        private System.Windows.Forms.ExControls.CheckBoxComboBox cmbManual;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private PresentationControls.CheckBoxComboBox cmbIListDataSource;
-        private PresentationControls.CheckBoxComboBox cmbDataTableDataSource;
+        private System.Windows.Forms.ExControls.CheckBoxComboBox cmbIListDataSource;
+        private System.Windows.Forms.ExControls.CheckBoxComboBox cmbDataTableDataSource;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private PresentationControls.CheckBoxComboBox checkBoxComboBox1;
+        private System.Windows.Forms.ExControls.CheckBoxComboBox checkBoxComboBox1;
         private System.Windows.Forms.Button btnCheckItem1;
         private System.Windows.Forms.Button btnCheckInserted;
         private System.Windows.Forms.Button btnCheckDDDD;
