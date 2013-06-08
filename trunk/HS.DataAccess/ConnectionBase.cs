@@ -11,7 +11,7 @@ namespace HS.DataAccess
 {
     public class ConnectionBase
     {
-        private static string CONNECTION_STRING = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};User Id=admin;Password=;";
+        private const string CONNECTION_STRING = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};User Id=admin;Password=;";
 
         private static OleDbConnection _connection;
         public static OleDbConnection Connection

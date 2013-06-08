@@ -28,7 +28,7 @@ namespace HS.UI.Forms
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             MainForm = new MainMdiForms();
-            Application.Run(MainForm);
+            Application.Run(new SplashForm());
         }
     }
 }
