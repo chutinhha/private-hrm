@@ -108,6 +108,12 @@
     <Compile Include="Config\frmUser.Designer.cs">
       <DependentUpon>frmUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMdiForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,9 +132,15 @@
     <Compile Include="Config\frmUserGroup.Designer.cs">
       <DependentUpon>frmUserGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashForm.Designer.cs">
+      <DependentUpon>SplashForm.cs</DependentUpon>
+    </Compile>
     <Content Include="App.ico" />
     <Content Include="Database\DB.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Icons\add.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -186,11 +198,17 @@
     <EmbeddedResource Include="Config\frmUser.resx">
       <DependentUpon>frmUser.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMdiForm.resx">
       <DependentUpon>MainMdiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Config\frmUserGroup.resx">
       <DependentUpon>frmUserGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SplashForm.resx">
+      <DependentUpon>SplashForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -201,6 +219,10 @@
     <ProjectReference Include="..\HS.UI.Base\HS.UI.Base.csproj">
       <Project>{46760E59-4B39-49D7-B64D-48FC7A1CC016}</Project>
       <Name>HS.UI.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\System.Windows.Forms.ExControls\ExControls.csproj">
+      <Project>{9768ff46-1509-4b32-9b23-5db183d8a348}</Project>
+      <Name>ExControls</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
