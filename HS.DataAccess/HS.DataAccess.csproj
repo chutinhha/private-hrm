@@ -41,13 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObject\SysGroupObject.cs" />
+    <Compile Include="BusinessObject\SysUserObject.cs" />
     <Compile Include="ConnectionBase.cs" />
+    <Compile Include="DataObject\SysGroupDataObject.cs" />
+    <Compile Include="DataObject\SysUserDataObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="BusinessObject\" />
-    <Folder Include="DataObject\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\HS.UI.Common\HS.UI.Common.csproj">
       <Project>{166BE350-1C0E-4D74-92D2-18E456460E94}</Project>
