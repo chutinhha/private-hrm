@@ -1,4 +1,4 @@
-﻿namespace System.Windows.Forms.ExControls
+﻿namespace System.Windows.Forms.ExControls.Components
 {
     partial class Popup
     {

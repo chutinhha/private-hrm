@@ -8,6 +8,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
+using System.Windows.Forms.ExControls.Components;
 
 namespace System.Windows.Forms.ExControls
 {
@@ -26,7 +27,7 @@ namespace System.Windows.Forms.ExControls
     /// Extends the CodeProject PopupComboBox "Simple pop-up control" "http://www.codeproject.com/cs/miscctrl/simplepopup.asp"
     /// by Lukasz Swiatkowski.
     /// </summary>
-    public partial class CheckBoxComboBox : PopupComboBox
+    public partial class CheckBoxComboBox : System.Windows.Forms.ExControls.Components.PopupComboBox
     {
         #region CONSTRUCTOR
 

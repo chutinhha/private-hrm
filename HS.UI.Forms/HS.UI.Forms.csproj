@@ -139,6 +139,9 @@
       <DependentUpon>SplashForm.cs</DependentUpon>
     </Compile>
     <Content Include="App.ico" />
+    <Content Include="Database\DB.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Database\DB.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
