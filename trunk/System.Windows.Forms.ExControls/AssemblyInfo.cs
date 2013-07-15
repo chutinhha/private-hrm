@@ -6,14 +6,14 @@ using System.Runtime.CompilerServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("Extend Default .NET Controls")]
-[assembly: AssemblyDescription("Extend Default .NET Controls")]
-[assembly: AssemblyConfiguration("")]
+//[assembly: AssemblyTitle("Extend Default .NET Controls")]
+//[assembly: AssemblyDescription("Extend Default .NET Controls")]
+//[assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("BangDV Inc")]
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("2013 BangDV")]
 [assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]		
+//[assembly: AssemblyCulture("")]		
 
 //
 // Version information for an assembly consists of the following four values:

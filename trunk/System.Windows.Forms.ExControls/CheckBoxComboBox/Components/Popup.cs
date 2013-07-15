@@ -13,7 +13,7 @@ using VS = System.Windows.Forms.VisualStyles;
 <li>Base class for custom tooltips.</li>
 <li>Office-2007-like tooltip class.</li>
 */
-namespace System.Windows.Forms.ExControls
+namespace System.Windows.Forms.ExControls.Components
 {
     /// <summary>
     /// CodeProject.com "Simple pop-up control" "http://www.codeproject.com/cs/miscctrl/simplepopup.asp".

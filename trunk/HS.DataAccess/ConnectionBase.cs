@@ -11,7 +11,8 @@ namespace HS.DataAccess
 {
     public class ConnectionBase
     {
-        private const string CONNECTION_STRING = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};User Id=admin;Password=;";
+        //private const string CONNECTION_STRING = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};User Id=admin;Password=;";
+        private const string CONNECTION_STRING = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Persist Security Info=False;";
 
         private static OleDbConnection _connection;
         public static OleDbConnection Connection
@@ -20,8 +21,8 @@ namespace HS.DataAccess
             {
                 if (_connection == null)
                 {
-                    if (System.IO.File.Exists(System.IO.Path.Combine(Application.StartupPath, "Database\\DB.mdb")))
-                        _connection = new OleDbConnection(string.Format(CONNECTION_STRING, System.IO.Path.Combine(Application.StartupPath, "Database\\DB.mdb")));
+                    if (System.IO.File.Exists(System.IO.Path.Combine(Application.StartupPath, "Database\\DB.accdb")))
+                        _connection = new OleDbConnection(string.Format(CONNECTION_STRING, System.IO.Path.Combine(Application.StartupPath, "Database\\DB.accdb")));
                 }
 
                 return _connection;
