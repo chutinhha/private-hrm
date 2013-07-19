@@ -36,6 +36,9 @@
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab6 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab7 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab10 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab9 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.tabStored = new System.Windows.Forms.TabControl();
@@ -99,6 +102,11 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.ultraTabControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.ultraTabControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
+            this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.ultraTabPageControl8 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.ultraTabPageControl9 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.ultraTabPageControl1.SuspendLayout();
             this.tabStored.SuspendLayout();
             this.pageUsp_Insert.SuspendLayout();
@@ -149,12 +157,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.sourceTableList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl1)).BeginInit();
             this.ultraTabControl1.SuspendLayout();
+            this.ultraTabPageControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).BeginInit();
+            this.ultraTabControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ultraTabPageControl1
             // 
             this.ultraTabPageControl1.Controls.Add(this.tabStored);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(211, 1);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
             this.ultraTabPageControl1.Size = new System.Drawing.Size(371, 619);
             // 
@@ -756,7 +767,6 @@
             this.ultraTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ultraTabControl1.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.None;
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl1);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl2);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl4);
@@ -765,6 +775,7 @@
             this.ultraTabControl1.Controls.Add(this.pageCommonService);
             this.ultraTabControl1.Controls.Add(this.ultraTabPageControl7);
             this.ultraTabControl1.Controls.Add(this.ultraTabSharedControlsPage1);
+            this.ultraTabControl1.Controls.Add(this.ultraTabPageControl3);
             this.ultraTabControl1.Location = new System.Drawing.Point(230, 12);
             this.ultraTabControl1.Name = "ultraTabControl1";
             this.ultraTabControl1.SharedControlsPage = this.ultraTabSharedControlsPage1;
@@ -785,6 +796,8 @@
             ultraTab3.Text = "VCiStock.Common.Services";
             ultraTab7.TabPage = this.ultraTabPageControl7;
             ultraTab7.Text = "Other";
+            ultraTab10.TabPage = this.ultraTabPageControl3;
+            ultraTab10.Text = "tab1";
             this.ultraTabControl1.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
             ultraTab1,
             ultraTab2,
@@ -792,7 +805,8 @@
             ultraTab5,
             ultraTab6,
             ultraTab3,
-            ultraTab7});
+            ultraTab7,
+            ultraTab10});
             this.ultraTabControl1.TextOrientation = Infragistics.Win.UltraWinTabs.TextOrientation.Horizontal;
             // 
             // ultraTabSharedControlsPage1
@@ -800,6 +814,50 @@
             this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
             this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(371, 619);
+            // 
+            // ultraTabPageControl3
+            // 
+            this.ultraTabPageControl3.Controls.Add(this.ultraTabControl2);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(211, 1);
+            this.ultraTabPageControl3.Name = "ultraTabPageControl3";
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(371, 619);
+            // 
+            // ultraTabControl2
+            // 
+            this.ultraTabControl2.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab;
+            this.ultraTabControl2.Controls.Add(this.ultraTabSharedControlsPage2);
+            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl8);
+            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl9);
+            this.ultraTabControl2.Location = new System.Drawing.Point(81, 114);
+            this.ultraTabControl2.Name = "ultraTabControl2";
+            this.ultraTabControl2.SharedControlsPage = this.ultraTabSharedControlsPage2;
+            this.ultraTabControl2.Size = new System.Drawing.Size(200, 100);
+            this.ultraTabControl2.TabIndex = 0;
+            ultraTab8.TabPage = this.ultraTabPageControl8;
+            ultraTab8.Text = "tab1";
+            ultraTab9.TabPage = this.ultraTabPageControl9;
+            ultraTab9.Text = "tab2";
+            this.ultraTabControl2.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab8,
+            ultraTab9});
+            // 
+            // ultraTabSharedControlsPage2
+            // 
+            this.ultraTabSharedControlsPage2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage2.Name = "ultraTabSharedControlsPage2";
+            this.ultraTabSharedControlsPage2.Size = new System.Drawing.Size(196, 75);
+            // 
+            // ultraTabPageControl8
+            // 
+            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 22);
+            this.ultraTabPageControl8.Name = "ultraTabPageControl8";
+            this.ultraTabPageControl8.Size = new System.Drawing.Size(196, 75);
+            // 
+            // ultraTabPageControl9
+            // 
+            this.ultraTabPageControl9.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl9.Name = "ultraTabPageControl9";
+            this.ultraTabPageControl9.Size = new System.Drawing.Size(196, 73);
             // 
             // MainForm
             // 
@@ -865,6 +923,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.sourceTableList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl1)).EndInit();
             this.ultraTabControl1.ResumeLayout(false);
+            this.ultraTabPageControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).EndInit();
+            this.ultraTabControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -933,6 +994,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage pageFillProperties;
         private ScintillaNET.Scintilla txtCode_Fill_Properties;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl3;
+        private Infragistics.Win.UltraWinTabControl.UltraTabControl ultraTabControl2;
+        private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage2;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl8;
+        private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl9;
     }
 }
 

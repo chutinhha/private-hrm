@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Windows.Forms;
 
-namespace HS.UI.Common
+namespace HS.UI.Base
 {
     public class ErrorLog
     {

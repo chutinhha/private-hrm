@@ -3,7 +3,7 @@ using System.Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data.OleDb;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 using HS.UI.Common;
 
@@ -11,18 +11,19 @@ namespace HS.DataAccess
 {
     public class ConnectionBase
     {
-        //private const string CONNECTION_STRING = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0};User Id=admin;Password=;";
-        private const string CONNECTION_STRING = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source={0};Persist Security Info=False;";
+        private const string CONNECTION_STRING = "Data Source={0};InitialCatalog={1};User Id={2};Password={3};";
+        //private const string CONNECTION_STRING = "Provider=Microsoft.ACE.Sql.12.0;Data Source={0};Persist Security Info=False;";
 
-        private static OleDbConnection _connection;
-        public static OleDbConnection Connection
+        private static SqlConnection _connection;
+        public static SqlConnection Connection
         {
             get
             {
                 if (_connection == null)
                 {
-                    if (System.IO.File.Exists(System.IO.Path.Combine(Application.StartupPath, "Database\\DB.accdb")))
-                        _connection = new OleDbConnection(string.Format(CONNECTION_STRING, System.IO.Path.Combine(Application.StartupPath, "Database\\DB.accdb")));
+                    var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+
+                    _connection = new SqlConnection(string.Format(CONNECTION_STRING, appSettings[""]));
                 }
 
                 return _connection;
@@ -45,20 +46,20 @@ namespace HS.DataAccess
             }
         }
 
-        public bool ExcuteSQL(string sqlString, OleDbParameter[] parameters = null)
+        public bool ExcuteSQL(string sqlString, SqlParameter[] parameters = null)
         {
             try
             {
                 OpenConnection();
 
                 using (
-                OleDbCommand cm = Connection.CreateCommand())
+                SqlCommand cm = Connection.CreateCommand())
                 {
 
                     cm.CommandType = System.Data.CommandType.Text;
                     cm.CommandText = sqlString;
 
-                    foreach (OleDbParameter param in parameters)
+                    foreach (SqlParameter param in parameters)
                     {
                         cm.Parameters.Add(param);
                     }
@@ -70,7 +71,7 @@ namespace HS.DataAccess
                 CloseConnection();
                 return true;
             }
-            catch (OleDbException exception)
+            catch (SqlException exception)
             {
                 ErrorLog.Log("ExcuteSQL", exception.Message);
 
@@ -79,20 +80,20 @@ namespace HS.DataAccess
             }
         }
 
-        public bool ExcuteStore(string sqlString, OleDbParameter[] parameters = null)
+        public bool ExcuteStore(string sqlString, SqlParameter[] parameters = null)
         {
             try
             {
                 OpenConnection();
 
                 using (
-                OleDbCommand cm = Connection.CreateCommand())
+                SqlCommand cm = Connection.CreateCommand())
                 {
 
                     cm.CommandType = System.Data.CommandType.StoredProcedure;
                     cm.CommandText = sqlString;
 
-                    foreach (OleDbParameter param in parameters)
+                    foreach (SqlParameter param in parameters)
                     {
                         cm.Parameters.Add(param);
                     }
@@ -104,7 +105,7 @@ namespace HS.DataAccess
                 CloseConnection();
                 return true;
             }
-            catch (OleDbException exception)
+            catch (SqlException exception)
             {
                 ErrorLog.Log("ExcuteSQL", exception.Message);
 
@@ -113,21 +114,21 @@ namespace HS.DataAccess
             }
         }
 
-        public DataSet SelectData(string sqlString, OleDbParameter[] parameters = null)
+        public DataSet SelectData(string sqlString, SqlParameter[] parameters = null)
         {
             try
             {
                 DataSet data = new DataSet();
                 OpenConnection();
 
-                using (OleDbCommand cm = Connection.CreateCommand())
+                using (SqlCommand cm = Connection.CreateCommand())
                 {
-                    using (OleDbDataAdapter da = new OleDbDataAdapter(cm))
+                    using (SqlDataAdapter da = new SqlDataAdapter(cm))
                     {
                         cm.CommandType = System.Data.CommandType.Text;
                         cm.CommandText = sqlString;
 
-                        foreach (OleDbParameter param in parameters)
+                        foreach (SqlParameter param in parameters)
                         {
                             cm.Parameters.Add(param);
                         }
@@ -139,7 +140,7 @@ namespace HS.DataAccess
                 CloseConnection();
                 return data;
             }
-            catch (OleDbException exception)
+            catch (SqlException exception)
             {
                 ErrorLog.Log("ExcuteSQL", exception.Message);
 

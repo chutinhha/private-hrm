@@ -41,18 +41,4 @@ namespace HS.UI.Base
 
     }
 
-    public enum ToolbarItem
-    {
-        Add,
-        Edit,
-        Save,
-        Cancel,
-        Delete,
-        Active,
-        InActive,
-        Print,
-        Export,
-        Exit,
-        Seperator
-    }
 }
