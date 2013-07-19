@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<db>
+    <MenuItem>
+      <Parent>0</Parent>
+      <ID>1</ID>
+      <Text>&amp;Hệ thống</Text>
+      <IsTab>-1</IsTab>
+      <dllFile></dllFile>
+      <className></className>
+      <Order>1</Order>
+    </MenuItem>
+    <MenuItem>
+      <Parent>0</Parent>
+      <ID>2</ID>
+      <Text>&amp;Cấu hình</Text>
+      <IsTab>-1</IsTab>
+      <dllFile></dllFile>
+      <className></className>
+      <Order>2</Order>
+    </MenuItem>
+  <MenuItem>
+    <Parent>1</Parent>
+    <ID>3</ID>
+    <Text>Cấu hình Hệ thống</Text>
+    <IsTab>0</IsTab>
+    <dllFile>HS.UI.Forms.Systems.dll</dllFile>
+    <className>HS.UI.Forms.Systems.Config.frmConfiguration</className>
+    <Order>1</Order>
+  </MenuItem>
+</db>
