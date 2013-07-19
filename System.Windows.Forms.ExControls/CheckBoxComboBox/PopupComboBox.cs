@@ -1,35 +1,16 @@
-﻿#region License
-// Copyright © 2013 Łukasz Świątkowski
-// http://www.lukesw.net/
-//
-// This library is free software: you can redistribute it and/or modify
-// it under the terms of the GNU Lesser General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
-//
-// This library is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU Lesser General Public License for more details.
-//
-// You should have received a copy of the GNU Lesser General Public License
-// along with this library.  If not, see <http://www.gnu.org/licenses/>.
-#endregion
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+using System.Security.Permissions;
 
 namespace System.Windows.Forms.ExControls
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Diagnostics.Contracts;
-    using System.Drawing;
-    using System.Text;
-    using System.Windows.Forms;
-    using System.Security.Permissions;
-    using PopupCheckBox = System.Windows.Forms.ExControls.Components.Popup;
-
     /// <summary>
+    /// CodeProject.com "Simple pop-up control" "http://www.codeproject.com/cs/miscctrl/simplepopup.asp".
     /// Represents a Windows combo box control with a custom popup control attached.
     /// </summary>
     [ToolboxBitmap(typeof(System.Windows.Forms.ComboBox)), ToolboxItem(true), ToolboxItemFilter("System.Windows.Forms"), Description("Displays an editable text box with a drop-down list of permitted values.")]
@@ -40,13 +21,18 @@ namespace System.Windows.Forms.ExControls
         /// </summary>
         public PopupComboBox()
         {
-            this.dropDownHideTime = DateTime.UtcNow;
             InitializeComponent();
             base.DropDownHeight = base.DropDownWidth = 1;
             base.IntegralHeight = false;
         }
 
-        private PopupCheckBox dropDown;
+        /// <summary>
+        /// The pop-up wrapper for the dropDownControl. 
+        /// Made PROTECTED instead of PRIVATE so descendent classes can set its Resizable property.
+        /// Note however the pop-up properties must be set after the dropDownControl is assigned, since this 
+        /// popup wrapper is recreated when the dropDownControl is assigned.
+        /// </summary>
+        protected Popup dropDown;
 
         private Control dropDownControl;
         /// <summary>
@@ -61,55 +47,12 @@ namespace System.Windows.Forms.ExControls
             }
             set
             {
-                Contract.Requires<ArgumentNullException>(value != null);
-
-                if (dropDownControl == value) return;
-
+                if (dropDownControl == value)
+                    return;
                 dropDownControl = value;
-
-                dropDown.Closed -= dropDown_Closed;
-                dropDown.Dispose();
-
-                dropDown = new PopupCheckBox(value);
-                dropDown.Closed += dropDown_Closed;
+                dropDown = new Popup(value);
             }
         }
-
-        private DateTime dropDownHideTime;
-        private void dropDown_Closed(object sender, ToolStripDropDownClosedEventArgs e)
-        {
-            dropDownHideTime = DateTime.UtcNow;
-        }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the combo box is displaying its drop-down portion.
-        /// </summary>
-        /// <value></value>
-        /// <returns>true if the drop-down portion is displayed; otherwise, false. The default is false.
-        /// </returns>
-        public new bool DroppedDown
-        {
-            get
-            {
-                return dropDown.Visible;
-            }
-            set
-            {
-                if (DroppedDown)
-                {
-                    HideDropDown();
-                }
-                else
-                {
-                    ShowDropDown();
-                }
-            }
-        }
-
-        /// <summary>
-        /// Occurs when the drop-down portion of a <see cref="T:System.Windows.Forms.ComboBox"/> is shown.
-        /// </summary>
-        public new event EventHandler DropDown;
 
         /// <summary>
         /// Shows the drop down.
@@ -118,26 +61,9 @@ namespace System.Windows.Forms.ExControls
         {
             if (dropDown != null)
             {
-                if ((DateTime.UtcNow - dropDownHideTime).TotalSeconds > 0.5)
-                {
-                    if (DropDown != null)
-                    {
-                        DropDown(this, EventArgs.Empty);
-                    }
-                    dropDown.Show(this);
-                }
-                else
-                {
-                    dropDownHideTime = DateTime.UtcNow.Subtract(new TimeSpan(0, 0, 1));
-                    Focus();
-                }
+                dropDown.Show(this);
             }
         }
-
-        /// <summary>
-        /// Occurs when the drop-down portion of the <see cref="T:System.Windows.Forms.ComboBox"/> is no longer visible.
-        /// </summary>
-        public new event EventHandler DropDownClosed;
 
         /// <summary>
         /// Hides the drop down.
@@ -147,10 +73,6 @@ namespace System.Windows.Forms.ExControls
             if (dropDown != null)
             {
                 dropDown.Hide();
-                if (DropDownClosed != null)
-                {
-                    DropDownClosed(this, EventArgs.Empty);
-                }
             }
         }
 
@@ -161,15 +83,22 @@ namespace System.Windows.Forms.ExControls
         [SecurityPermission(SecurityAction.LinkDemand, Flags = SecurityPermissionFlag.UnmanagedCode)]
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == (NativeMethods.WM_COMMAND + NativeMethods.WM_REFLECT) && NativeMethods.HIWORD(m.WParam) == NativeMethods.CBN_DROPDOWN)
+            if (m.Msg == (NativeMethods.WM_REFLECT + NativeMethods.WM_COMMAND))
             {
-                BeginInvoke(new MethodInvoker(ShowDropDown));
-                return;
+                if (NativeMethods.HIWORD(m.WParam) == NativeMethods.CBN_DROPDOWN)
+                {
+                    // Blocks a redisplay when the user closes the control by clicking 
+                    // on the combobox.
+                    TimeSpan TimeSpan = DateTime.Now.Subtract(dropDown.LastClosedTimeStamp);
+                    if (TimeSpan.TotalMilliseconds > 500)
+                        ShowDropDown();
+                    return;
+                }
             }
             base.WndProc(ref m);
         }
 
-        #region Unused Properties
+        #region " Unused Properties "
 
         /// <summary>This property is not relevant for this class.</summary>
         /// <returns>This property is not relevant for this class.</returns>
@@ -186,7 +115,11 @@ namespace System.Windows.Forms.ExControls
         public new int DropDownHeight
         {
             get { return base.DropDownHeight; }
-            set { base.DropDownHeight = value; }
+            set
+            {
+                dropDown.Height = value;
+                base.DropDownHeight = value;
+            }
         }
 
         /// <summary>This property is not relevant for this class.</summary>
