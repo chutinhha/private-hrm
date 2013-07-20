@@ -52,11 +52,9 @@ namespace HS.UI.Common
 
         }
 
-        public static void ShowError(string functionName, string message)
+        public static void ShowError(string functionName, Exception ex)
         {
-            ErrorLog.Log(functionName, message);
-
-            MessageBox.Show(functionName + " - " + message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Base.Methods.ShowError(functionName, ex);
         }
     }
 }

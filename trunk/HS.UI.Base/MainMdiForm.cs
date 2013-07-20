@@ -208,7 +208,9 @@ namespace HS.UI.Base
         {
             try
             {
-                DataRow[] rows = menuItems.Select("[Parent] = 0", "[Order]");
+                BuildBuildInMenu(menuItems);
+
+                DataRow[] rows = menuItems.Select(string.Format("[Parent] = '{0}'", 0), "[Order]");
 
                 foreach (DataRow item in rows)
                 {
@@ -221,9 +223,9 @@ namespace HS.UI.Base
 
                     ToolStripMenuItem mnuItem = new ToolStripMenuItem();
 
-                    mnuItem.Text = item["Text"].ToString();
+                    mnuItem.Text = item["Text"].ToString().ToUpper();
 
-                    mnuItem.Tag = string.Format("{0}|{1}|{2}|{3}", item["ID"], item["IsTab"], item["dllFile"], item["className"]);
+                    mnuItem.Tag = string.Format("{0}|{1}|{2}|{3}|{4}", item["ID"], item["IsTab"], item["dllFile"], item["className"], item["Order"]);
 
                     mnuItem.Image = null;
 
@@ -243,13 +245,48 @@ namespace HS.UI.Base
             }
         }
 
+        private void BuildBuildInMenu(DataTable menuItems)
+        {
+            foreach (ToolStripMenuItem mnuMainItem in mnuMain.Items)
+            {
+                DataRow[] rows = menuItems.Select(string.Format("[Parent] = '{0}'", mnuMainItem.Tag.ToString()), "[Order]");
+
+                foreach (DataRow item in rows)
+                {
+                    if (item["Text"].ToString() == "--")
+                    {
+                        ToolStripSeparator mnuSeparator = new ToolStripSeparator();
+                        mnuMainItem.DropDownItems.Insert(int.Parse(item["Order"].ToString()), mnuSeparator);
+                        continue;
+                    }
+
+                    ToolStripMenuItem mnuItem = new ToolStripMenuItem();
+
+                    mnuItem.Text = item["Text"].ToString();
+
+                    mnuItem.Tag = string.Format("{0}|{1}|{2}|{3}|{4}", item["ID"], item["IsTab"], item["dllFile"], item["className"], item["Order"]);
+
+                    mnuItem.Image = null;
+
+                    mnuMainItem.DropDownItems.Insert(int.Parse(item["Order"].ToString()), mnuItem);
+
+                    BuildChildMenu(mnuItem, menuItems);
+
+                    if (mnuItem.DropDownItems.Count <= 0)
+                    {
+                        mnuItem.Click += mnuItem_Click;
+                    }
+                }
+            }
+        }
+
         private void BuildChildMenu(ToolStripMenuItem parentMenu, DataTable menuItems)
         {
             try
             {
                 var menuTag = parentMenu.Tag.ToString().Split("|".ToCharArray());
 
-                DataRow[] rows = menuItems.Select("[Parent] = " + menuTag[0], "[Order]");
+                DataRow[] rows = menuItems.Select(string.Format("[Parent] = '{0}'", menuTag[0].ToString()), "[Order]");
                 foreach (DataRow item in rows)
                 {
                     if (item["Text"].ToString() == "--")
@@ -263,7 +300,7 @@ namespace HS.UI.Base
 
                     mnuItem.Text = item["Text"].ToString();
 
-                    mnuItem.Tag = string.Format("{0}|{1}|{2}|{3}", item["ID"], item["IsTab"], item["dllFile"], item["className"]);
+                    mnuItem.Tag = string.Format("{0}|{1}|{2}|{3}}{4}", item["ID"], item["IsTab"], item["dllFile"], item["className"], item["Order"]);
 
                     mnuItem.Image = null;
 
@@ -306,12 +343,34 @@ namespace HS.UI.Base
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("#Menu Click", ex.Message);
+                Methods.ShowError("#Menu Click", ex);
             }
         }
 
         #region Menu Item Events
 
+
+        private void mnuLogin_Click(object sender, EventArgs e)
+        {
+            AskAndClose("Chắc chăn bạn muốn thoát ra và Đăng nhập lại?", true);
+        }
+
+        private void mnuExit_Click(object sender, EventArgs e)
+        {
+            AskAndClose("Chắc chăn bạn muốn thoát ra và tắt phần mềm?", false);
+        }
+
+        private void AskAndClose(string question, bool isReLogin)
+        {
+            if (MessageBox.Show(question, Variables.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+            {
+                return;
+            }
+
+            Variables.IsRelogin = isReLogin;
+
+            this.Close();
+        }
 
         #endregion
 
@@ -430,6 +489,7 @@ namespace HS.UI.Base
         }
 
         #endregion
+
 
         #region API Tool test
 

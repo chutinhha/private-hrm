@@ -10,9 +10,9 @@ using Library.DataAccess;
 using HS.UI.Common;
 using System.Data;
 
-namespace HS.Server.BR.Systems
+namespace HS.Server.DA.Systems
 {
-    public class DanhMucEntities : IDanhMuc
+    public class DanhMucDomainObject : IDanhMuc
     {
 
         #region Const Fields
@@ -38,24 +38,26 @@ namespace HS.Server.BR.Systems
         {
             get
             {
-                if (_ConnectionString == "")
-                {
-                    _ConnectionString = Variables.ConnectionString;
-                }
                 return _ConnectionString;
             }
-            set { _ConnectionString = value; }
+            set
+            {
+                if (_ConnectionString != value)
+                {
+                    _ConnectionString = value;
+                }
+            }
         }
 
         #endregion
 
         #region Constructors
 
-        public DanhMucEntities()
+        public DanhMucDomainObject()
         {
         }
 
-        public DanhMucEntities(System.String connectionString)
+        public DanhMucDomainObject(System.String connectionString)
         {
             this.ConnectionString = connectionString;
         }
@@ -121,7 +123,7 @@ namespace HS.Server.BR.Systems
             return dao.SubmitChange();
         }
 
-        public virtual DanhMucData GetDanhmucByID(System.String maLoaiDanhMuc)
+        public virtual DanhMucData GetDanhMucByID(System.String maLoaiDanhMuc)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUC_SELECT_BY_ID, CommandType.StoredProcedure);
@@ -157,7 +159,7 @@ namespace HS.Server.BR.Systems
             return new List<DanhMucData>();
         }
 
-        public virtual IList<DanhMucData> GetDanhmucs(System.String whereCondition)
+        public virtual IList<DanhMucData> GetDanhMucs(System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUC_SELECT_DYNAMIC, CommandType.StoredProcedure);
@@ -179,7 +181,7 @@ namespace HS.Server.BR.Systems
             return new List<DanhMucData>();
         }
 
-        public virtual IList<DanhMucData> GetDanhmucs(System.Int32 size, System.String whereCondition)
+        public virtual IList<DanhMucData> GetDanhMucs(System.Int32 size, System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUC_SELECT_TOP_DYNAMIC, CommandType.StoredProcedure);
@@ -202,7 +204,7 @@ namespace HS.Server.BR.Systems
             return new List<DanhMucData>();
         }
 
-        public virtual System.Int32 GetDanhmucCount(System.String whereCondition)
+        public virtual System.Int32 GetDanhMucCount(System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUC_SELECT_COUNT, CommandType.StoredProcedure);
@@ -218,7 +220,7 @@ namespace HS.Server.BR.Systems
             return 0;
         }
 
-        public virtual IList<DanhMucData> GetDanhmucPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns)
+        public virtual IList<DanhMucData> GetDanhMucPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUC_SELECT_PAGING, CommandType.StoredProcedure);
@@ -242,7 +244,7 @@ namespace HS.Server.BR.Systems
             }
             return new List<DanhMucData>();
         }
-        
+
         #endregion
     }
 }
