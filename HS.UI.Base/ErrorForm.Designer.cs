@@ -55,9 +55,11 @@
             // 
             // txtErrorDetail
             // 
+            this.txtErrorDetail.HideSelection = false;
             this.txtErrorDetail.Location = new System.Drawing.Point(13, 53);
             this.txtErrorDetail.Multiline = true;
             this.txtErrorDetail.Name = "txtErrorDetail";
+            this.txtErrorDetail.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtErrorDetail.Size = new System.Drawing.Size(286, 89);
             this.txtErrorDetail.TabIndex = 2;
             // 

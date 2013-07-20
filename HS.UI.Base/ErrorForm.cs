@@ -15,10 +15,11 @@ namespace HS.UI.Base
         {
             InitializeComponent();
         }
-        public ErrorForm(Exception ex)
+        public ErrorForm(string functionName, Exception ex)
         {
             InitializeComponent();
 
+            this.Text = string.Format("Lỗi - {0}", functionName);
             txtErrorDetail.Text = ex.ToString();
         }
 

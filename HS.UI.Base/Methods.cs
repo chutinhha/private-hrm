@@ -12,7 +12,7 @@ namespace HS.UI.Base
         {
             ErrorLog.Log(functionName, ex.Message);
 
-            new ErrorForm(ex).ShowDialog();
+            new ErrorForm(functionName, ex).ShowDialog();
         }
     }
 }
