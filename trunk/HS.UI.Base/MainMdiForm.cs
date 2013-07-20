@@ -256,7 +256,7 @@ namespace HS.UI.Base
                     if (item["Text"].ToString() == "--")
                     {
                         ToolStripSeparator mnuSeparator = new ToolStripSeparator();
-                        mnuMainItem.DropDownItems.Insert(int.Parse(item["Order"].ToString()), mnuSeparator);
+                        mnuMainItem.DropDownItems.Insert(int.Parse(item["InsertPos"].ToString()), mnuSeparator);
                         continue;
                     }
 

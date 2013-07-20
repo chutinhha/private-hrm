@@ -1,21 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <db>
-    <MenuItem>
-      <Parent>_0</Parent>
-      <ID>2</ID>
-      <Text>Đổi Mật Khẩu</Text>
-      <IsTab>-1</IsTab>
-      <dllFile></dllFile>
-      <className></className>
-      <Order>1</Order>
-    </MenuItem>
   <MenuItem>
-    <Parent>1</Parent>
-    <ID>3</ID>
-    <Text>Cấu hình Hệ thống</Text>
+    <Parent>_0</Parent>
+    <ID>2</ID>
+    <Text>Đổi Mật Khẩu</Text>
     <IsTab>0</IsTab>
-    <dllFile>HS.UI.Forms.Systems.dll</dllFile>
-    <className>HS.UI.Forms.Systems.Config.frmConfiguration</className>
+    <dllFile></dllFile>
+    <className></className>
     <Order>1</Order>
+    <InsertPos>1</InsertPos>
   </MenuItem>
 </db>

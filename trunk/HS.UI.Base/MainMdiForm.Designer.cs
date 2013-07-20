@@ -151,6 +151,7 @@ namespace HS.UI.Base
             // 
             this.mnuConfiguration.Name = "mnuConfiguration";
             this.mnuConfiguration.Size = new System.Drawing.Size(168, 22);
+            this.mnuConfiguration.Tag = "0|0|HS.UI.Forms.Systems.dll|HS.UI.Forms.Systems.Config.frmConfiguration|1";
             this.mnuConfiguration.Text = "Thiết Lập...";
             this.mnuConfiguration.Click += new System.EventHandler(this.mnuItem_Click);
             // 
