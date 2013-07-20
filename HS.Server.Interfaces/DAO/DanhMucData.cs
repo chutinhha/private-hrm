@@ -14,9 +14,8 @@ namespace HS.Server.Interfaces.DAO
     ///     - Generated Date:  19/07/2013 03:31:13 PM
     /// </summary>
     [DataContract]
-    public class DmLoaidanhmucData : INotifyPropertyChanged
+    public class DanhMucData : INotifyPropertyChanged
     {
-        private System.Int32 _ID;
         private System.String _MaLoaiDanhMuc;
         private System.String _TenLoaiDanhMuc;
         private System.Int32? _ThuTu;
@@ -34,27 +33,10 @@ namespace HS.Server.Interfaces.DAO
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-        public DmLoaidanhmucData()
+        public DanhMucData()
         {
         }
 
-        public DmLoaidanhmucData(System.Int32 iD)
-        {
-            this.ID = iD;
-        }
-        [DataMember]
-        public System.Int32 ID
-        {
-            get { return _ID; }
-            set
-            {
-                if (ID != value)
-                {
-                    _ID = value;
-                    OnPropertyChanged("ID");
-                }
-            }
-        }
         [DataMember]
         public System.String MaLoaiDanhMuc
         {
@@ -106,12 +88,6 @@ namespace HS.Server.Interfaces.DAO
                     OnPropertyChanged("System");
                 }
             }
-        }
-
-
-        public override int GetHashCode()
-        {
-            return ID.GetHashCode();
         }
 
     }

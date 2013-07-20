@@ -40,7 +40,6 @@ namespace HS.UI.Base
             this.btnCloseActiveTab = new System.Windows.Forms.Button();
             this.btnShowListWindow = new System.Windows.Forms.Button();
             this.mnuTabControl = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.mnuMain.SuspendLayout();
             this.statusMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlTabControl.SuspendLayout();
@@ -154,8 +153,7 @@ namespace HS.UI.Base
             this.Name = "MainMdiForms";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
-            this.mnuMain.ResumeLayout(false);
-            this.mnuMain.PerformLayout();
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.statusMain.ResumeLayout(false);
             this.statusMain.PerformLayout();
             this.panel1.ResumeLayout(false);

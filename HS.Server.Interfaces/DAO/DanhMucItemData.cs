@@ -14,7 +14,7 @@ namespace HS.Server.Interfaces.DAO
     ///     - Generated Date:  19/07/2013 04:37:32 PM
     /// </summary>
     [DataContract]
-    public class DmDanhmucitemData : INotifyPropertyChanged
+    public class DanhMucItemData : INotifyPropertyChanged
     {
         private System.String _MaLoaiDanhMuc;
         private System.String _MaDanhMuc;
@@ -42,7 +42,7 @@ namespace HS.Server.Interfaces.DAO
         public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
-        public DmDanhmucitemData()
+        public DanhMucItemData()
         {
         }
 

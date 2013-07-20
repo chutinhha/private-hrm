@@ -48,8 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAO\DmDanhmucitemData.cs" />
-    <Compile Include="DAO\DmLoaidanhmucData.cs" />
+    <Compile Include="DAO\DanhMucItemData.cs" />
+    <Compile Include="DAO\DanhMucData.cs" />
     <Compile Include="Entities\Systems\IDanhMuc.cs" />
     <Compile Include="Entities\Systems\IDanhMucItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

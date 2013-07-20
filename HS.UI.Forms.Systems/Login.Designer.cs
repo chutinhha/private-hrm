@@ -34,16 +34,20 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.imgPlaceLogo = new System.Windows.Forms.PictureBox();
+            this.imgPlaceLogin = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlaceLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlaceLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogin.Location = new System.Drawing.Point(143, 65);
+            this.btnLogin.Location = new System.Drawing.Point(136, 165);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 4;
-            this.btnLogin.Text = "&Login";
+            this.btnLogin.Text = "Đăng nhập";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -51,52 +55,73 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(224, 65);
+            this.btnCancel.Location = new System.Drawing.Point(217, 165);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "&Cancel";
+            this.btnCancel.Text = "Hủy bỏ";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(46, 15);
+            this.label1.Location = new System.Drawing.Point(73, 112);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(55, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Username:";
+            this.label1.Text = "Tài khoản";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 41);
+            this.label2.Location = new System.Drawing.Point(75, 138);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 13);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Password:";
+            this.label2.Text = "Mật khẩu";
             // 
             // txtUsername
             // 
             this.txtUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUsername.Location = new System.Drawing.Point(110, 12);
+            this.txtUsername.Location = new System.Drawing.Point(137, 109);
             this.txtUsername.MaxLength = 50;
             this.txtUsername.Name = "txtUsername";
-            this.txtUsername.Size = new System.Drawing.Size(189, 20);
+            this.txtUsername.Size = new System.Drawing.Size(155, 20);
             this.txtUsername.TabIndex = 1;
             // 
             // txtPassword
             // 
             this.txtPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPassword.Location = new System.Drawing.Point(110, 38);
+            this.txtPassword.Location = new System.Drawing.Point(137, 135);
             this.txtPassword.MaxLength = 50;
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(189, 20);
+            this.txtPassword.Size = new System.Drawing.Size(155, 20);
             this.txtPassword.TabIndex = 3;
             this.txtPassword.UseSystemPasswordChar = true;
+            // 
+            // imgPlaceLogo
+            // 
+            this.imgPlaceLogo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.imgPlaceLogo.BackColor = System.Drawing.Color.White;
+            this.imgPlaceLogo.Location = new System.Drawing.Point(12, 12);
+            this.imgPlaceLogo.Name = "imgPlaceLogo";
+            this.imgPlaceLogo.Size = new System.Drawing.Size(280, 81);
+            this.imgPlaceLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgPlaceLogo.TabIndex = 6;
+            this.imgPlaceLogo.TabStop = false;
+            // 
+            // imgPlaceLogin
+            // 
+            this.imgPlaceLogin.Location = new System.Drawing.Point(12, 109);
+            this.imgPlaceLogin.Name = "imgPlaceLogin";
+            this.imgPlaceLogin.Size = new System.Drawing.Size(55, 52);
+            this.imgPlaceLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.imgPlaceLogin.TabIndex = 7;
+            this.imgPlaceLogin.TabStop = false;
             // 
             // Login
             // 
@@ -104,7 +129,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(311, 100);
+            this.ClientSize = new System.Drawing.Size(304, 200);
+            this.Controls.Add(this.imgPlaceLogin);
+            this.Controls.Add(this.imgPlaceLogo);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.label2);
@@ -119,6 +146,8 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Đăng nhập";
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlaceLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgPlaceLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,5 +161,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsername;
         private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.PictureBox imgPlaceLogo;
+        private System.Windows.Forms.PictureBox imgPlaceLogin;
     }
 }

@@ -105,7 +105,7 @@
             // 
             // sourceDanhMuc
             // 
-            this.sourceDanhMuc.DataSource = typeof(HS.Server.Interfaces.DAO.DmDanhmucitemData);
+            this.sourceDanhMuc.DataSource = typeof(HS.Server.Interfaces.DAO.DanhMucItemData);
             // 
             // toolStrip1
             // 
