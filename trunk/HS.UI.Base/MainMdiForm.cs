@@ -340,39 +340,39 @@ namespace HS.UI.Base
                 switch (item)
                 {
                     case ToolbarItem.Add:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\add.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\add.png");
                         buttonText = "Thêm mới";
                         break;
                     case ToolbarItem.Edit:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\edit.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\edit.png");
                         buttonText = "Sửa chữa";
                         break;
                     case ToolbarItem.Save:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\save.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\save.png");
                         buttonText = "Lưu lại";
                         break;
                     case ToolbarItem.Cancel:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\cancel.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\cancel.png");
                         buttonText = "Hủy bỏ";
                         break;
                     case ToolbarItem.Active:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\active.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\active.png");
                         buttonText = "Sử dụng";
                         break;
                     case ToolbarItem.InActive:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\inactive.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\inactive.png");
                         buttonText = "Khóa";
                         break;
                     case ToolbarItem.Print:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\print.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\print.png");
                         buttonText = "In";
                         break;
                     case ToolbarItem.Export:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\export.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\export.png");
                         buttonText = "Kết xuất";
                         break;
                     case ToolbarItem.Exit:
-                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Icons\\exit.png");
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\exit.png");
                         buttonText = "Đóng lại";
                         break;
                 }

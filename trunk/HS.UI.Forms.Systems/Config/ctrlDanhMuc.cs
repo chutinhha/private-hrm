@@ -19,8 +19,6 @@ namespace HS.UI.Forms.Systems.Config
 
             gvwDanhMuc.AutoGenerateColumns = false;
 
-            LoadLoaiDanhMuc();
-
             SetEvents();
         }
 
@@ -33,6 +31,13 @@ namespace HS.UI.Forms.Systems.Config
             navInactive.Click += navInactive_Click;
 
             trvDanhMuc.AfterSelect += trvDanhMuc_AfterSelect;
+
+            this.Load += ctrlDanhMuc_Load;
+        }
+
+        void ctrlDanhMuc_Load(object sender, EventArgs e)
+        {
+            SetDataBinding();
         }
 
         void trvDanhMuc_AfterSelect(object sender, TreeViewEventArgs e)
@@ -57,7 +62,7 @@ namespace HS.UI.Forms.Systems.Config
             {
                 var db = new Server.BR.Systems.DanhMucEntities();
 
-                var list = db.GetDmLoaidanhmucs();
+                var list = db.GetDanhMucs();
 
                 trvDanhMuc.Nodes.Clear();
                 trvDanhMuc.Nodes.Add(new TreeNode()
@@ -111,7 +116,7 @@ namespace HS.UI.Forms.Systems.Config
             {
                 var db = new Server.BR.Systems.DanhMucItemEntities();
 
-                var list = db.GetDmDanhmucitemsByLoaiDm(type);
+                var list = db.GetDanhMucItemsByDanhMuc(type);
 
                 sourceDanhMuc.DataSource = list;
             }
