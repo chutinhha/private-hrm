@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
+using HS.UI.Common;
+
 namespace HS.UI.Forms.Systems
 {
     public partial class Login : Form
@@ -35,7 +37,7 @@ namespace HS.UI.Forms.Systems
         {
             if (string.IsNullOrWhiteSpace(txtPassword.Text) || string.IsNullOrWhiteSpace(txtPassword.Text))
             {
-                MessageBox.Show("Chưa nhập đầy đủ thông tin đăng nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Chưa nhập đầy đủ thông tin đăng nhập.", Variables.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
 
@@ -47,7 +49,14 @@ namespace HS.UI.Forms.Systems
 
             Common.Variables.MainForm.ShowDialog();
 
-            this.Close();
+            if (Common.Variables.IsRelogin)
+            {
+                this.Show();
+            }
+            else
+            {
+                this.Close();
+            }
         }
     }
 }

@@ -8,6 +8,11 @@ namespace HS.UI.Base
 {
     public static class Methods
     {
-        
+        public static void ShowError(string functionName, Exception ex)
+        {
+            ErrorLog.Log(functionName, ex.Message);
+
+            new ErrorForm(ex).ShowDialog();
+        }
     }
 }

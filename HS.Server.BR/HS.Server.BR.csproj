@@ -41,6 +41,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -51,10 +52,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\Systems\IDanhMucItemService.cs" />
+    <Compile Include="Contracts\Systems\IDanhMucService.cs" />
+    <Compile Include="Contracts\Systems\ISystem.cs" />
     <Compile Include="DynamicDataRow.cs" />
-    <Compile Include="Systems\DanhMucEntities.cs" />
+    <Compile Include="Entities\Systems\DanhMucEntities.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Systems\DanhMucItemEntities.cs" />
+    <Compile Include="Entities\Systems\DanhMucItemEntities.cs" />
     <None Include="app.config" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -79,6 +83,10 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HS.Server.DA\HS.Server.DA.csproj">
+      <Project>{c5af919a-87d9-4880-bc61-1bfa80cd02ce}</Project>
+      <Name>HS.Server.DA</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HS.Server.Interfaces\HS.Server.Interfaces.csproj">
       <Project>{ac13cc28-1a50-472f-babb-20695a98c274}</Project>
       <Name>HS.Server.Interfaces</Name>

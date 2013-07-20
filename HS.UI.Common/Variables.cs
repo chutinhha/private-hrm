@@ -39,5 +39,20 @@ namespace HS.UI.Common
                 }
             }
         }
+
+        public static bool IsRelogin
+        {
+            get { return Base.Variables.IsRelogin; }
+            set { Base.Variables.IsRelogin = value; }
+        }
+
+        public static string ApplicationName
+        {
+            get { return Base.Variables.ApplicationName; }
+            set
+            {
+                Base.Variables.ApplicationName = value;
+            }
+        }
     }
 }

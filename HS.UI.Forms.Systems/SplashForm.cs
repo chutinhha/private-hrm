@@ -11,16 +11,39 @@ namespace HS.UI.Forms.Systems
 {
     public partial class SplashForm : Form
     {
+        private BackgroundWorker workerLoadConfig;
+
         public SplashForm()
         {
             InitializeComponent();
+
+            workerLoadConfig = new BackgroundWorker() { WorkerReportsProgress = true };
+
+            workerLoadConfig.DoWork += workerLoadConfig_DoWork;
+            workerLoadConfig.ProgressChanged += workerLoadConfig_ProgressChanged;
+            workerLoadConfig.RunWorkerCompleted += workerLoadConfig_RunWorkerCompleted;
+        }
+
+        void workerLoadConfig_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            this.Hide();
+            new Login().ShowDialog();
+            this.Close();
+        }
+
+        void workerLoadConfig_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            lblStatus.Text = string.Format("Loading ({0}%)...", e.ProgressPercentage);
+        }
+
+        void workerLoadConfig_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Common.Variables.ApplicationName = System.Configuration.ConfigurationManager.AppSettings["AppName"];
         }
 
         private void SplashForm_Load(object sender, EventArgs e)
         {
-            new Login().ShowDialog();
-
-            this.Close();
+            workerLoadConfig.RunWorkerAsync();
         }
     }
 }

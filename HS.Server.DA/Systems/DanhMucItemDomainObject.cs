@@ -10,9 +10,9 @@ using Library.DataAccess;
 using HS.UI.Common;
 using System.Data;
 
-namespace HS.Server.BR.Systems
+namespace HS.Server.DA.Systems
 {
-    public class DanhMucItemEntities
+    public class DanhMucItemDomainObject
     {
 
         #region Const Fields
@@ -38,24 +38,26 @@ namespace HS.Server.BR.Systems
         {
             get
             {
-                if (_ConnectionString == "")
-                {
-                    _ConnectionString = Variables.ConnectionString;
-                }
                 return _ConnectionString;
             }
-            set { _ConnectionString = value; }
+            set
+            {
+                if (_ConnectionString != value)
+                {
+                    _ConnectionString = value;
+                }
+            }
         }
 
         #endregion
 
         #region Constructors
 
-        public DanhMucItemEntities()
+        public DanhMucItemDomainObject()
         {
         }
 
-        public DanhMucItemEntities(System.String connectionString)
+        public DanhMucItemDomainObject(System.String connectionString)
         {
             this.ConnectionString = connectionString;
         }
@@ -161,7 +163,7 @@ namespace HS.Server.BR.Systems
             return dao.SubmitChange();
         }
 
-        public virtual DanhMucItemData GetDanhmucItemByID(string maLoaiDanhMuc, string maDanhMuc)
+        public virtual DanhMucItemData GetDanhMucItemByID(string maLoaiDanhMuc, string maDanhMuc)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_BY_ID, CommandType.StoredProcedure);
@@ -201,7 +203,7 @@ namespace HS.Server.BR.Systems
             return new List<DanhMucItemData>();
         }
 
-        public virtual IList<DanhMucItemData> GetDanhmucItems(System.String whereCondition)
+        public virtual IList<DanhMucItemData> GetDanhMucItems(System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_DYNAMIC, CommandType.StoredProcedure);
@@ -223,7 +225,7 @@ namespace HS.Server.BR.Systems
             return new List<DanhMucItemData>();
         }
 
-        public virtual IList<DanhMucItemData> GetDanhmucItems(System.Int32 size, System.String whereCondition)
+        public virtual IList<DanhMucItemData> GetDanhMucItems(System.Int32 size, System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_TOP_DYNAMIC, CommandType.StoredProcedure);
@@ -246,7 +248,7 @@ namespace HS.Server.BR.Systems
             return new List<DanhMucItemData>();
         }
 
-        public virtual System.Int32 GetDanhmucItemCount(System.String whereCondition)
+        public virtual System.Int32 GetDanhMucItemCount(System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_COUNT, CommandType.StoredProcedure);
@@ -262,7 +264,7 @@ namespace HS.Server.BR.Systems
             return 0;
         }
 
-        public virtual IList<DanhMucItemData> GetDanhmucItemPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns)
+        public virtual IList<DanhMucItemData> GetDanhMucItemPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_PAGING, CommandType.StoredProcedure);

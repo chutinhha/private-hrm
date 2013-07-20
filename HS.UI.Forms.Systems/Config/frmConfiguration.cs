@@ -14,6 +14,13 @@ namespace HS.UI.Forms.Systems.Config
         public frmConfiguration()
         {
             InitializeComponent();
+
+            this.Load += frmConfiguration_Load;
+        }
+
+        void frmConfiguration_Load(object sender, EventArgs e)
+        {
+            ctrlDanhMuc1.InitControl();
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using HS.Server.BR;
+using HS.Server.BR.Entities.Systems;
 
 namespace HS.UI.Forms.Systems.Config
 {
@@ -17,7 +17,6 @@ namespace HS.UI.Forms.Systems.Config
         {
             InitializeComponent();
 
-            gvwDanhMuc.AutoGenerateColumns = false;
 
             SetEvents();
         }
@@ -32,12 +31,21 @@ namespace HS.UI.Forms.Systems.Config
 
             trvDanhMuc.AfterSelect += trvDanhMuc_AfterSelect;
 
-            this.Load += ctrlDanhMuc_Load;
+            //this.Load += ctrlDanhMuc_Load;
+        }
+
+        public void InitControl()
+        {
+            gvwDanhMuc.AutoGenerateColumns = false;
+
+            gvwDanhMuc.DataSource = sourceDanhMuc;
+
+            SetDataBinding();
         }
 
         void ctrlDanhMuc_Load(object sender, EventArgs e)
         {
-            SetDataBinding();
+            //SetDataBinding();
         }
 
         void trvDanhMuc_AfterSelect(object sender, TreeViewEventArgs e)
@@ -60,7 +68,7 @@ namespace HS.UI.Forms.Systems.Config
         {
             try
             {
-                var db = new Server.BR.Systems.DanhMucEntities();
+                var db = new DanhMucEntities();
 
                 var list = db.GetDanhMucs();
 
@@ -69,7 +77,7 @@ namespace HS.UI.Forms.Systems.Config
                 {
                     Text = "Danh mục thường",
                     ForeColor = Color.Black,
-                    NodeFont = new Font(DefaultFont, FontStyle.Bold)                    
+                    NodeFont = new Font(DefaultFont, FontStyle.Bold)
                 });
 
                 trvDanhMuc.Nodes.Add(new TreeNode()
@@ -106,7 +114,7 @@ namespace HS.UI.Forms.Systems.Config
             }
             catch (Exception ex)
             {
-                Common.Methods.ShowError("#LoadLoaiDanhMuc", ex.Message);
+                Common.Methods.ShowError("#LoadLoaiDanhMuc", ex);
             }
         }
 
@@ -114,15 +122,17 @@ namespace HS.UI.Forms.Systems.Config
         {
             try
             {
-                var db = new Server.BR.Systems.DanhMucItemEntities();
+
+                var db = new DanhMucItemEntities();
 
                 var list = db.GetDanhMucItemsByDanhMuc(type);
 
                 sourceDanhMuc.DataSource = list;
+
             }
             catch (Exception ex)
             {
-                Common.Methods.ShowError("#LoadDetailDanhMuc", ex.Message);
+                Common.Methods.ShowError("#LoadDetailDanhMuc", ex);
             }
         }
 

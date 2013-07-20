@@ -30,9 +30,9 @@
         {
             this.tabControlConfig = new System.Windows.Forms.TabControl();
             this.tabPageDanhMuc = new System.Windows.Forms.TabPage();
-            this.ctrlDanhMuc1 = new HS.UI.Forms.Systems.Config.ctrlDanhMuc();
             this.tabPageSystemSetting = new System.Windows.Forms.TabPage();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlDanhMuc1 = new HS.UI.Forms.Systems.Config.ctrlDanhMuc();
             this.tabControlConfig.SuspendLayout();
             this.tabPageDanhMuc.SuspendLayout();
             this.SuspendLayout();
@@ -60,14 +60,6 @@
             this.tabPageDanhMuc.TabIndex = 0;
             this.tabPageDanhMuc.Text = "Danh mục";
             // 
-            // ctrlDanhMuc1
-            // 
-            this.ctrlDanhMuc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ctrlDanhMuc1.Location = new System.Drawing.Point(3, 3);
-            this.ctrlDanhMuc1.Name = "ctrlDanhMuc1";
-            this.ctrlDanhMuc1.Size = new System.Drawing.Size(695, 409);
-            this.ctrlDanhMuc1.TabIndex = 0;
-            // 
             // tabPageSystemSetting
             // 
             this.tabPageSystemSetting.Location = new System.Drawing.Point(4, 22);
@@ -87,6 +79,14 @@
             this.btnClose.Text = "Đóng";
             this.btnClose.UseVisualStyleBackColor = true;
             // 
+            // ctrlDanhMuc1
+            // 
+            this.ctrlDanhMuc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ctrlDanhMuc1.Location = new System.Drawing.Point(3, 3);
+            this.ctrlDanhMuc1.Name = "ctrlDanhMuc1";
+            this.ctrlDanhMuc1.Size = new System.Drawing.Size(695, 409);
+            this.ctrlDanhMuc1.TabIndex = 0;
+            // 
             // frmConfiguration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -100,6 +100,7 @@
             this.MinimizeBox = false;
             this.Name = "frmConfiguration";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cấu hình hệ thống";
             this.tabControlConfig.ResumeLayout(false);
             this.tabPageDanhMuc.ResumeLayout(false);

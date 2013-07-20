@@ -8,8 +8,8 @@
     <ProjectGuid>{C5AF919A-87D9-4880-BC61-1BFA80CD02CE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HS.DataAccess</RootNamespace>
-    <AssemblyName>HS.DataAccess</AssemblyName>
+    <RootNamespace>HS.Server.DA</RootNamespace>
+    <AssemblyName>HS.Server.DA</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Library.DataAccess">
+      <HintPath>..\Ref\Library.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -43,16 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BusinessObject\SysGroupObject.cs" />
-    <Compile Include="BusinessObject\SysUserObject.cs" />
-    <Compile Include="ConnectionBase.cs" />
-    <Compile Include="DataObject\SysGroupDataObject.cs" />
-    <Compile Include="DataObject\SysUserDataObject.cs" />
+    <Compile Include="DynamicDataRow.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Systems\DanhMucDomainObject.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Systems\DanhMucItemDomainObject.cs">
+      <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -63,6 +68,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HS.Server.Interfaces\HS.Server.Interfaces.csproj">
+      <Project>{ac13cc28-1a50-472f-babb-20695a98c274}</Project>
+      <Name>HS.Server.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Common\HS.UI.Common.csproj">
       <Project>{166BE350-1C0E-4D74-92D2-18E456460E94}</Project>
       <Name>HS.UI.Common</Name>

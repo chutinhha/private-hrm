@@ -1,22 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <db>
     <MenuItem>
-      <Parent>0</Parent>
-      <ID>1</ID>
-      <Text>&amp;Hệ thống</Text>
+      <Parent>_0</Parent>
+      <ID>2</ID>
+      <Text>Đổi Mật Khẩu</Text>
       <IsTab>-1</IsTab>
       <dllFile></dllFile>
       <className></className>
       <Order>1</Order>
-    </MenuItem>
-    <MenuItem>
-      <Parent>0</Parent>
-      <ID>2</ID>
-      <Text>&amp;Cấu hình</Text>
-      <IsTab>-1</IsTab>
-      <dllFile></dllFile>
-      <className></className>
-      <Order>2</Order>
     </MenuItem>
   <MenuItem>
     <Parent>1</Parent>
