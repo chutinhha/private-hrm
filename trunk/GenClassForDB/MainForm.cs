@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -218,7 +220,7 @@ namespace GenClassForDB
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Insert]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Insert]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,7 +237,7 @@ GO
                                         tableName));
 
 
-            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[usp_{0}_Insert]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Insert]", RegenerateTableNameForStore(tableName)));
 
             string columnDetailInsert = "";
             for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
@@ -276,7 +278,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Update]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Update]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -293,7 +295,7 @@ GO
                                         tableName));
 
 
-            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[usp_{0}_Update]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Update]", RegenerateTableNameForStore(tableName)));
 
             string columnDetailInsert = "";
             for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
@@ -322,7 +324,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Delete]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Delete]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -339,7 +341,7 @@ GO
                                         tableName));
 
 
-            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[usp_{0}_Delete]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Delete]", RegenerateTableNameForStore(tableName)));
 
             for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
             {
@@ -364,7 +366,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Select_All]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Select_All]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -381,7 +383,7 @@ GO
                                         tableName));
 
 
-            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[usp_{0}_Select_All]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Select_All]", RegenerateTableNameForStore(tableName)));
 
             string columnDetailInsert = "";
             for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
@@ -405,7 +407,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Select_ByID]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Select_ByID]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -423,7 +425,7 @@ GO
 
 
             textStoreInsert.AppendLine(string.Format(
-@"     ALTER PROCEDURE [dbo].[usp_{0}_Select_ByID]
+@"     ALTER PROCEDURE [dbo].[{0}_Select_ByID]
     @ID BIGINT
 ", RegenerateTableNameForStore(tableName)));
 
@@ -451,7 +453,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Select_Dynamic]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Select_Dynamic]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -469,7 +471,7 @@ GO
 
 
             textStoreInsert.AppendLine(string.Format(
-@"     ALTER PROCEDURE [dbo].[usp_{0}_Select_Dynamic]
+@"     ALTER PROCEDURE [dbo].[{0}_Select_Dynamic]
     @WhereCondition nvarchar(500) = ''
 ", RegenerateTableNameForStore(tableName)));
 
@@ -497,7 +499,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Select_Top_Dynamic]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Select_Top_Dynamic]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -515,7 +517,7 @@ GO
 
 
             textStoreInsert.AppendLine(string.Format(
-@"     ALTER PROCEDURE [dbo].[usp_{0}_Select_Top_Dynamic]
+@"     ALTER PROCEDURE [dbo].[{0}_Select_Top_Dynamic]
     @Size int,
     @WhereCondition nvarchar(500) = ''
 ", RegenerateTableNameForStore(tableName)));
@@ -544,7 +546,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Select_Paging]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Select_Paging]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -562,7 +564,7 @@ GO
 
 
             textStoreInsert.AppendLine(string.Format(
-@"     ALTER PROCEDURE [dbo].[usp_{0}_Select_Paging]
+@"     ALTER PROCEDURE [dbo].[{0}_Select_Paging]
     @WhereCondition nvarchar(500),
     @PageSize int,
     @CurrentPage int,
@@ -605,7 +607,7 @@ GO
 
             textStoreInsert.Append(string.Format(
 @"GO
-/****** Object:  StoredProcedure [dbo].[usp_{0}_Select_Count]    Script Date: {1} ******/
+/****** Object:  StoredProcedure [dbo].[{0}_Select_Count]    Script Date: {1} ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -623,7 +625,7 @@ GO
 
 
             textStoreInsert.AppendLine(string.Format(
-@"     ALTER PROCEDURE [dbo].[usp_{0}_Select_Count]
+@"     ALTER PROCEDURE [dbo].[{0}_Select_Count]
     @WhereCondition nvarchar(500) = ''
 ", RegenerateTableNameForStore(tableName)));
 
@@ -792,22 +794,13 @@ namespace VCiStock.Data
         public {0}Data()
         {{
         }}
-
-        public {0}Data(System.Int64 iD)
-        {{
-            this.ID = iD;
-        }}
 ", RegenerateTableNameForStore(tableName)));
 
 
             textStoreInsert.AppendLine(publicMember);
 
             textStoreInsert.Append(@"
-        public override int GetHashCode()
-        {
-            return ID.GetHashCode();
-        }
-
+        
      }
 }");
 
@@ -853,15 +846,15 @@ namespace VCiStock.Data.DataAccess.Impl
 
         #region Const Fields
         
-        private const System.String SP_{3}_INSERT = ""[dbo].[USP_{3}_INSERT]"";
-        private const System.String SP_{3}_UPDATE = ""[dbo].[USP_{3}_UPDATE]"";
-        private const System.String SP_{3}_DELETE = ""[dbo].[USP_{3}_DELETE]"";
-        private const System.String SP_{3}_SELECT_BY_ID = ""[dbo].[USP_{3}_SELECT_BYID]"";
-        private const System.String SP_{3}_SELECT_ALL = ""[dbo].[USP_{3}_SELECT_ALL]"";
-        private const System.String SP_{3}_SELECT_DYNAMIC = ""[dbo].[USP_{3}_SELECT_DYNAMIC]"";
-        private const System.String SP_{3}_SELECT_TOP_DYNAMIC = ""[dbo].[USP_{3}_SELECT_TOP_DYNAMIC]"";
-        private const System.String SP_{3}_SELECT_COUNT = ""[dbo].[USP_{3}_SELECT_COUNT]"";
-        private const System.String SP_{3}_SELECT_PAGING = ""[dbo].[USP_{3}_SELECT_PAGING]"";
+        private const System.String SP_{3}_INSERT = ""[dbo].[{3}_INSERT]"";
+        private const System.String SP_{3}_UPDATE = ""[dbo].[{3}_UPDATE]"";
+        private const System.String SP_{3}_DELETE = ""[dbo].[{3}_DELETE]"";
+        private const System.String SP_{3}_SELECT_BY_ID = ""[dbo].[{3}_SELECT_BYID]"";
+        private const System.String SP_{3}_SELECT_ALL = ""[dbo].[{3}_SELECT_ALL]"";
+        private const System.String SP_{3}_SELECT_DYNAMIC = ""[dbo].[{3}_SELECT_DYNAMIC]"";
+        private const System.String SP_{3}_SELECT_TOP_DYNAMIC = ""[dbo].[{3}_SELECT_TOP_DYNAMIC]"";
+        private const System.String SP_{3}_SELECT_COUNT = ""[dbo].[{3}_SELECT_COUNT]"";
+        private const System.String SP_{3}_SELECT_PAGING = ""[dbo].[{3}_SELECT_PAGING]"";
         #endregion
         ",
                    tableName,
@@ -910,7 +903,7 @@ namespace VCiStock.Data.DataAccess.Impl
         {{
             dynamic data = new DynamicDataRow(row);
 
-            {0}Data obj = new {0}Data(System.Convert.ToInt64(data.ID)); // Chú ý Int64 hoặc Int32 phụ thuộc vào kiểu - dễ lẫn chỗ này
+            {0}Data obj = new {0}Data();
 
 ", RegenerateTableNameForStore(tableName)));
 
@@ -1550,6 +1543,30 @@ namespace VCiStock.Services.Contracts.Managements.Operation
                 throw;
             }
         }
+
+        private void ExcuteSql(string sqlString)
+        {
+            try
+            {
+                _SqlConnection.Open();
+
+                ServerConnection svrConnection = new ServerConnection(_SqlConnection);
+
+                Server server = new Server(svrConnection);
+
+                server.ConnectionContext.ExecuteNonQuery(sqlString);
+
+                _SqlConnection.Close();
+            }
+            catch (Exception)
+            {
+                if (_SqlConnection.State != ConnectionState.Closed)
+                {
+                    _SqlConnection.Close();
+                }
+                throw;
+            }
+        }
         #endregion
 
         #region TableName Helper
@@ -1590,7 +1607,7 @@ namespace VCiStock.Services.Contracts.Managements.Operation
                 if (string.IsNullOrEmpty(name)) continue;
 
                 output += name[0].ToString().ToLower();
-            }            
+            }
 
             return output;
         }
@@ -1655,6 +1672,105 @@ namespace VCiStock.Services.Contracts.Managements.Operation
             txtCodeIService.IsReadOnly =
             txtCodeClientService.IsReadOnly =
             txtCode_Fill_Properties.IsReadOnly = textboxReadonlyMode;
+        }
+
+        private void btnExcCreate_Click(object sender, EventArgs e)
+        {
+            ChangeStore("CREATE");
+        }
+
+        private void btnExcAlter_Click(object sender, EventArgs e)
+        {
+            ChangeStore("ALTER");
+        }
+
+        private void ChangeStore(string type)
+        {
+            List<TabPage> tabApply = new List<TabPage>();
+
+            if (chkApplyAll.Checked)
+            {
+                foreach (TabPage tab in tabStored.TabPages)
+                {
+                    tabApply.Add(tab);
+                }
+            }
+            else
+            {
+                tabApply.Add(tabStored.SelectedTab);
+            }
+
+            foreach (TabPage currentTab in tabApply)
+            {
+                var textPlace = currentTab.Controls[0] as ScintillaNET.Scintilla;
+
+                textPlace.IsReadOnly = false;
+
+                string findString = "";
+                string replaceString = type;
+
+                if (type == "CREATE")
+                {
+                    findString = "ALTER";
+                }
+                else
+                {
+                    findString = "CREATE";
+                }
+
+                textPlace.Text = textPlace.Text.Replace(findString, replaceString);
+
+                textPlace.IsReadOnly = true;
+            }
+        }
+
+        private void btnExcutePro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<TabPage> tabApply = new List<TabPage>();
+
+                if (chkApplyAll.Checked)
+                {
+                    foreach (TabPage tab in tabStored.TabPages)
+                    {
+                        tabApply.Add(tab);
+                    }
+                }
+                else
+                {
+                    tabApply.Add(tabStored.SelectedTab);
+                }
+
+                string tabFalse = "";
+                foreach (TabPage currentTab in tabApply)
+                {
+                    var textPlace = currentTab.Controls[0] as ScintillaNET.Scintilla;
+                    string sqlString = textPlace.Text;
+
+                    try
+                    {
+                        ExcuteSql(sqlString);
+                    }
+                    catch (Exception ex)
+                    {
+                        tabFalse += " - " + currentTab + "\n";
+                    }
+                }
+
+                if (tabFalse == "")
+                {
+                    MessageBox.Show("Done!");
+                }
+                else
+                {
+                    MessageBox.Show("Done! Có vài Tab lỗi: \n" + tabFalse);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
+            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab9 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab1 = new Infragistics.Win.UltraWinTabControl.UltraTab(true);
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab2 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab4 = new Infragistics.Win.UltraWinTabControl.UltraTab();
@@ -37,8 +39,6 @@
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab3 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab7 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             Infragistics.Win.UltraWinTabControl.UltraTab ultraTab10 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab8 = new Infragistics.Win.UltraWinTabControl.UltraTab();
-            Infragistics.Win.UltraWinTabControl.UltraTab ultraTab9 = new Infragistics.Win.UltraWinTabControl.UltraTab();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.ultraTabPageControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.tabStored = new System.Windows.Forms.TabControl();
@@ -86,6 +86,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.pageFillProperties = new System.Windows.Forms.TabPage();
             this.txtCode_Fill_Properties = new ScintillaNET.Scintilla();
+            this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.ultraTabControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
+            this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
+            this.ultraTabPageControl8 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.ultraTabPageControl9 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtFilterTable = new System.Windows.Forms.TextBox();
             this.lstTable = new System.Windows.Forms.ListBox();
@@ -102,11 +107,10 @@
             this.btnConnect = new System.Windows.Forms.Button();
             this.ultraTabControl1 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
             this.ultraTabSharedControlsPage1 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.ultraTabPageControl3 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.ultraTabControl2 = new Infragistics.Win.UltraWinTabControl.UltraTabControl();
-            this.ultraTabSharedControlsPage2 = new Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage();
-            this.ultraTabPageControl8 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
-            this.ultraTabPageControl9 = new Infragistics.Win.UltraWinTabControl.UltraTabPageControl();
+            this.btnExcAlter = new System.Windows.Forms.Button();
+            this.btnExcCreate = new System.Windows.Forms.Button();
+            this.btnExcutePro = new System.Windows.Forms.Button();
+            this.chkApplyAll = new System.Windows.Forms.CheckBox();
             this.ultraTabPageControl1.SuspendLayout();
             this.tabStored.SuspendLayout();
             this.pageUsp_Insert.SuspendLayout();
@@ -153,21 +157,25 @@
             this.tabControl1.SuspendLayout();
             this.pageFillProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtCode_Fill_Properties)).BeginInit();
+            this.ultraTabPageControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).BeginInit();
+            this.ultraTabControl2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sourceTableList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl1)).BeginInit();
             this.ultraTabControl1.SuspendLayout();
-            this.ultraTabPageControl3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).BeginInit();
-            this.ultraTabControl2.SuspendLayout();
             this.SuspendLayout();
             // 
             // ultraTabPageControl1
             // 
+            this.ultraTabPageControl1.Controls.Add(this.chkApplyAll);
+            this.ultraTabPageControl1.Controls.Add(this.btnExcCreate);
             this.ultraTabPageControl1.Controls.Add(this.tabStored);
-            this.ultraTabPageControl1.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl1.Controls.Add(this.btnExcutePro);
+            this.ultraTabPageControl1.Controls.Add(this.btnExcAlter);
+            this.ultraTabPageControl1.Location = new System.Drawing.Point(211, 1);
             this.ultraTabPageControl1.Name = "ultraTabPageControl1";
-            this.ultraTabPageControl1.Size = new System.Drawing.Size(371, 619);
+            this.ultraTabPageControl1.Size = new System.Drawing.Size(501, 616);
             // 
             // tabStored
             // 
@@ -186,7 +194,7 @@
             this.tabStored.Location = new System.Drawing.Point(3, 3);
             this.tabStored.Name = "tabStored";
             this.tabStored.SelectedIndex = 0;
-            this.tabStored.Size = new System.Drawing.Size(365, 613);
+            this.tabStored.Size = new System.Drawing.Size(495, 577);
             this.tabStored.TabIndex = 0;
             // 
             // pageUsp_Insert
@@ -194,7 +202,7 @@
             this.pageUsp_Insert.Controls.Add(this.txtCode_usp_Insert);
             this.pageUsp_Insert.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Insert.Name = "pageUsp_Insert";
-            this.pageUsp_Insert.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Insert.Size = new System.Drawing.Size(487, 551);
             this.pageUsp_Insert.TabIndex = 0;
             this.pageUsp_Insert.Tag = "usp_{0}_Insert";
             this.pageUsp_Insert.Text = "usp_{0}_Insert";
@@ -205,7 +213,7 @@
             this.txtCode_usp_Insert.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Insert.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Insert.Name = "txtCode_usp_Insert";
-            this.txtCode_usp_Insert.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Insert.Size = new System.Drawing.Size(487, 551);
             this.txtCode_usp_Insert.TabIndex = 0;
             // 
             // pageUsp_Update
@@ -213,7 +221,7 @@
             this.pageUsp_Update.Controls.Add(this.txtCode_usp_Update);
             this.pageUsp_Update.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Update.Name = "pageUsp_Update";
-            this.pageUsp_Update.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Update.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Update.TabIndex = 1;
             this.pageUsp_Update.Tag = "usp_{0}_Update";
             this.pageUsp_Update.Text = "usp_{0}_Update";
@@ -224,7 +232,7 @@
             this.txtCode_usp_Update.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Update.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Update.Name = "txtCode_usp_Update";
-            this.txtCode_usp_Update.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Update.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Update.TabIndex = 0;
             // 
             // pageUsp_Delete
@@ -232,7 +240,7 @@
             this.pageUsp_Delete.Controls.Add(this.txtCode_usp_Delete);
             this.pageUsp_Delete.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Delete.Name = "pageUsp_Delete";
-            this.pageUsp_Delete.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Delete.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Delete.TabIndex = 4;
             this.pageUsp_Delete.Tag = "usp_{0}_Delete";
             this.pageUsp_Delete.Text = "usp_{0}_Delete";
@@ -243,7 +251,7 @@
             this.txtCode_usp_Delete.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Delete.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Delete.Name = "txtCode_usp_Delete";
-            this.txtCode_usp_Delete.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Delete.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Delete.TabIndex = 0;
             // 
             // pageUsp_Select_All
@@ -251,7 +259,7 @@
             this.pageUsp_Select_All.Controls.Add(this.txtCode_usp_Select_All);
             this.pageUsp_Select_All.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Select_All.Name = "pageUsp_Select_All";
-            this.pageUsp_Select_All.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Select_All.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Select_All.TabIndex = 8;
             this.pageUsp_Select_All.Tag = "usp_{0}_Select_All";
             this.pageUsp_Select_All.Text = "usp_{0}_Select_All";
@@ -262,7 +270,7 @@
             this.txtCode_usp_Select_All.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Select_All.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Select_All.Name = "txtCode_usp_Select_All";
-            this.txtCode_usp_Select_All.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Select_All.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Select_All.TabIndex = 0;
             // 
             // pageUsp_Select_Count
@@ -270,7 +278,7 @@
             this.pageUsp_Select_Count.Controls.Add(this.txtCode_usp_Select_Count);
             this.pageUsp_Select_Count.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Select_Count.Name = "pageUsp_Select_Count";
-            this.pageUsp_Select_Count.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Select_Count.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Select_Count.TabIndex = 9;
             this.pageUsp_Select_Count.Tag = "usp_{0}_Select_Count";
             this.pageUsp_Select_Count.Text = "usp_{0}_Select_Count";
@@ -281,7 +289,7 @@
             this.txtCode_usp_Select_Count.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Select_Count.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Select_Count.Name = "txtCode_usp_Select_Count";
-            this.txtCode_usp_Select_Count.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Select_Count.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Select_Count.TabIndex = 0;
             // 
             // pageUsp_Select_ByID
@@ -289,7 +297,7 @@
             this.pageUsp_Select_ByID.Controls.Add(this.txtCode_usp_Select_ByID);
             this.pageUsp_Select_ByID.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Select_ByID.Name = "pageUsp_Select_ByID";
-            this.pageUsp_Select_ByID.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Select_ByID.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Select_ByID.TabIndex = 6;
             this.pageUsp_Select_ByID.Tag = "usp_{0}_Select_ByID";
             this.pageUsp_Select_ByID.Text = "usp_{0}_Select_ByID";
@@ -300,7 +308,7 @@
             this.txtCode_usp_Select_ByID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Select_ByID.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Select_ByID.Name = "txtCode_usp_Select_ByID";
-            this.txtCode_usp_Select_ByID.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Select_ByID.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Select_ByID.TabIndex = 0;
             // 
             // pageUsp_Select_Dynamic
@@ -308,7 +316,7 @@
             this.pageUsp_Select_Dynamic.Controls.Add(this.txtCode_usp_Select_Dynamic);
             this.pageUsp_Select_Dynamic.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Select_Dynamic.Name = "pageUsp_Select_Dynamic";
-            this.pageUsp_Select_Dynamic.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Select_Dynamic.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Select_Dynamic.TabIndex = 5;
             this.pageUsp_Select_Dynamic.Tag = "usp_{0}_Select_Dynamic";
             this.pageUsp_Select_Dynamic.Text = "usp_{0}_Select_Dynamic";
@@ -319,7 +327,7 @@
             this.txtCode_usp_Select_Dynamic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Select_Dynamic.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Select_Dynamic.Name = "txtCode_usp_Select_Dynamic";
-            this.txtCode_usp_Select_Dynamic.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Select_Dynamic.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Select_Dynamic.TabIndex = 0;
             // 
             // pageUsp_Select_Top_Dynamic
@@ -327,7 +335,7 @@
             this.pageUsp_Select_Top_Dynamic.Controls.Add(this.txtCode_usp_Select_Top_Dynamic);
             this.pageUsp_Select_Top_Dynamic.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Select_Top_Dynamic.Name = "pageUsp_Select_Top_Dynamic";
-            this.pageUsp_Select_Top_Dynamic.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Select_Top_Dynamic.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Select_Top_Dynamic.TabIndex = 10;
             this.pageUsp_Select_Top_Dynamic.Tag = "usp_{0}_Select_Top_Dynamic";
             this.pageUsp_Select_Top_Dynamic.Text = "usp_{0}_Select_Top_Dynamic";
@@ -338,7 +346,7 @@
             this.txtCode_usp_Select_Top_Dynamic.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Select_Top_Dynamic.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Select_Top_Dynamic.Name = "txtCode_usp_Select_Top_Dynamic";
-            this.txtCode_usp_Select_Top_Dynamic.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Select_Top_Dynamic.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Select_Top_Dynamic.TabIndex = 0;
             // 
             // pageUsp_Select_Paging
@@ -346,7 +354,7 @@
             this.pageUsp_Select_Paging.Controls.Add(this.txtCode_usp_Select_Paging);
             this.pageUsp_Select_Paging.Location = new System.Drawing.Point(4, 22);
             this.pageUsp_Select_Paging.Name = "pageUsp_Select_Paging";
-            this.pageUsp_Select_Paging.Size = new System.Drawing.Size(357, 587);
+            this.pageUsp_Select_Paging.Size = new System.Drawing.Size(357, 584);
             this.pageUsp_Select_Paging.TabIndex = 7;
             this.pageUsp_Select_Paging.Tag = "usp_{0}_Select_Paging";
             this.pageUsp_Select_Paging.Text = "usp_{0}_Select_Paging";
@@ -357,7 +365,7 @@
             this.txtCode_usp_Select_Paging.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtCode_usp_Select_Paging.Location = new System.Drawing.Point(0, 0);
             this.txtCode_usp_Select_Paging.Name = "txtCode_usp_Select_Paging";
-            this.txtCode_usp_Select_Paging.Size = new System.Drawing.Size(357, 587);
+            this.txtCode_usp_Select_Paging.Size = new System.Drawing.Size(357, 584);
             this.txtCode_usp_Select_Paging.TabIndex = 0;
             // 
             // ultraTabPageControl2
@@ -614,6 +622,50 @@
             this.txtCode_Fill_Properties.Size = new System.Drawing.Size(357, 587);
             this.txtCode_Fill_Properties.TabIndex = 0;
             // 
+            // ultraTabPageControl3
+            // 
+            this.ultraTabPageControl3.Controls.Add(this.ultraTabControl2);
+            this.ultraTabPageControl3.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl3.Name = "ultraTabPageControl3";
+            this.ultraTabPageControl3.Size = new System.Drawing.Size(371, 619);
+            // 
+            // ultraTabControl2
+            // 
+            this.ultraTabControl2.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab;
+            this.ultraTabControl2.Controls.Add(this.ultraTabSharedControlsPage2);
+            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl8);
+            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl9);
+            this.ultraTabControl2.Location = new System.Drawing.Point(81, 114);
+            this.ultraTabControl2.Name = "ultraTabControl2";
+            this.ultraTabControl2.SharedControlsPage = this.ultraTabSharedControlsPage2;
+            this.ultraTabControl2.Size = new System.Drawing.Size(200, 100);
+            this.ultraTabControl2.TabIndex = 0;
+            ultraTab8.TabPage = this.ultraTabPageControl8;
+            ultraTab8.Text = "tab1";
+            ultraTab9.TabPage = this.ultraTabPageControl9;
+            ultraTab9.Text = "tab2";
+            this.ultraTabControl2.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
+            ultraTab8,
+            ultraTab9});
+            // 
+            // ultraTabSharedControlsPage2
+            // 
+            this.ultraTabSharedControlsPage2.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabSharedControlsPage2.Name = "ultraTabSharedControlsPage2";
+            this.ultraTabSharedControlsPage2.Size = new System.Drawing.Size(196, 73);
+            // 
+            // ultraTabPageControl8
+            // 
+            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 24);
+            this.ultraTabPageControl8.Name = "ultraTabPageControl8";
+            this.ultraTabPageControl8.Size = new System.Drawing.Size(196, 73);
+            // 
+            // ultraTabPageControl9
+            // 
+            this.ultraTabPageControl9.Location = new System.Drawing.Point(-10000, -10000);
+            this.ultraTabPageControl9.Name = "ultraTabPageControl9";
+            this.ultraTabPageControl9.Size = new System.Drawing.Size(196, 73);
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -690,7 +742,7 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(131, 20);
             this.txtUsername.TabIndex = 3;
-            this.txtUsername.Text = "user";
+            this.txtUsername.Text = "sa";
             // 
             // txtPassword
             // 
@@ -702,7 +754,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(131, 20);
             this.txtPassword.TabIndex = 5;
-            this.txtPassword.Text = "user.123";
+            this.txtPassword.Text = "1";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // txtServer
@@ -714,7 +766,7 @@
             this.txtServer.Name = "txtServer";
             this.txtServer.Size = new System.Drawing.Size(131, 20);
             this.txtServer.TabIndex = 1;
-            this.txtServer.Text = "192.168.7.163";
+            this.txtServer.Text = ".\\sqlexpress";
             // 
             // label4
             // 
@@ -779,7 +831,7 @@
             this.ultraTabControl1.Location = new System.Drawing.Point(230, 12);
             this.ultraTabControl1.Name = "ultraTabControl1";
             this.ultraTabControl1.SharedControlsPage = this.ultraTabSharedControlsPage1;
-            this.ultraTabControl1.Size = new System.Drawing.Size(585, 623);
+            this.ultraTabControl1.Size = new System.Drawing.Size(715, 620);
             this.ultraTabControl1.TabIndex = 2;
             this.ultraTabControl1.TabOrientation = Infragistics.Win.UltraWinTabs.TabOrientation.LeftTop;
             ultraTab1.TabPage = this.ultraTabPageControl1;
@@ -813,57 +865,58 @@
             // 
             this.ultraTabSharedControlsPage1.Location = new System.Drawing.Point(-10000, -10000);
             this.ultraTabSharedControlsPage1.Name = "ultraTabSharedControlsPage1";
-            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(371, 619);
+            this.ultraTabSharedControlsPage1.Size = new System.Drawing.Size(501, 616);
             // 
-            // ultraTabPageControl3
+            // btnExcAlter
             // 
-            this.ultraTabPageControl3.Controls.Add(this.ultraTabControl2);
-            this.ultraTabPageControl3.Location = new System.Drawing.Point(211, 1);
-            this.ultraTabPageControl3.Name = "ultraTabPageControl3";
-            this.ultraTabPageControl3.Size = new System.Drawing.Size(371, 619);
+            this.btnExcAlter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExcAlter.Location = new System.Drawing.Point(89, 586);
+            this.btnExcAlter.Name = "btnExcAlter";
+            this.btnExcAlter.Size = new System.Drawing.Size(73, 23);
+            this.btnExcAlter.TabIndex = 1;
+            this.btnExcAlter.Text = "ALTER";
+            this.btnExcAlter.UseVisualStyleBackColor = true;
+            this.btnExcAlter.Click += new System.EventHandler(this.btnExcAlter_Click);
             // 
-            // ultraTabControl2
+            // btnExcCreate
             // 
-            this.ultraTabControl2.CloseButtonLocation = Infragistics.Win.UltraWinTabs.TabCloseButtonLocation.Tab;
-            this.ultraTabControl2.Controls.Add(this.ultraTabSharedControlsPage2);
-            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl8);
-            this.ultraTabControl2.Controls.Add(this.ultraTabPageControl9);
-            this.ultraTabControl2.Location = new System.Drawing.Point(81, 114);
-            this.ultraTabControl2.Name = "ultraTabControl2";
-            this.ultraTabControl2.SharedControlsPage = this.ultraTabSharedControlsPage2;
-            this.ultraTabControl2.Size = new System.Drawing.Size(200, 100);
-            this.ultraTabControl2.TabIndex = 0;
-            ultraTab8.TabPage = this.ultraTabPageControl8;
-            ultraTab8.Text = "tab1";
-            ultraTab9.TabPage = this.ultraTabPageControl9;
-            ultraTab9.Text = "tab2";
-            this.ultraTabControl2.Tabs.AddRange(new Infragistics.Win.UltraWinTabControl.UltraTab[] {
-            ultraTab8,
-            ultraTab9});
+            this.btnExcCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExcCreate.Location = new System.Drawing.Point(3, 586);
+            this.btnExcCreate.Name = "btnExcCreate";
+            this.btnExcCreate.Size = new System.Drawing.Size(80, 23);
+            this.btnExcCreate.TabIndex = 1;
+            this.btnExcCreate.Text = "CREATE";
+            this.btnExcCreate.UseVisualStyleBackColor = true;
+            this.btnExcCreate.Click += new System.EventHandler(this.btnExcCreate_Click);
             // 
-            // ultraTabSharedControlsPage2
+            // btnExcutePro
             // 
-            this.ultraTabSharedControlsPage2.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabSharedControlsPage2.Name = "ultraTabSharedControlsPage2";
-            this.ultraTabSharedControlsPage2.Size = new System.Drawing.Size(196, 75);
+            this.btnExcutePro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExcutePro.Location = new System.Drawing.Point(425, 586);
+            this.btnExcutePro.Name = "btnExcutePro";
+            this.btnExcutePro.Size = new System.Drawing.Size(73, 23);
+            this.btnExcutePro.TabIndex = 1;
+            this.btnExcutePro.Text = "Excute";
+            this.btnExcutePro.UseVisualStyleBackColor = true;
+            this.btnExcutePro.Click += new System.EventHandler(this.btnExcutePro_Click);
             // 
-            // ultraTabPageControl8
+            // chkApplyAll
             // 
-            this.ultraTabPageControl8.Location = new System.Drawing.Point(1, 22);
-            this.ultraTabPageControl8.Name = "ultraTabPageControl8";
-            this.ultraTabPageControl8.Size = new System.Drawing.Size(196, 75);
-            // 
-            // ultraTabPageControl9
-            // 
-            this.ultraTabPageControl9.Location = new System.Drawing.Point(-10000, -10000);
-            this.ultraTabPageControl9.Name = "ultraTabPageControl9";
-            this.ultraTabPageControl9.Size = new System.Drawing.Size(196, 73);
+            this.chkApplyAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.chkApplyAll.AutoSize = true;
+            this.chkApplyAll.BackColor = System.Drawing.SystemColors.Window;
+            this.chkApplyAll.Location = new System.Drawing.Point(168, 590);
+            this.chkApplyAll.Name = "chkApplyAll";
+            this.chkApplyAll.Size = new System.Drawing.Size(77, 17);
+            this.chkApplyAll.TabIndex = 2;
+            this.chkApplyAll.Text = "Apply to all";
+            this.chkApplyAll.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(827, 647);
+            this.ClientSize = new System.Drawing.Size(957, 647);
             this.Controls.Add(this.ultraTabControl1);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -873,6 +926,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.ultraTabPageControl1.ResumeLayout(false);
+            this.ultraTabPageControl1.PerformLayout();
             this.tabStored.ResumeLayout(false);
             this.pageUsp_Insert.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCode_usp_Insert)).EndInit();
@@ -918,14 +972,14 @@
             this.tabControl1.ResumeLayout(false);
             this.pageFillProperties.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtCode_Fill_Properties)).EndInit();
+            this.ultraTabPageControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).EndInit();
+            this.ultraTabControl2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.sourceTableList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl1)).EndInit();
             this.ultraTabControl1.ResumeLayout(false);
-            this.ultraTabPageControl3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ultraTabControl2)).EndInit();
-            this.ultraTabControl2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -999,6 +1053,10 @@
         private Infragistics.Win.UltraWinTabControl.UltraTabSharedControlsPage ultraTabSharedControlsPage2;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl8;
         private Infragistics.Win.UltraWinTabControl.UltraTabPageControl ultraTabPageControl9;
+        private System.Windows.Forms.Button btnExcCreate;
+        private System.Windows.Forms.Button btnExcAlter;
+        private System.Windows.Forms.Button btnExcutePro;
+        private System.Windows.Forms.CheckBox chkApplyAll;
     }
 }
 
