@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using HS.Server.Interfaces.DAO;
-using HS.Server.BR.Entities;
+using HS.UI.Connection.HSService;
+using HS.UI.Common;
+using HS.UI.Common.Service;
 
 namespace HS.UI.Forms.Systems.Config.DanhMuc
 {
@@ -17,7 +18,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
         private string CurrentDanhMuc = "";
 
         private BackgroundWorker workerLoadDetail;
-        private SystemEntities db = new SystemEntities();
+        private SystemWraper db = new SystemWraper();
 
         public ctrlDanhMuc()
         {
@@ -62,7 +63,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
 
             if (e.Result != null)
             {
-                var list = e.Result as List<HS.Server.Interfaces.DAO.DanhMucItemData>;
+                var list = e.Result as List<DanhMucItemData>;
 
                 sourceDanhMuc.DataSource = list;
 
@@ -82,11 +83,9 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
 
         void workerLoadDetail_DoWork(object sender, DoWorkEventArgs e)
         {
-            var db = new SystemEntities();
-
             var list = db.GetDanhMucItemsByDanhMuc(CurrentDanhMuc);
 
-            e.Result = list;
+            e.Result = list.OrderBy(p=>p.ThuTu).ToList();
         }
 
         void trvDanhMuc_BeforeSelect(object sender, TreeViewCancelEventArgs e)
@@ -125,7 +124,6 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
         {
             try
             {
-                var db = new SystemEntities();
 
                 var list = db.GetDanhMucs();
 
@@ -133,14 +131,12 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                 trvDanhMuc.Nodes.Add(new TreeNode()
                 {
                     Text = "Danh mục thường",
-                    ForeColor = Color.Black,
-                    NodeFont = new Font(DefaultFont, FontStyle.Bold)
+                    ForeColor = Color.Blue
                 });
 
                 trvDanhMuc.Nodes.Add(new TreeNode()
                 {
                     Text = "Hệ thống",
-                    NodeFont = new Font(DefaultFont, FontStyle.Bold),
                     ForeColor = Color.Red
                 });
 
@@ -151,9 +147,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                         trvDanhMuc.Nodes[1].Nodes.Add(new TreeNode()
                         {
                             Text = item.TenLoaiDanhMuc,
-                            Tag = item.MaLoaiDanhMuc,
-                            ForeColor = Color.Red,
-                            NodeFont = new Font(DefaultFont, FontStyle.Italic)
+                            Tag = item.MaLoaiDanhMuc
                         });
                     }
                     else
@@ -235,7 +229,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                     return;
                 }
 
-                var curItem = sourceDanhMuc.Current as HS.Server.Interfaces.DAO.DanhMucItemData;
+                var curItem = sourceDanhMuc.Current as DanhMucItemData;
 
                 if (curItem.Active)
                 {
@@ -277,7 +271,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
 
             if (Common.Methods.Confirm("Chắc chắn bạn muốn xóa Danh mục đang chọn"))
             {
-                var curItem = sourceDanhMuc.Current as Server.Interfaces.DAO.DanhMucItemData;
+                var curItem = sourceDanhMuc.Current as DanhMucItemData;
 
                 
             }
@@ -290,7 +284,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                 return;
             }
 
-            var refData = sourceDanhMuc.Current as Server.Interfaces.DAO.DanhMucItemData;
+            var refData = sourceDanhMuc.Current as DanhMucItemData;
 
             var f = new frmDanhMucItem_Edit(CurrentDanhMuc) { RefData = refData };
 

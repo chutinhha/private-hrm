@@ -13,17 +13,17 @@ using System.Windows.Forms;
 
 namespace GenClassForDB
 {
-	public partial class MainForm : Form
-	{
-		#region Variables
+    public partial class MainForm : Form
+    {
+        #region Variables
 
-		const string CONNECTION_STRING = "Server={0};Database={1};User Id={2};Password={3};";
-		private SqlConnection _SqlConnection;
-		private string _CurentDB = "master";
+        const string CONNECTION_STRING = "Server={0};Database={1};User Id={2};Password={3};";
+        private SqlConnection _SqlConnection;
+        private string _CurentDB = "master";
 
-		private DataTable _dtbTableList, _dtbColumnList;
+        private DataTable _dtbTableList, _dtbColumnList;
 
-		private Dictionary<string, string> DataTypeMaping = new Dictionary<string, string>() { 
+        private Dictionary<string, string> DataTypeMaping = new Dictionary<string, string>() { 
 			{"UNIQUEIDENTIFIER", "System.Guid"},
 			{"BIGINT", "System.Int64"},
 			{"INT", "System.Int32"},
@@ -45,7 +45,7 @@ namespace GenClassForDB
 			{"NTEXT", "System.String"}
 		};
 
-		private Dictionary<string, string> DataTypeConvertMaping = new Dictionary<string, string>() { 
+        private Dictionary<string, string> DataTypeConvertMaping = new Dictionary<string, string>() { 
 			{"UNIQUEIDENTIFIER", "Guid.Parse"},
 			{"BIGINT", "System.Convert.ToInt64"},
 			{"INT", "System.Convert.ToInt32"},
@@ -67,174 +67,178 @@ namespace GenClassForDB
 			{"NTEXT", "System.Convert.ToString"}
 		};
 
-		private string shortTableName = "";
+        private string shortTableName = "";
 
-		#endregion
+        private Dictionary<string, string> TablePkey = new Dictionary<string, string>();
 
-		#region Initial
+        #endregion
 
-		public MainForm()
-		{
-			InitializeComponent();
-			//InitialConnection();
+        #region Initial
 
-			txtCode_usp_Delete.ConfigurationManager.Language =
-			txtCode_usp_Insert.ConfigurationManager.Language =
-			txtCode_usp_Select_All.ConfigurationManager.Language =
-			txtCode_usp_Select_ByID.ConfigurationManager.Language =
-			txtCode_usp_Select_Count.ConfigurationManager.Language =
-			txtCode_usp_Select_Dynamic.ConfigurationManager.Language =
-			txtCode_usp_Select_Top_Dynamic.ConfigurationManager.Language =
-			txtCode_usp_Select_Paging.ConfigurationManager.Language =
-			txtCode_usp_Update.ConfigurationManager.Language = "mssql";
+        public MainForm()
+        {
+            InitializeComponent();
+            //InitialConnection();
 
-			txtCodeData.ConfigurationManager.Language =
-			txtCodeDomainObject.ConfigurationManager.Language =
-			txtCodeService.ConfigurationManager.Language =
-			txtCodeIService.ConfigurationManager.Language =
-			txtCodeClientService.ConfigurationManager.Language = "cs";
-		}
+            txtCode_usp_Delete.ConfigurationManager.Language =
+            txtCode_usp_Insert.ConfigurationManager.Language =
+            txtCode_usp_Select_All.ConfigurationManager.Language =
+            txtCode_usp_Select_ByID.ConfigurationManager.Language =
+            txtCode_usp_Select_Count.ConfigurationManager.Language =
+            txtCode_usp_Select_Dynamic.ConfigurationManager.Language =
+            txtCode_usp_Select_Top_Dynamic.ConfigurationManager.Language =
+            txtCode_usp_Select_Paging.ConfigurationManager.Language =
+            txtCode_usp_Update.ConfigurationManager.Language = "mssql";
 
-		private void InitialConnection()
-		{
+            txtCodeData.ConfigurationManager.Language =
+            txtCodeDomainObject.ConfigurationManager.Language =
+            txtCodeService.ConfigurationManager.Language =
+            txtCodeIService.ConfigurationManager.Language =
+            txtCodeClientService.ConfigurationManager.Language = "cs";
+        }
 
-			try
-			{
-				if (txtServer.Text.Trim() != "" && txtUsername.Text.Trim() != "" && txtPassword.Text != "")
-				{
-					_SqlConnection = new SqlConnection(string.Format(CONNECTION_STRING, txtServer.Text.Trim(), _CurentDB, txtUsername.Text.Trim(), txtPassword.Text));
-				}
+        private void InitialConnection()
+        {
 
-				_SqlConnection.Open();
-				_SqlConnection.Close();
-			}
-			catch (SqlException ex)
-			{
-				MessageBox.Show("Không kết nối tới Server. Kiểm tra lại tham số");
-			}
+            try
+            {
+                if (txtServer.Text.Trim() != "" && txtUsername.Text.Trim() != "" && txtPassword.Text != "")
+                {
+                    _SqlConnection = new SqlConnection(string.Format(CONNECTION_STRING, txtServer.Text.Trim(), _CurentDB, txtUsername.Text.Trim(), txtPassword.Text));
+                }
 
-			// select all database in server
-			DataTable dtbDatabase = SelectDB("SELECT NAME FROM SYS.DATABASES ORDER BY NAME");
+                _SqlConnection.Open();
+                _SqlConnection.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Không kết nối tới Server. Kiểm tra lại tham số");
+            }
 
-			cboDatabase.SelectedIndexChanged -= cboDatabase_SelectedIndexChanged;
+            // select all database in server
+            DataTable dtbDatabase = SelectDB("SELECT NAME FROM SYS.DATABASES ORDER BY NAME");
 
-			cboDatabase.Items.Clear();
+            cboDatabase.SelectedIndexChanged -= cboDatabase_SelectedIndexChanged;
 
-			foreach (DataRow r in dtbDatabase.Rows)
-			{
-				cboDatabase.Items.Add(r[0]);
-			}
+            cboDatabase.Items.Clear();
 
-			if (cboDatabase.Items.Count > 0)
-				cboDatabase.SelectedIndex = 0;
+            foreach (DataRow r in dtbDatabase.Rows)
+            {
+                cboDatabase.Items.Add(r[0]);
+            }
 
-			cboDatabase.SelectedIndexChanged += cboDatabase_SelectedIndexChanged;
+            if (cboDatabase.Items.Count > 0)
+                cboDatabase.SelectedIndex = 0;
 
-			InitialComboDatabase();
-		}
+            cboDatabase.SelectedIndexChanged += cboDatabase_SelectedIndexChanged;
 
-		private void InitialComboDatabase()
-		{
-			btnConnect.Text = "Disconnect";
+            InitialComboDatabase();
+        }
 
-			try
-			{
-				_SqlConnection = new SqlConnection(string.Format(CONNECTION_STRING, txtServer.Text.Trim(), _CurentDB, txtUsername.Text.Trim(), txtPassword.Text));
-				_SqlConnection.Open();
-				_SqlConnection.Close();
-			}
-			catch (SqlException ex)
-			{
-				MessageBox.Show("#InitialComboDatabase: Bạn không có quyền truy cập Database này.");
-				return;
-			}
+        private void InitialComboDatabase()
+        {
+            btnConnect.Text = "Disconnect";
 
-			InitialListTable();
-		}
+            try
+            {
+                _SqlConnection = new SqlConnection(string.Format(CONNECTION_STRING, txtServer.Text.Trim(), _CurentDB, txtUsername.Text.Trim(), txtPassword.Text));
+                _SqlConnection.Open();
+                _SqlConnection.Close();
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("#InitialComboDatabase: Bạn không có quyền truy cập Database này.");
+                return;
+            }
 
-		private void InitialListTable()
-		{
-			DataTable dtbTables = SelectDB("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME");
-			lstTable.SelectedIndexChanged -= lstTable_SelectedIndexChanged;
+            InitialListTable();
+        }
 
-			//lstTable.Items.Clear();
+        private void InitialListTable()
+        {
+            DataTable dtbTables = SelectDB("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' ORDER BY TABLE_NAME");
+            lstTable.SelectedIndexChanged -= lstTable_SelectedIndexChanged;
 
-			_dtbTableList = dtbTables;
+            //lstTable.Items.Clear();
 
-			sourceTableList.DataSource = _dtbTableList;
+            _dtbTableList = dtbTables;
 
-			//foreach (DataRow r in dtbTables.Rows)
-			//{
-			//    lstTable.Items.Add(r[0]);
-			//}
+            sourceTableList.DataSource = _dtbTableList;
 
-			lstTable.SelectedIndexChanged += lstTable_SelectedIndexChanged;
+            //foreach (DataRow r in dtbTables.Rows)
+            //{
+            //    lstTable.Items.Add(r[0]);
+            //}
 
-			if (lstTable.Items.Count > 0)
-				lstTable.SelectedIndex = 0;
+            lstTable.SelectedIndexChanged += lstTable_SelectedIndexChanged;
 
-			GengerateCodeForCurrentTable();
-		}
+            if (lstTable.Items.Count > 0)
+                lstTable.SelectedIndex = 0;
 
-		private void GengerateCodeForCurrentTable()
-		{
-			if (lstTable.Items.Count == 0)
-			{
-				return;
-			}
+            GengerateCodeForCurrentTable();
+        }
 
-			if (lstTable.SelectedItem == null)
-			{
-				return;
-			}
+        private void GengerateCodeForCurrentTable()
+        {
+            if (lstTable.Items.Count == 0)
+            {
+                return;
+            }
 
-			lstTable.Enabled = false;
+            if (lstTable.SelectedItem == null)
+            {
+                return;
+            }
+
+            lstTable.Enabled = false;
 
 
-			string tableName = ((DataRowView)lstTable.SelectedItem).Row["TABLE_NAME"].ToString();
+            string tableName = ((DataRowView)lstTable.SelectedItem).Row["TABLE_NAME"].ToString();
 
-			FormatTabName(tableName);
-			shortTableName = RegenerateShortTableNameForStore(tableName);
+            FormatTabName(tableName);
+            shortTableName = RegenerateShortTableNameForStore(tableName);
 
-			// get column in table
+            GetPrimaryKey(tableName);
 
-			_dtbColumnList = SelectDB(string.Format("SELECT TABLE_NAME, COLUMN_NAME, IS_NULLABLE, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{0}'", tableName));
+            // get column in table
 
-			FormatTextBoxState(false);
+            _dtbColumnList = SelectDB(string.Format("SELECT TABLE_NAME, COLUMN_NAME, IS_NULLABLE, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '{0}'", tableName));
 
-			Gen_usp_Insert(tableName);
-			Gen_usp_Update(tableName);
-			Gen_usp_Delete(tableName);
-			Gen_usp_Select_All(tableName);
-			Gen_usp_Select_ByID(tableName);
-			Gen_usp_Select_Top_Dynamic(tableName);
-			Gen_usp_Select_Dynamic(tableName);
-			Gen_usp_Select_Paging(tableName);
-			Gen_usp_Select_Count(tableName);
+            FormatTextBoxState(false);
 
-			Gen_TableData(tableName);
-			Gen_DomainObject(tableName);
-			Gen_IData(tableName);
-			Gen_IService(tableName);
-			Gen_Service(tableName);
-			Gen_ClientWraper(tableName);
-			Gen_FillProperties(tableName);
+            Gen_usp_Insert(tableName);
+            Gen_usp_Update(tableName);
+            Gen_usp_Delete(tableName);
+            Gen_usp_Select_All(tableName);
+            Gen_usp_Select_ByID(tableName);
+            Gen_usp_Select_Top_Dynamic(tableName);
+            Gen_usp_Select_Dynamic(tableName);
+            Gen_usp_Select_Paging(tableName);
+            Gen_usp_Select_Count(tableName);
 
-			FormatTextBoxState(true);
+            Gen_TableData(tableName);
+            Gen_DomainObject(tableName);
+            Gen_IData(tableName);
+            Gen_IService(tableName);
+            Gen_Service(tableName);
+            Gen_ClientWraper(tableName);
+            Gen_FillProperties(tableName);
 
-			lstTable.Enabled = true;
-		}
+            FormatTextBoxState(true);
 
-		#endregion
+            lstTable.Enabled = true;
+        }
 
-		#region Gen code
+        #endregion
 
-		private void Gen_usp_Insert(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        #region Gen code
 
-			textStoreInsert.Append(string.Format(
+        private void Gen_usp_Insert(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
+
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Insert]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -248,51 +252,51 @@ GO
 -- Purpose: Insert one row in table {2}.
 
 ",
-									   RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                       RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Insert]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Insert]", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
                 //if (row["COLUMN_NAME"] + "" == "ID")
                 //    continue;
 
-				textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
-				columnDetailInsert += string.Format("      @[{0}].[{1}]{2}\n", row["TABLE_NAME"], row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
+                columnDetailInsert += string.Format("      @[{0}].[{1}]{2}\n", row["TABLE_NAME"], row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine("AS");
+            textStoreInsert.AppendLine("AS");
 
-			textStoreInsert.AppendLine(string.Format("INSERT INTO [{0}]", tableName));
+            textStoreInsert.AppendLine(string.Format("INSERT INTO [{0}]", tableName));
 
-			textStoreInsert.AppendLine("     (");
+            textStoreInsert.AppendLine("     (");
 
-			textStoreInsert.Append(columnDetailInsert.Replace("@", ""));
+            textStoreInsert.Append(columnDetailInsert.Replace("@", ""));
 
-			textStoreInsert.AppendLine(
+            textStoreInsert.AppendLine(
 @"      ) 
 		VALUES 
 		(");
 
-			textStoreInsert.Append(columnDetailInsert.Replace("[" + tableName + "].", "").Replace("[", "").Replace("]", ""));
+            textStoreInsert.Append(columnDetailInsert.Replace("[" + tableName + "].", "").Replace("[", "").Replace("]", ""));
 
-			textStoreInsert.AppendLine(")");
+            textStoreInsert.AppendLine(")");
 
-			txtCode_usp_Insert.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Insert.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Update(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Update(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Update]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -306,39 +310,39 @@ GO
 -- Purpose: Update an existing row in table {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Update]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Update]", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
-				columnDetailInsert += string.Format("      [{1}] = @{1}{2}\n", row["TABLE_NAME"], row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
+                columnDetailInsert += string.Format("      [{1}] = @{1}{2}\n", row["TABLE_NAME"], row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine("AS");
+            textStoreInsert.AppendLine("AS");
 
-			textStoreInsert.AppendLine(string.Format("UPDATE [{0}] SET", tableName));
+            textStoreInsert.AppendLine(string.Format("UPDATE [{0}] SET", tableName));
 
-			textStoreInsert.Append(columnDetailInsert);
+            textStoreInsert.Append(columnDetailInsert);
 
-			textStoreInsert.AppendLine(string.Format("WHERE [ID] = @ID"));
+            textStoreInsert.AppendLine(string.Format("WHERE [ID] = @ID"));
 
-			txtCode_usp_Update.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Update.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Delete(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Delete(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Delete]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -352,35 +356,35 @@ GO
 -- Purpose: Generates a stored procedure to delete a data row.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Delete]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Delete]", RegenerateTableNameForStore(tableName)));
 
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
-			}
+                textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
+            }
 
-			textStoreInsert.AppendLine("AS");
+            textStoreInsert.AppendLine("AS");
 
-			textStoreInsert.AppendLine(string.Format("DELETE FROM [{0}] ", tableName));
+            textStoreInsert.AppendLine(string.Format("DELETE FROM [{0}] ", tableName));
 
-			textStoreInsert.AppendLine(string.Format("WHERE [ID] = @ID"));
+            textStoreInsert.AppendLine(string.Format("WHERE [ID] = @ID"));
 
-			txtCode_usp_Delete.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Delete.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Select_All(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Select_All(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Select_All]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -394,34 +398,34 @@ GO
 -- Purpose: Get rows from the table  {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Select_All]", RegenerateTableNameForStore(tableName)));
+            textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Select_All]", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine("AS");
+            textStoreInsert.AppendLine("AS");
 
-			textStoreInsert.AppendLine(string.Format("SELECT {0} FROM [{1}] {2}", columnDetailInsert, tableName, shortTableName));
+            textStoreInsert.AppendLine(string.Format("SELECT {0} FROM [{1}] {2}", columnDetailInsert, tableName, shortTableName));
 
-			txtCode_usp_Select_All.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Select_All.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Select_ByID(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Select_ByID(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Select_ByID]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -435,39 +439,39 @@ GO
 -- Purpose: Get an existing row in table {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format(
+            textStoreInsert.AppendLine(string.Format(
 @"     ALTER PROCEDURE [dbo].[{0}_Select_ByID]
 	@ID BIGINT
 ", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine(
+            textStoreInsert.AppendLine(
 @"  AS
 ");
 
-			textStoreInsert.Append(string.Format("SELECT {0} FROM [{1}] {2}  WHERE [ID] = @ID ", columnDetailInsert, tableName, shortTableName));
+            textStoreInsert.Append(string.Format("SELECT {0} FROM [{1}] {2}  WHERE [ID] = @ID ", columnDetailInsert, tableName, shortTableName));
 
-			txtCode_usp_Select_ByID.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Select_ByID.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Select_Dynamic(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Select_Dynamic(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Select_Dynamic]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -481,39 +485,39 @@ GO
 -- Purpose: Get rows from the table  {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format(
+            textStoreInsert.AppendLine(string.Format(
 @"     ALTER PROCEDURE [dbo].[{0}_Select_Dynamic]
 	@WhereCondition nvarchar(500) = ''
 ", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine(
+            textStoreInsert.AppendLine(
 @"  AS
 	EXEC('");
 
-			textStoreInsert.Append(string.Format("SELECT {0} FROM [{1}] {2}  WHERE (1 = 1) ' + @WhereCondition )", columnDetailInsert, tableName, shortTableName));
+            textStoreInsert.Append(string.Format("SELECT {0} FROM [{1}] {2}  WHERE (1 = 1) ' + @WhereCondition )", columnDetailInsert, tableName, shortTableName));
 
-			txtCode_usp_Select_Dynamic.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Select_Dynamic.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Select_Top_Dynamic(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Select_Top_Dynamic(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Select_Top_Dynamic]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -527,40 +531,40 @@ GO
 -- Purpose: Get top rows from the table {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format(
+            textStoreInsert.AppendLine(string.Format(
 @"     ALTER PROCEDURE [dbo].[{0}_Select_Top_Dynamic]
 	@Size int,
 	@WhereCondition nvarchar(500) = ''
 ", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine(
+            textStoreInsert.AppendLine(
 @"  AS
 	EXEC('  ");
 
-			textStoreInsert.Append(string.Format("SELECT TOP ' + @Size + '\n {0} FROM [{1}] {2}  WHERE (1 = 1) ' + @WhereCondition )", columnDetailInsert, tableName, shortTableName));
+            textStoreInsert.Append(string.Format("SELECT TOP ' + @Size + '\n {0} FROM [{1}] {2}  WHERE (1 = 1) ' + @WhereCondition )", columnDetailInsert, tableName, shortTableName));
 
-			txtCode_usp_Select_Top_Dynamic.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Select_Top_Dynamic.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Select_Paging(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Select_Paging(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Select_Paging]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -574,12 +578,12 @@ GO
 -- Purpose: Get rows from the table {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format(
+            textStoreInsert.AppendLine(string.Format(
 @"     ALTER PROCEDURE [dbo].[{0}_Select_Paging]
 	@WhereCondition nvarchar(500),
 	@PageSize int,
@@ -587,19 +591,19 @@ GO
 	@SortByColumns varchar(255)
 ", RegenerateTableNameForStore(tableName)));
 
-			string columnDetailInsert = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string columnDetailInsert = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                columnDetailInsert += string.Format("      {0}.[{1}]{2}\n", shortTableName, row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.AppendLine(
+            textStoreInsert.AppendLine(
 @"  AS
 	EXEC('");
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"WITH PAGING AS 
 	(
 		SELECT 
@@ -613,15 +617,15 @@ GO
 	WHERE ([PAGING].ROWNUM >= ((' + @CurrentPage + ' - 1) * ' + @PageSize + ' + 1)) AND ([PAGING].ROWNUM <= (' + @CurrentPage + ' * ' + @PageSize + '))')
 ", columnDetailInsert, tableName, shortTableName));
 
-			txtCode_usp_Select_Paging.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Select_Paging.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_usp_Select_Count(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_usp_Select_Count(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"GO
 /****** Object:  StoredProcedure [dbo].[{0}_Select_Count]    Script Date: {1} ******/
 SET ANSI_NULLS ON
@@ -635,35 +639,35 @@ GO
 -- Purpose: Get rows from the table {2}.
 
 ",
-										RegenerateTableNameForStore(tableName),
-										DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-										tableName));
+                                        RegenerateTableNameForStore(tableName),
+                                        DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                                        tableName));
 
 
-			textStoreInsert.AppendLine(string.Format(
+            textStoreInsert.AppendLine(string.Format(
 @"     ALTER PROCEDURE [dbo].[{0}_Select_Count]
 	@WhereCondition nvarchar(500) = ''
 ", RegenerateTableNameForStore(tableName)));
 
-			textStoreInsert.AppendLine(
+            textStoreInsert.AppendLine(
 @"  AS
 	EXEC('");
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"SELECT 
 		COUNT([{0}].[ID])
 	FROM {0}
 	WHERE (1 = 1) ' + @WhereCondition)", tableName));
 
-			txtCode_usp_Select_Count.Text = textStoreInsert.ToString();
-		}
+            txtCode_usp_Select_Count.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_IData(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_IData(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"using System;
 using System.Collections.Generic;
 using VCiStock.Data;
@@ -704,7 +708,7 @@ namespace VCiStock.Data.DataAccess
 		/// </summary>
 		/// <param name=""objId""></param>
 		/// <returns></returns>
-		{2}Data Get{2}ByID(System.Int64 iD);
+		{2}Data Get{2}ByID("+ GetParamString() +@");
 
 		/// <summary>
 		/// 
@@ -732,19 +736,19 @@ namespace VCiStock.Data.DataAccess
 	}}
 }}
 ",
-				   tableName,
-				   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-				   RegenerateTableNameForStore(tableName)));
+                   tableName,
+                   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                   RegenerateTableNameForStore(tableName)));
 
-			txtCodeI.Text = textStoreInsert.ToString();
-		}
+            txtCodeI.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_TableData(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_TableData(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -759,23 +763,23 @@ namespace VCiStock.Data
 	///     - Generated Date:  {1}
 	/// </summary>
 ",
-				   tableName,
-				   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-				   RegenerateTableNameForStore(tableName)));
+                   tableName,
+                   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                   RegenerateTableNameForStore(tableName)));
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"     [DataContract]
 	public class {0}Data: INotifyPropertyChanged
 	{{", RegenerateTableNameForStore(tableName)));
 
-			string privateMember = "";
-			string publicMember = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string privateMember = "";
+            string publicMember = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				privateMember += string.Format("        private {0}{2} _{1};\n", DataTypeMaping[row["DATA_TYPE"].ToString().ToUpper() + ""], row["COLUMN_NAME"], row["IS_NULLABLE"].ToString() == "YES" && !row["DATA_TYPE"].ToString().ToUpper().Contains("CHAR") ? "?" : "");
-				publicMember += string.Format(
+                privateMember += string.Format("        private {0}{2} _{1};\n", DataTypeMaping[row["DATA_TYPE"].ToString().ToUpper() + ""], row["COLUMN_NAME"], row["IS_NULLABLE"].ToString() == "YES" && !row["DATA_TYPE"].ToString().ToUpper().Contains("CHAR") ? "?" : "");
+                publicMember += string.Format(
 @"        [DataMember]
 		public {0}{3} {1}
 		{{
@@ -790,11 +794,11 @@ namespace VCiStock.Data
 			}}
 		}}
 ", DataTypeMaping[row["DATA_TYPE"].ToString().ToUpper() + ""], row["COLUMN_NAME"], string.Format("OnPropertyChanged(\"{0}\");", row["COLUMN_NAME"]), row["IS_NULLABLE"].ToString() == "YES" && !row["DATA_TYPE"].ToString().ToUpper().Contains("CHAR") ? "?" : "");
-			}
+            }
 
-			textStoreInsert.AppendLine(privateMember);
+            textStoreInsert.AppendLine(privateMember);
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 		#region INotifyPropertyChanged Members
 
@@ -813,44 +817,35 @@ namespace VCiStock.Data
 ", RegenerateTableNameForStore(tableName)));
 
 
-			textStoreInsert.AppendLine(publicMember);
+            textStoreInsert.AppendLine(publicMember);
 
-			textStoreInsert.Append(@"
+            textStoreInsert.Append(@"
 		
 	 }
 }");
 
-			txtCodeData.Text = textStoreInsert.ToString();
-		}
+            txtCodeData.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_DomainObject(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_DomainObject(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
 
-			string fieldConvert = "";
+            string fieldConvert = "";
 
-			string genParameter = "";
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
+            string genParameter = "";
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
 
-				fieldConvert += string.Format("         obj.{0} = {1};\n", row["COLUMN_NAME"], row["DATA_TYPE"].ToString().ToUpper() != "DATETIME" ? string.Format("{0}(data.{1})", DataTypeConvertMaping[row["DATA_TYPE"].ToString().ToUpper() + ""], row["COLUMN_NAME"]) : string.Format("data.{0} != null ? System.Convert.ToDateTime(data.{0}) : (DateTime?)null", row["Column_Name"]));
-				genParameter += string.Format("                dao.CreateParameter(\"@{0}\", obj.{0}){1}\n", row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
-			}
+                fieldConvert += string.Format("         obj.{0} = {1};\n", row["COLUMN_NAME"], row["DATA_TYPE"].ToString().ToUpper() != "DATETIME" ? string.Format("{0}(data.{1})", DataTypeConvertMaping[row["DATA_TYPE"].ToString().ToUpper() + ""], row["COLUMN_NAME"]) : string.Format("data.{0} != null ? System.Convert.ToDateTime(data.{0}) : (DateTime?)null", row["Column_Name"]));
+                genParameter += string.Format("                dao.CreateParameter(\"@{0}\", obj.{0}){1}\n", row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
+            }
 
-			textStoreInsert.Append(string.Format(
-@"using System;
-using System.Collections.Generic;
-using System.Data;
-using Library.DataAccess;
-using VCiStock.Data;
-using VCiStock.Data.DataAccess;
-using VCiStock.Services.Contracts.Managements.Data.Contract;
-
-namespace VCiStock.Data.DataAccess.Impl
-{{
+            textStoreInsert.Append(string.Format(
+@"
 	/// <summary>
 	/// The {2}DomainObject implemented for Data Access Layer mapped table {0}.
 	/// CODE:
@@ -873,13 +868,13 @@ namespace VCiStock.Data.DataAccess.Impl
 		private const System.String SP_{3}_SELECT_PAGING = ""[dbo].[{3}_SELECT_PAGING]"";
 		#endregion
 		",
-				   tableName,
-				   RegenerateTableNameForStore(tableName),
-				   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-				   RegenerateTableNameForStore(tableName).ToUpper()));
+                   tableName,
+                   RegenerateTableNameForStore(tableName),
+                   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                   RegenerateTableNameForStore(tableName).ToUpper()));
 
 
-			textStoreInsert.Append(@"
+            textStoreInsert.Append(@"
 		#region Properties
 
 		private System.String _ConnectionString = """";
@@ -895,7 +890,7 @@ namespace VCiStock.Data.DataAccess.Impl
 		#endregion
 ");
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 		#region Constructors
 
@@ -914,7 +909,7 @@ namespace VCiStock.Data.DataAccess.Impl
 
 ", RegenerateTableNameForStore(tableName)));
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"      protected virtual {0}Data Convert(DataRow row)
 		{{
 			dynamic data = new DynamicDataRow(row);
@@ -924,9 +919,9 @@ namespace VCiStock.Data.DataAccess.Impl
 ", RegenerateTableNameForStore(tableName)));
 
 
-			textStoreInsert.AppendLine(fieldConvert);
+            textStoreInsert.AppendLine(fieldConvert);
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"      
 			return obj;
 		}}
@@ -934,7 +929,7 @@ namespace VCiStock.Data.DataAccess.Impl
 		#endregion
 "));
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"      #region Pulbic Methods
 		public virtual System.Int32 Add({1}Data obj)
 		{{
@@ -943,9 +938,9 @@ namespace VCiStock.Data.DataAccess.Impl
 			dao.SetParameters(new IDataParameter[]{{
 ", RegenerateTableNameForStore(tableName).ToUpper(), RegenerateTableNameForStore(tableName)));
 
-			textStoreInsert.Append(genParameter);
+            textStoreInsert.Append(genParameter);
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 			}});
 			return dao.SubmitChange();
@@ -953,7 +948,7 @@ namespace VCiStock.Data.DataAccess.Impl
 
 "));
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"      
 
 		public virtual System.Int32 Change({1}Data obj)
@@ -963,9 +958,9 @@ namespace VCiStock.Data.DataAccess.Impl
 			dao.SetParameters(new IDataParameter[]{{
 ", RegenerateTableNameForStore(tableName).ToUpper(), RegenerateTableNameForStore(tableName)));
 
-			textStoreInsert.Append(genParameter);
+            textStoreInsert.Append(genParameter);
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 			}});
 			return dao.SubmitChange();
@@ -973,7 +968,7 @@ namespace VCiStock.Data.DataAccess.Impl
 
 "));
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"      
 		public virtual System.Int32 Remove({1}Data obj)
 		{{
@@ -982,9 +977,9 @@ namespace VCiStock.Data.DataAccess.Impl
 			dao.SetParameters(new IDataParameter[]{{
 ", RegenerateTableNameForStore(tableName).ToUpper(), RegenerateTableNameForStore(tableName)));
 
-			textStoreInsert.Append(genParameter);
+            textStoreInsert.Append(genParameter);
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 			}});
 			return dao.SubmitChange();
@@ -993,16 +988,15 @@ namespace VCiStock.Data.DataAccess.Impl
 "));
 
 
-
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"      
-		public virtual {1}Data Get{1}ByID(System.Int64 iD)
+		public virtual {1}Data Get{1}ByID("+ GetParamString() +@")
 		{{
 			JDataAccess dao = new JDataAccess(ConnectionString);
 			dao.SetCommandText(SP_{0}_SELECT_BY_ID, CommandType.StoredProcedure);
-			dao.SetParameters(new IDataParameter[]{{
-				dao.CreateParameter(""@ID"", iD)
-			}});
+			dao.SetParameters(new IDataParameter[]{{"+
+                GetParameterString()
++ @"          }});
 
 			DataTable table = dao.ExecuteQuery();
 			if (table != null && table.Rows.Count > 0)
@@ -1120,26 +1114,24 @@ namespace VCiStock.Data.DataAccess.Impl
 		}}
 
 		",
-		 RegenerateTableNameForStore(tableName).ToUpper(),
-		 RegenerateTableNameForStore(tableName)));
+         RegenerateTableNameForStore(tableName).ToUpper(),
+         RegenerateTableNameForStore(tableName)));
 
 
-			textStoreInsert.Append(
-			@"
+            textStoreInsert.Append(
+            @"
 		#endregion
-
-	}
-}
+    }
 ");
-			txtCodeDomainObject.Text = textStoreInsert.ToString();
-		}
+            txtCodeDomainObject.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_IService(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_IService(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"using System;
 using System.Collections.Generic;
 using System.ServiceModel;
@@ -1194,7 +1186,7 @@ namespace VCiStock.Services.Contracts.Managements.Operation
 		/// <param name=""objId""></param>
 		/// <returns></returns>
 		[OperationContract]
-		{2}Data Get{2}ByID(System.Int64 iD);
+		{2}Data Get{2}ByID("+ GetParamString() +@");
 
 		/// <summary>
 		/// 
@@ -1226,19 +1218,19 @@ namespace VCiStock.Services.Contracts.Managements.Operation
 	}}
 }}
 ",
-				   tableName,
-				   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
-				   RegenerateTableNameForStore(tableName)));
+                   tableName,
+                   DateTime.Now.ToString("dd/MM/yyyy hh:mm:ss tt"),
+                   RegenerateTableNameForStore(tableName)));
 
-			txtCodeIService.Text = textStoreInsert.ToString();
-		}
+            txtCodeIService.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_Service(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_Service(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 
 		#region using
@@ -1317,12 +1309,12 @@ namespace VCiStock.Services.Contracts.Managements.Operation
 			}}
 		}}
 
-		public {0}Data Get{0}ByID(System.Int64 iD)
+		public {0}Data Get{0}ByID("+ GetParamString() +@")
 		{{
 			try
 			{{
 				var domain = new {0}DomainObject(ConnectionString);
-				return domain.Get{0}ByID(iD);
+				return domain.Get{0}ByID("+ GetParamInside() +@");
 			}}
 			catch (Exception ex)
 			{{
@@ -1388,428 +1380,481 @@ namespace VCiStock.Services.Contracts.Managements.Operation
 		}}
 				
 		#endregion",
-				   RegenerateTableNameForStore(tableName)));
+                   RegenerateTableNameForStore(tableName)));
 
-			txtCodeService.Text = textStoreInsert.ToString();
-		}
+            txtCodeService.Text = textStoreInsert.ToString();
+        }
 
-		private void Gen_ClientWraper(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
+        private void Gen_ClientWraper(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
 
-			textStoreInsert.Append(string.Format(
+            textStoreInsert.Append(string.Format(
 @"
 		 #region {0}
 
-		public int Add{0}(Connection.VStock.{0}Data obj)
+		public int Add{0}({0}Data obj)
 		{{
-			return CallMethod<Connection.VStock.{0}Data, int>(Proxy.Add{0}, obj);
+			return Instant.Add{0}(obj);
 		}}
 
-		public int Change{0}(Connection.VStock.{0}Data obj)
+		public int Change{0}({0}Data obj)
 		{{
-			return CallMethod<Connection.VStock.{0}Data, int>(Proxy.Change{0}, obj);
+			return Instant.Change{0}(obj);
 		}}
 
-		public int Remove{0}(Connection.VStock.{0}Data obj)
+		public int Remove{0}({0}Data obj)
 		{{
-			return CallMethod<Connection.VStock.{0}Data, int>(Proxy.Remove{0}, obj);
+			return Instant.Remove{0}(obj);
 		}}
 
-		public System.ComponentModel.BindingList<Connection.VStock.{0}Data> Get{0}s()
+		public List<{0}Data> Get{0}s()
 		{{
-			return CallMethod<System.ComponentModel.BindingList<Connection.VStock.{0}Data>>(Proxy.Get{0}s);
+			return Instant.Get{0}s();
 		}}
 
-		public Connection.VStock.{0}Data Get{0}ByID(long iD)
+		public {0}Data Get{0}ByID({1})
 		{{
-			return CallMethod<long, Connection.VStock.{0}Data>(Proxy.Get{0}ByID, iD);
+			return Instant.Get{0}ByID({2});
 		}}
 
-		public System.ComponentModel.BindingList<Connection.VStock.{0}Data> Get{0}ByCriteria(string whereCondition)
+		public List<{0}Data> Get{0}ByCriteria(string whereCondition)
 		{{
-			return CallMethod<string, System.ComponentModel.BindingList<Connection.VStock.{0}Data>>(Proxy.Get{0}ByCriteria, whereCondition);
+			return Instant.Get{0}ByCriteria(whereCondition);
 		}}
 
-		public System.ComponentModel.BindingList<Connection.VStock.{0}Data> Get{0}BySizeCriteria(int size,string whereCondition)
+		public List<{0}Data> Get{0}BySizeCriteria(int size, string whereCondition)
 		{{
-			return CallMethod<int, string, System.ComponentModel.BindingList<Connection.VStock.{0}Data>>(Proxy.Get{0}BySizeCriteria, size, whereCondition);
+			return Instant.Get{0}BySizeCriteria(size, whereCondition);
 		}}
 
 		public int Get{0}Count(string conditionWhere)
 		{{
-			return CallMethod<string, int>(Proxy.Get{0}Count, conditionWhere);
+			return Instant.Get{0}Count(conditionWhere);
 		}}
 
-		public System.ComponentModel.BindingList<Connection.VStock.{0}Data> Get{0}Paging(string whereCondition, int pageSize, int currentPage, string sortByColumns)
+		public List<{0}Data> Get{0}Paging(string whereCondition, int pageSize, int currentPage, string sortByColumns)
 		{{
-			return CallMethod<string, int, int, string, System.ComponentModel.BindingList<Connection.VStock.{0}Data>>(Proxy.Get{0}Paging, whereCondition, pageSize, currentPage, sortByColumns);
+			return Instant.Get{0}Paging(whereCondition, pageSize, currentPage, sortByColumns);
 		}}
 
 		#endregion",
-				   RegenerateTableNameForStore(tableName)));
-
-			txtCodeClientService.Text = textStoreInsert.ToString();
-		}
-
-		private void Gen_FillProperties(string tableName)
-		{
-			// tab usp_Insert
-			StringBuilder textStoreInsert = new StringBuilder();
-
-			textStoreInsert.AppendLine("");
-			textStoreInsert.AppendLine("");
-			textStoreInsert.AppendLine("");
-			for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
-			{
-				DataRow row = _dtbColumnList.Rows[i];
-				textStoreInsert.Append(string.Format("        RefData.{0} = data.{0};\n", row["COLUMN_NAME"]));
-			}
-
-			txtCode_Fill_Properties.Text = textStoreInsert.ToString();
-		}
-
-
-		#endregion
-
-		#region Events
-
-		private void cboDatabase_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			if (cboDatabase.Items.Count > 0)
-			{
-				_CurentDB = cboDatabase.Text;
-				try
-				{
-					_SqlConnection = new SqlConnection(string.Format(CONNECTION_STRING, txtServer.Text.Trim(), _CurentDB, txtUsername.Text.Trim(), txtPassword.Text));
-					_SqlConnection.Open();
-					_SqlConnection.Close();
-				}
-				catch (Exception)
-				{
-					MessageBox.Show("Bạn không có quyền truy cập Database này.");
-					return;
-				}
-
-				InitialListTable();
-			}
-			else
-			{
-
-			}
-		}
-
-		private void lstTable_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			GengerateCodeForCurrentTable();
-		}
-
-		private void txtFilterTable_TextChanged(object sender, EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(txtFilterTable.Text))
-			{
-				sourceTableList.DataSource = _dtbTableList;
-			}
-			else
-			{
-				DataRow[] dtbTempFilter = _dtbTableList.Select(string.Format("TABLE_NAME LIKE '%{0}%'", txtFilterTable.Text));
-
-				DataTable dtbTemp = _dtbTableList.Clone();
-
-				foreach (var row in dtbTempFilter)
-				{
-					var rowAdd = dtbTemp.NewRow();
-
-					foreach (DataColumn col in dtbTemp.Columns)
-					{
-						rowAdd[col.ColumnName] = row[col.ColumnName];
-					}
-
-					dtbTemp.Rows.Add(rowAdd);
-				}
-
-				sourceTableList.DataSource = dtbTemp;
-				sourceTableList.MoveFirst();
-
-				//GengerateCodeForCurrentTable();
-			}
-		}
-
-		private void btnConnect_Click(object sender, EventArgs e)
-		{
-			_CurentDB = "master";
-
-			InitialConnection();
-		}
-
-		private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			//if (_SqlConnection != null && _SqlConnection.State != ConnectionState.Closed)
-			//{
-			//  _SqlConnection.Close();
-			//}
-		}
-
-		#endregion
-
-		#region DB Helper
-		private DataTable SelectDB(string sqlString)
-		{
-			try
-			{
-				DataTable dts = new DataTable();
-
-				using (SqlCommand command = _SqlConnection.CreateCommand())
-				{
-					command.CommandType = CommandType.Text;
-					command.CommandText = sqlString;
-
-					using (SqlDataAdapter sda = new SqlDataAdapter(command))
-					{
-						sda.Fill(dts);
-					}
-				}
-
-				return dts;
-			}
-			catch (Exception)
-			{
-				throw;
-			}
-		}
-
-		private void ExcuteSql(string sqlString)
-		{
-			try
-			{
-				_SqlConnection.Open();
-
-				ServerConnection svrConnection = new ServerConnection(_SqlConnection);
-
-				Server server = new Server(svrConnection);
-
-				server.ConnectionContext.ExecuteNonQuery(sqlString);
-
-				_SqlConnection.Close();
-			}
-			catch (Exception)
-			{
-				if (_SqlConnection.State != ConnectionState.Closed)
-				{
-					_SqlConnection.Close();
-				}
-				throw;
-			}
-		}
-		#endregion
-
-		#region TableName Helper
-		private string RegenerateTableNameForStore(string tableName, string shortTableName = "")
-		{
-			string output = "";
-			shortTableName = "";
-
-			string[] names = tableName.Split("_".ToCharArray());
-
-			foreach (string name in names)
-			{
-				string newName = name;
-
-				//for (int i = 0; i < name.Length; i++)
-				//{
-				//    newName += (i == 0 ? name[i].ToString().ToUpper() : name[i].ToString().ToLower());
-
-				//    if (i == 0)
-				//    {
-				//        shortTableName += name[i].ToString().ToLower();
-				//    }
-				//}
-
-				shortTableName += name[0].ToString().ToLower();
-
-				output += newName;
-			}
-
-			return output;
-		}
-
-		private string RegenerateShortTableNameForStore(string tableName)
-		{
-			string output = "";
-
-			string[] names = tableName.Split("_".ToCharArray());
-
-			foreach (string name in names)
-			{
-				if (string.IsNullOrEmpty(name)) continue;
-
-				output += name[0].ToString().ToLower();
-			}
-
-			return output;
-		}
-
-		private void FormatTabName(string tableName)
-		{
-
-			// tab name
-			foreach (TabPage page in tabGenerate.TabPages)
-			{
-				page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
-			}
-
-			// tab name
-			foreach (TabPage page in tabStored.TabPages)
-			{
-				page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
-			}
-
-			// tab name
-			foreach (TabPage page in tabEntity.TabPages)
-			{
-				page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
-			}
-
-			// tab name
-			foreach (TabPage page in tabService.TabPages)
-			{
-				page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
-			}
-
-			// tab name
-			foreach (TabPage page in tabIService.TabPages)
-			{
-				page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
-			}
-
-			// tab name
-			foreach (TabPage page in tabCommonService.TabPages)
-			{
-				page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
-			}
-		}
-
-		#endregion
-
-		private void FormatTextBoxState(bool textboxReadonlyMode)
-		{
-			txtCode_usp_Delete.IsReadOnly =
-			txtCode_usp_Insert.IsReadOnly =
-			txtCode_usp_Select_All.IsReadOnly =
-			txtCode_usp_Select_ByID.IsReadOnly =
-			txtCode_usp_Select_Count.IsReadOnly =
-			txtCode_usp_Select_Dynamic.IsReadOnly =
-			txtCode_usp_Select_Top_Dynamic.IsReadOnly =
-			txtCode_usp_Select_Paging.IsReadOnly =
-			txtCode_usp_Update.IsReadOnly =
-			txtCodeData.IsReadOnly =
-			txtCodeDomainObject.IsReadOnly =
-			txtCodeI.IsReadOnly =
-			txtCodeService.IsReadOnly =
-			txtCodeIService.IsReadOnly =
-			txtCodeClientService.IsReadOnly =
-			txtCode_Fill_Properties.IsReadOnly = textboxReadonlyMode;
-		}
-
-		private void btnExcCreate_Click(object sender, EventArgs e)
-		{
-			ChangeStore("CREATE");
-		}
-
-		private void btnExcAlter_Click(object sender, EventArgs e)
-		{
-			ChangeStore("ALTER");
-		}
-
-		private void ChangeStore(string type)
-		{
-			List<TabPage> tabApply = new List<TabPage>();
-
-			if (chkApplyAll.Checked)
-			{
-				foreach (TabPage tab in tabStored.TabPages)
-				{
-					tabApply.Add(tab);
-				}
-			}
-			else
-			{
-				tabApply.Add(tabStored.SelectedTab);
-			}
-
-			foreach (TabPage currentTab in tabApply)
-			{
-				var textPlace = currentTab.Controls[0] as ScintillaNET.Scintilla;
-
-				textPlace.IsReadOnly = false;
-
-				string findString = "";
-				string replaceString = type;
-
-				if (type == "CREATE")
-				{
-					findString = "ALTER";
-				}
-				else
-				{
-					findString = "CREATE";
-				}
-
-				textPlace.Text = textPlace.Text.Replace(findString, replaceString);
-
-				textPlace.IsReadOnly = true;
-			}
-		}
-
-		private void btnExcutePro_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				List<TabPage> tabApply = new List<TabPage>();
-
-				if (chkApplyAll.Checked)
-				{
-					foreach (TabPage tab in tabStored.TabPages)
-					{
-						tabApply.Add(tab);
-					}
-				}
-				else
-				{
-					tabApply.Add(tabStored.SelectedTab);
-				}
-
-				string tabFalse = "";
-				foreach (TabPage currentTab in tabApply)
-				{
-					var textPlace = currentTab.Controls[0] as ScintillaNET.Scintilla;
-					string sqlString = textPlace.Text;
-
-					try
-					{
-						ExcuteSql(sqlString);
-					}
-					catch (Exception ex)
-					{
-						tabFalse += " - " + currentTab + "\n";
-					}
-				}
-
-				if (tabFalse == "")
-				{
-					MessageBox.Show("Done!");
-				}
-				else
-				{
-					MessageBox.Show("Done! Có vài Tab lỗi: \n" + tabFalse);
-				}
-			}
-			catch (Exception ex)
-			{
-				MessageBox.Show(ex.Message);
-			}
-		}
-
-	}
+                   RegenerateTableNameForStore(tableName), GetParamString(), GetParamInside()));
+
+            txtCodeClientService.Text = textStoreInsert.ToString();
+        }
+
+        private void Gen_FillProperties(string tableName)
+        {
+            // tab usp_Insert
+            StringBuilder textStoreInsert = new StringBuilder();
+
+            textStoreInsert.AppendLine("");
+            textStoreInsert.AppendLine("");
+            textStoreInsert.AppendLine("");
+            for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
+            {
+                DataRow row = _dtbColumnList.Rows[i];
+                textStoreInsert.Append(string.Format("        RefData.{0} = data.{0};\n", row["COLUMN_NAME"]));
+            }
+
+            txtCode_Fill_Properties.Text = textStoreInsert.ToString();
+        }
+
+
+        #endregion
+
+        #region Events
+
+        private void cboDatabase_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboDatabase.Items.Count > 0)
+            {
+                _CurentDB = cboDatabase.Text;
+                try
+                {
+                    _SqlConnection = new SqlConnection(string.Format(CONNECTION_STRING, txtServer.Text.Trim(), _CurentDB, txtUsername.Text.Trim(), txtPassword.Text));
+                    _SqlConnection.Open();
+                    _SqlConnection.Close();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Bạn không có quyền truy cập Database này.");
+                    return;
+                }
+
+                InitialListTable();
+            }
+            else
+            {
+
+            }
+        }
+
+        private void lstTable_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GengerateCodeForCurrentTable();
+        }
+
+        private void txtFilterTable_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtFilterTable.Text))
+            {
+                sourceTableList.DataSource = _dtbTableList;
+            }
+            else
+            {
+                DataRow[] dtbTempFilter = _dtbTableList.Select(string.Format("TABLE_NAME LIKE '%{0}%'", txtFilterTable.Text));
+
+                DataTable dtbTemp = _dtbTableList.Clone();
+
+                foreach (var row in dtbTempFilter)
+                {
+                    var rowAdd = dtbTemp.NewRow();
+
+                    foreach (DataColumn col in dtbTemp.Columns)
+                    {
+                        rowAdd[col.ColumnName] = row[col.ColumnName];
+                    }
+
+                    dtbTemp.Rows.Add(rowAdd);
+                }
+
+                sourceTableList.DataSource = dtbTemp;
+                sourceTableList.MoveFirst();
+
+                //GengerateCodeForCurrentTable();
+            }
+        }
+
+        private void btnConnect_Click(object sender, EventArgs e)
+        {
+            _CurentDB = "master";
+
+            InitialConnection();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (_SqlConnection != null && _SqlConnection.State != ConnectionState.Closed)
+            //{
+            //  _SqlConnection.Close();
+            //}
+        }
+
+        #endregion
+
+        #region DB Helper
+        private DataTable SelectDB(string sqlString)
+        {
+            try
+            {
+                DataTable dts = new DataTable();
+
+                using (SqlCommand command = _SqlConnection.CreateCommand())
+                {
+                    command.CommandType = CommandType.Text;
+                    command.CommandText = sqlString;
+
+                    using (SqlDataAdapter sda = new SqlDataAdapter(command))
+                    {
+                        sda.Fill(dts);
+                    }
+                }
+
+                return dts;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        private void ExcuteSql(string sqlString)
+        {
+            try
+            {
+                _SqlConnection.Open();
+
+                ServerConnection svrConnection = new ServerConnection(_SqlConnection);
+
+                Server server = new Server(svrConnection);
+
+                server.ConnectionContext.ExecuteNonQuery(sqlString);
+
+                _SqlConnection.Close();
+            }
+            catch (Exception)
+            {
+                if (_SqlConnection.State != ConnectionState.Closed)
+                {
+                    _SqlConnection.Close();
+                }
+                throw;
+            }
+        }
+        #endregion
+
+        #region TableName Helper
+        private string RegenerateTableNameForStore(string tableName, string shortTableName = "")
+        {
+            string output = "";
+            shortTableName = "";
+
+            string[] names = tableName.Split("_".ToCharArray());
+
+            foreach (string name in names)
+            {
+                string newName = name;
+
+                //for (int i = 0; i < name.Length; i++)
+                //{
+                //    newName += (i == 0 ? name[i].ToString().ToUpper() : name[i].ToString().ToLower());
+
+                //    if (i == 0)
+                //    {
+                //        shortTableName += name[i].ToString().ToLower();
+                //    }
+                //}
+
+                shortTableName += name[0].ToString().ToLower();
+
+                output += newName;
+            }
+
+            return output;
+        }
+
+        private string RegenerateShortTableNameForStore(string tableName)
+        {
+            string output = "";
+
+            string[] names = tableName.Split("_".ToCharArray());
+
+            foreach (string name in names)
+            {
+                if (string.IsNullOrEmpty(name)) continue;
+
+                output += name[0].ToString().ToLower();
+            }
+
+            return output;
+        }
+
+        private void FormatTabName(string tableName)
+        {
+
+            // tab name
+            foreach (TabPage page in tabGenerate.TabPages)
+            {
+                page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
+            }
+
+            // tab name
+            foreach (TabPage page in tabStored.TabPages)
+            {
+                page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
+            }
+
+            // tab name
+            foreach (TabPage page in tabEntity.TabPages)
+            {
+                page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
+            }
+
+            // tab name
+            foreach (TabPage page in tabService.TabPages)
+            {
+                page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
+            }
+
+            // tab name
+            foreach (TabPage page in tabIService.TabPages)
+            {
+                page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
+            }
+
+            // tab name
+            foreach (TabPage page in tabCommonService.TabPages)
+            {
+                page.Text = string.Format(page.Tag.ToString(), RegenerateTableNameForStore(tableName));
+            }
+        }
+
+        private void GetPrimaryKey(string tableName)
+        {
+            TablePkey.Clear();
+
+            var db = SelectDB(string.Format(@"SELECT *
+                                            FROM   INFORMATION_SCHEMA.[COLUMNS] c
+                                            WHERE  c.COLUMN_NAME IN (SELECT ccu.COLUMN_NAME
+                                                                     FROM   INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE ccu
+                                                                     WHERE  ccu.CONSTRAINT_NAME IN (SELECT tc.CONSTRAINT_NAME
+                                                                                                    FROM   
+                                                                                                           INFORMATION_SCHEMA.TABLE_CONSTRAINTS 
+                                                                                                           tc
+                                                                                                    WHERE  tc.CONSTRAINT_TYPE = 
+                                                                                                           'PRIMARY KEY'
+                                                                                                           AND tc.TABLE_NAME = 
+                                                                                                               '{0}'))
+                                            AND c.TABLE_NAME = '{0}'  ", tableName));
+
+            foreach (DataRow r in db.Rows)
+            {
+                TablePkey.Add(r["COLUMN_NAME"].ToString(), r["DATA_TYPE"].ToString().ToUpper());
+            }
+        }
+
+        private string GetParamString()
+        {
+            string param = "";
+            foreach (var kPair in TablePkey)
+            {
+                param += (param != "" ? ", " : "") + DataTypeMaping[kPair.Value] + " " + kPair.Key;
+            }
+            return param;
+        }
+
+        private string GetParameterString()
+        {
+            string param = "";
+            foreach (var kPair in TablePkey)
+            {
+                param += string.Format("\ndao.CreateParameter(\"@{0}\", {0})", kPair.Key);
+            }
+            return param;
+        }
+
+        private string GetParamInside()
+        {
+            string param = "";
+            foreach (var kPair in TablePkey)
+            {
+                param += (param != "" ? ", " : "") + kPair.Key;
+            }
+            return param;
+        }
+        #endregion
+
+        private void FormatTextBoxState(bool textboxReadonlyMode)
+        {
+            txtCode_usp_Delete.IsReadOnly =
+            txtCode_usp_Insert.IsReadOnly =
+            txtCode_usp_Select_All.IsReadOnly =
+            txtCode_usp_Select_ByID.IsReadOnly =
+            txtCode_usp_Select_Count.IsReadOnly =
+            txtCode_usp_Select_Dynamic.IsReadOnly =
+            txtCode_usp_Select_Top_Dynamic.IsReadOnly =
+            txtCode_usp_Select_Paging.IsReadOnly =
+            txtCode_usp_Update.IsReadOnly =
+            txtCodeData.IsReadOnly =
+            txtCodeDomainObject.IsReadOnly =
+            txtCodeI.IsReadOnly =
+            txtCodeService.IsReadOnly =
+            txtCodeIService.IsReadOnly =
+            txtCodeClientService.IsReadOnly =
+            txtCode_Fill_Properties.IsReadOnly = textboxReadonlyMode;
+        }
+
+        private void btnExcCreate_Click(object sender, EventArgs e)
+        {
+            ChangeStore("CREATE");
+        }
+
+        private void btnExcAlter_Click(object sender, EventArgs e)
+        {
+            ChangeStore("ALTER");
+        }
+
+        private void ChangeStore(string type)
+        {
+            List<TabPage> tabApply = new List<TabPage>();
+
+            if (chkApplyAll.Checked)
+            {
+                foreach (TabPage tab in tabStored.TabPages)
+                {
+                    tabApply.Add(tab);
+                }
+            }
+            else
+            {
+                tabApply.Add(tabStored.SelectedTab);
+            }
+
+            foreach (TabPage currentTab in tabApply)
+            {
+                var textPlace = currentTab.Controls[0] as ScintillaNET.Scintilla;
+
+                textPlace.IsReadOnly = false;
+
+                string findString = "";
+                string replaceString = type;
+
+                if (type == "CREATE")
+                {
+                    findString = "ALTER";
+                }
+                else
+                {
+                    findString = "CREATE";
+                }
+
+                textPlace.Text = textPlace.Text.Replace(findString, replaceString);
+
+                textPlace.IsReadOnly = true;
+            }
+        }
+
+        private void btnExcutePro_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                List<TabPage> tabApply = new List<TabPage>();
+
+                if (chkApplyAll.Checked)
+                {
+                    foreach (TabPage tab in tabStored.TabPages)
+                    {
+                        tabApply.Add(tab);
+                    }
+                }
+                else
+                {
+                    tabApply.Add(tabStored.SelectedTab);
+                }
+
+                string tabFalse = "";
+                foreach (TabPage currentTab in tabApply)
+                {
+                    var textPlace = currentTab.Controls[0] as ScintillaNET.Scintilla;
+                    string sqlString = textPlace.Text;
+
+                    try
+                    {
+                        ExcuteSql(sqlString);
+                    }
+                    catch (Exception ex)
+                    {
+                        tabFalse += " - " + currentTab + "\n";
+                    }
+                }
+
+                if (tabFalse == "")
+                {
+                    MessageBox.Show("Done!");
+                }
+                else
+                {
+                    MessageBox.Show("Done! Có vài Tab lỗi: \n" + tabFalse);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+    }
 }

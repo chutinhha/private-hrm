@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.ServiceModel;
 
 namespace HS.UI.Common
 {
@@ -18,15 +19,15 @@ namespace HS.UI.Common
 
             try
             {
-                var menuFiles = Directory.GetFiles(Path.Combine( Application.StartupPath, "Menu"), "*.xml");
+                var menuFiles = Directory.GetFiles(Path.Combine(Application.StartupPath, "Menu"), "*.xml");
 
-                if(menuFiles.Length > 0)
+                if (menuFiles.Length > 0)
                 {
-                    foreach(string filePath in menuFiles)
+                    foreach (string filePath in menuFiles)
                     {
                         dts.ReadXml(filePath);
 
-                        if(retTable == null)
+                        if (retTable == null)
                         {
                             retTable = dts.Tables[0].Clone();
                         }
@@ -66,5 +67,6 @@ namespace HS.UI.Common
         {
             return MessageBox.Show(msg, Variables.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
         }
+
     }
 }

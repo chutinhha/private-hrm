@@ -70,7 +70,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DynamicDataRow.cs" />
-    <Compile Include="Entities\SystemEntities.cs" />
+    <Compile Include="Services\SystemService.cs" />
+    <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="app.config" />
     <EmbeddedResource Include="Properties\Resources.resx">

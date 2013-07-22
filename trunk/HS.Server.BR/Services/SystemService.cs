@@ -10,41 +10,8 @@ using HS.Server.DA.Systems;
 
 namespace HS.Server.BR.Entities
 {
-    public partial class SystemEntities : ISystem
+    public partial class IService : ISystem
     {
-        #region Properties
-
-        private System.String _ConnectionString = "";
-        /// <summary>
-        /// Connect to database
-        /// </summary>
-        public System.String ConnectionString
-        {
-            get
-            {
-                if (_ConnectionString == "")
-                {
-                    _ConnectionString = Variables.ConnectionString;
-                }
-                return _ConnectionString;
-            }
-            set { _ConnectionString = value; }
-        }
-
-        #endregion
-
-        #region Constructors
-
-        public SystemEntities()
-        {
-        }
-
-        public SystemEntities(System.String connectionString)
-        {
-            this.ConnectionString = connectionString;
-        }
-
-        #endregion
         #region Danhmuc
 
         public System.Int32 AddDanhMuc(DanhMucData data)
@@ -56,7 +23,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[AddDanhMuc]", ex.Message);
+                ErrorLog.WebLog("[AddDanhMuc]", ex.Message);
             }
             return -1;
         }
@@ -70,7 +37,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[ChangeDanhMuc]", ex.Message);
+                ErrorLog.WebLog("[ChangeDanhMuc]", ex.Message);
             }
             return -1;
         }
@@ -84,7 +51,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[RemoveDanhMuc]", ex.Message);
+                ErrorLog.WebLog("[RemoveDanhMuc]", ex.Message);
             }
             return -1;
         }
@@ -98,7 +65,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucs]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucs]", ex.Message);
                 return null;
             }
         }
@@ -112,7 +79,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucByID]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucByID]", ex.Message);
                 return null;
             }
         }
@@ -126,7 +93,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucByCriteria]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucByCriteria]", ex.Message);
                 return null;
             }
         }
@@ -140,7 +107,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucBySizeCriteria]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucBySizeCriteria]", ex.Message);
                 return null;
             }
         }
@@ -154,7 +121,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucCount]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucCount]", ex.Message);
             }
             return -1;
         }
@@ -168,16 +135,14 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucPaging]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucPaging]", ex.Message);
                 return new List<DanhMucData>();
             }
         }
 
         #endregion
 
-
-        #region Pulbic Methods
-
+        #region DanhMuc_Item
 
         public System.Int32 AddDanhMucItem(DanhMucItemData data)
         {
@@ -188,7 +153,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[AddDanhMucItem]", ex.Message);
+                ErrorLog.WebLog("[AddDanhMucItem]", ex.Message);
             }
             return -1;
         }
@@ -202,7 +167,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[ChangeDanhMucItem]", ex.Message);
+                ErrorLog.WebLog("[ChangeDanhMucItem]", ex.Message);
             }
             return -1;
         }
@@ -216,7 +181,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[RemoveDanhMucItem]", ex.Message);
+                ErrorLog.WebLog("[RemoveDanhMucItem]", ex.Message);
             }
             return -1;
         }
@@ -230,7 +195,21 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucItemsByDanhMuc]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucItemsByDanhMuc]", ex.Message);
+                return null;
+            }
+        }
+
+        public IList<DanhMucItemData> GetDanhMucItems()
+        {
+            try
+            {
+                var domain = new DanhMucItemDomainObject(ConnectionString);
+                return domain.GetDanhMucItems();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.WebLog("[GetDanhMucItems]", ex.Message);
                 return null;
             }
         }
@@ -244,7 +223,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucItemByID]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucItemByID]", ex.Message);
                 return null;
             }
         }
@@ -258,7 +237,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucItemByCriteria]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucItemByCriteria]", ex.Message);
                 return null;
             }
         }
@@ -272,7 +251,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucItemBySizeCriteria]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucItemBySizeCriteria]", ex.Message);
                 return null;
             }
         }
@@ -286,7 +265,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucItemCount]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucItemCount]", ex.Message);
             }
             return -1;
         }
@@ -300,7 +279,7 @@ namespace HS.Server.BR.Entities
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("[GetDanhMucItemPaging]", ex.Message);
+                ErrorLog.WebLog("[GetDanhMucItemPaging]", ex.Message);
                 return new List<DanhMucItemData>();
             }
         }

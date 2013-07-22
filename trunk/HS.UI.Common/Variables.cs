@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ServiceModel;
 
 namespace HS.UI.Common
 {
@@ -63,5 +64,8 @@ namespace HS.UI.Common
                 Base.Variables.IsDebug = value;
             }
         }
+
+        public static string ServiceURL;
+
     }
 }

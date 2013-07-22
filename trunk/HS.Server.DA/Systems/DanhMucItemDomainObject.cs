@@ -168,6 +168,25 @@ namespace HS.Server.DA.Systems
             return dao.SubmitChange();
         }
 
+        public virtual IList<DanhMucItemData> GetDanhMucItems()
+        {
+            JDataAccess dao = new JDataAccess(ConnectionString);
+            dao.SetCommandText(SP_DANHMUCITEM_SELECT_ALL, CommandType.StoredProcedure);
+
+            DataTable table = dao.ExecuteQuery();
+            if (table != null && table.Rows.Count > 0)
+            {
+                IList<DanhMucItemData> list = new List<DanhMucItemData>(table.Rows.Count);
+                foreach (DataRow row in table.Rows)
+                {
+                    list.Add(Convert(row));
+                }
+
+                return list;
+            }
+            return new List<DanhMucItemData>();
+        }
+
         public virtual DanhMucItemData GetDanhMucItemByID(Guid iD)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);

@@ -142,7 +142,7 @@ namespace HS.Server.DA.Systems
         public virtual IList<DanhMucData> GetDanhMucs()
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
-            dao.SetCommandText("SELECT * FROM DanhMuc", CommandType.Text);
+            dao.SetCommandText(SP_DANHMUC_SELECT_ALL, CommandType.StoredProcedure);
 
             DataTable table = dao.ExecuteQuery();
             if (table != null && table.Rows.Count > 0)

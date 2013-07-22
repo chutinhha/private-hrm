@@ -42,6 +42,7 @@ namespace HS.UI.Forms.Systems
 
             Common.Variables.ApplicationName = appSettings["AppName"];
             Common.Variables.IsDebug = appSettings["Debug"].ToString() == "1";
+            Common.Variables.ServiceURL = appSettings["ServiceURL"].ToString();
         }
 
         private void SplashForm_Load(object sender, EventArgs e)
