@@ -51,6 +51,13 @@ namespace HS.Server.Interfaces.Contracts.Systems
         /// <summary>
         /// 
         /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        IList<DanhMucItemData> GetDanhMucItems();
+
+        /// <summary>
+        /// 
+        /// </summary>
         /// <param name="objId"></param>
         /// <returns></returns>
         [OperationContract]

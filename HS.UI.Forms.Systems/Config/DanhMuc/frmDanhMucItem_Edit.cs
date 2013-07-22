@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using HS.Server.Interfaces.DAO;
-using HS.Server.BR.Entities;
+using HS.UI.Common;
+using HS.UI.Common.Service;
+using HS.UI.Connection.HSService;
 
 namespace HS.UI.Forms.Systems.Config.DanhMuc
 {
     public partial class frmDanhMucItem_Edit : Form
     {
-        private SystemEntities db = new SystemEntities(Common.Variables.ConnectionString);
+        private SystemWraper db = new SystemWraper();
 
         public DanhMucItemData RefData = null;
         private string _maLoaiDanhMuc;

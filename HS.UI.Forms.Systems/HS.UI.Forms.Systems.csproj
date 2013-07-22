@@ -56,6 +56,7 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -156,21 +157,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HS.Server.BR\HS.Server.BR.csproj">
-      <Project>{6e2f6623-9d5f-4a6a-b6eb-e2bd5cc5a9d2}</Project>
-      <Name>HS.Server.BR</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HS.Server.Interfaces\HS.Server.Interfaces.csproj">
-      <Project>{ac13cc28-1a50-472f-babb-20695a98c274}</Project>
-      <Name>HS.Server.Interfaces</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Base\HS.UI.Base.csproj">
       <Project>{46760e59-4b39-49d7-b64d-48fc7a1cc016}</Project>
       <Name>HS.UI.Base</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HS.UI.Common.Service\HS.UI.Common.Service.csproj">
+      <Project>{43ffcb87-9a8c-4493-a0ee-d2421c598e6a}</Project>
+      <Name>HS.UI.Common.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Common\HS.UI.Common.csproj">
       <Project>{166be350-1c0e-4d74-92d2-18e456460e94}</Project>
       <Name>HS.UI.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HS.UI.Connection\HS.UI.Connection.csproj">
+      <Project>{e759d688-3e1d-4df2-945b-df6313a8a294}</Project>
+      <Name>HS.UI.Connection</Name>
     </ProjectReference>
     <ProjectReference Include="..\System.Windows.Forms.ExControls\ExControls.csproj">
       <Project>{9768FF46-1509-4B32-9B23-5DB183D8A348}</Project>
