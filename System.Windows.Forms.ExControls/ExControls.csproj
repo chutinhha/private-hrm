@@ -134,6 +134,12 @@
     <Compile Include="TabControlEx\TabControlEx.NativeUpDown.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="TextBox\NumericTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TextBox\NumericTextbox.Designer.cs">
+      <DependentUpon>NumericTextbox.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CheckBoxComboBox\PopupComboBox.resx">
       <DependentUpon>PopupComboBox.cs</DependentUpon>
       <SubType>Designer</SubType>

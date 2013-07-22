@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using HS.Server.Interfaces.DAO;
-using HS.Server.Interfaces.Entities.Systems;
 using Library.DataAccess;
 
 using HS.UI.Common;
@@ -70,22 +69,23 @@ namespace HS.Server.DA.Systems
         {
             dynamic data = new DynamicDataRow(row);
 
-            DanhMucItemData obj = new DanhMucItemData(); // Chú ý Int64 hoặc Int32 phụ thuộc vào kiểu - dễ lẫn chỗ này
+            DanhMucItemData obj = new DanhMucItemData();
 
+            obj.ID = Guid.Parse(System.Convert.ToString(data.ID));
             obj.MaLoaiDanhMuc = System.Convert.ToString(data.MaLoaiDanhMuc);
             obj.MaDanhMuc = System.Convert.ToString(data.MaDanhMuc);
             obj.TenDanhMuc = System.Convert.ToString(data.TenDanhMuc);
             obj.ThuTu = System.Convert.ToInt32(data.ThuTu);
-            obj.IntVal1 = System.Convert.ToInt32(data.IntVal1);
-            obj.IntVal2 = System.Convert.ToInt32(data.IntVal2);
-            obj.IntVal3 = System.Convert.ToInt32(data.IntVal3);
-            obj.DecVal1 = System.Convert.ToDecimal(data.DecVal1);
-            obj.DecVal2 = System.Convert.ToDecimal(data.DecVal2);
-            obj.DecVal3 = System.Convert.ToDecimal(data.DecVal3);
+            obj.IntVal1 = data.IntVal1 != null ? System.Convert.ToInt32(data.IntVal1) : null;
+            obj.IntVal2 = data.IntVal2 != null ? System.Convert.ToInt32(data.IntVal2) : null;
+            obj.IntVal3 = data.IntVal3 != null ? System.Convert.ToInt32(data.IntVal3) : null;
+            obj.DecVal1 = data.DecVal1 != null ? System.Convert.ToDecimal(data.DecVal1) : null;
+            obj.DecVal2 = data.DecVal2 != null ? System.Convert.ToDecimal(data.DecVal2) : null;
+            obj.DecVal3 = data.DecVal3 != null ? System.Convert.ToDecimal(data.DecVal3) : null;
             obj.StrVal1 = System.Convert.ToString(data.StrVal1);
             obj.StrVal2 = System.Convert.ToString(data.StrVal2);
             obj.StrVal3 = System.Convert.ToString(data.StrVal3);
-
+            obj.Active = System.Convert.ToBoolean(data.Active);
 
             return obj;
         }
@@ -99,6 +99,7 @@ namespace HS.Server.DA.Systems
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_INSERT, CommandType.StoredProcedure);
             dao.SetParameters(new IDataParameter[]{
+                dao.CreateParameter("@ID", obj.ID),
                 dao.CreateParameter("@MaLoaiDanhMuc", obj.MaLoaiDanhMuc),
                 dao.CreateParameter("@MaDanhMuc", obj.MaDanhMuc),
                 dao.CreateParameter("@TenDanhMuc", obj.TenDanhMuc),
@@ -111,8 +112,8 @@ namespace HS.Server.DA.Systems
                 dao.CreateParameter("@DecVal3", obj.DecVal3),
                 dao.CreateParameter("@StrVal1", obj.StrVal1),
                 dao.CreateParameter("@StrVal2", obj.StrVal2),
-                dao.CreateParameter("@StrVal3", obj.StrVal3)
-
+                dao.CreateParameter("@StrVal3", obj.StrVal3),
+                dao.CreateParameter("@Active", obj.Active)
             });
             return dao.SubmitChange();
         }
@@ -122,6 +123,7 @@ namespace HS.Server.DA.Systems
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_UPDATE, CommandType.StoredProcedure);
             dao.SetParameters(new IDataParameter[]{
+                dao.CreateParameter("@ID", obj.ID),
                 dao.CreateParameter("@MaLoaiDanhMuc", obj.MaLoaiDanhMuc),
                 dao.CreateParameter("@MaDanhMuc", obj.MaDanhMuc),
                 dao.CreateParameter("@TenDanhMuc", obj.TenDanhMuc),
@@ -134,7 +136,8 @@ namespace HS.Server.DA.Systems
                 dao.CreateParameter("@DecVal3", obj.DecVal3),
                 dao.CreateParameter("@StrVal1", obj.StrVal1),
                 dao.CreateParameter("@StrVal2", obj.StrVal2),
-                dao.CreateParameter("@StrVal3", obj.StrVal3)
+                dao.CreateParameter("@StrVal3", obj.StrVal3),
+                dao.CreateParameter("@Active", obj.Active)
 
             });
             return dao.SubmitChange();
@@ -145,6 +148,7 @@ namespace HS.Server.DA.Systems
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_DELETE, CommandType.StoredProcedure);
             dao.SetParameters(new IDataParameter[]{
+                dao.CreateParameter("@ID", obj.ID),
                 dao.CreateParameter("@MaLoaiDanhMuc", obj.MaLoaiDanhMuc),
                 dao.CreateParameter("@MaDanhMuc", obj.MaDanhMuc),
                 dao.CreateParameter("@TenDanhMuc", obj.TenDanhMuc),
@@ -157,19 +161,19 @@ namespace HS.Server.DA.Systems
                 dao.CreateParameter("@DecVal3", obj.DecVal3),
                 dao.CreateParameter("@StrVal1", obj.StrVal1),
                 dao.CreateParameter("@StrVal2", obj.StrVal2),
-                dao.CreateParameter("@StrVal3", obj.StrVal3)
+                dao.CreateParameter("@StrVal3", obj.StrVal3),
+                dao.CreateParameter("@Active", obj.Active)
 
             });
             return dao.SubmitChange();
         }
 
-        public virtual DanhMucItemData GetDanhMucItemByID(string maLoaiDanhMuc, string maDanhMuc)
+        public virtual DanhMucItemData GetDanhMucItemByID(Guid iD)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_BY_ID, CommandType.StoredProcedure);
             dao.SetParameters(new IDataParameter[]{
-                dao.CreateParameter("@MaLoaiDanhMuc", maLoaiDanhMuc),
-                dao.CreateParameter("@MaDanhMuc", maDanhMuc)
+                dao.CreateParameter("@ID", iD)
             });
 
             DataTable table = dao.ExecuteQuery();
@@ -180,29 +184,7 @@ namespace HS.Server.DA.Systems
 
             return default(DanhMucItemData);
         }
-
-        public virtual IList<DanhMucItemData> GetDanhMucItemsByDanhMuc(string maDanhMuc)
-        {
-            JDataAccess dao = new JDataAccess(ConnectionString);
-            dao.SetCommandText(string.Format("SELECT * FROM DanhMuc_Item WHERE MaLoaiDanhMuc=@MaLoaiDanhMuc ORDER BY ThuTu"), CommandType.Text);
-            dao.SetParameters(new IDataParameter[]{
-                dao.CreateParameter("@MaLoaiDanhMuc", maDanhMuc)
-            });
-
-            DataTable table = dao.ExecuteQuery();
-            if (table != null && table.Rows.Count > 0)
-            {
-                IList<DanhMucItemData> list = new List<DanhMucItemData>(table.Rows.Count);
-                foreach (DataRow row in table.Rows)
-                {
-                    list.Add(Convert(row));
-                }
-
-                return list;
-            }
-            return new List<DanhMucItemData>();
-        }
-
+        
         public virtual IList<DanhMucItemData> GetDanhMucItems(System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using HS.Server.Interfaces.DAO;
-using HS.Server.Interfaces.Entities.Systems;
 using Library.DataAccess;
 
 using HS.UI.Common;
@@ -12,7 +11,7 @@ using System.Data;
 
 namespace HS.Server.DA.Systems
 {
-    public class DanhMucDomainObject : IDanhMuc
+    public class DanhMucDomainObject
     {
 
         #region Const Fields

@@ -12,7 +12,14 @@ namespace HS.UI.Base
         {
             ErrorLog.Log(functionName, ex.Message);
 
-            new ErrorForm(functionName, ex).ShowDialog();
+            if (Variables.IsDebug)
+            {
+                new ErrorForm(functionName, ex).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Đã có lỗi xảy ra! Bạn hãy thử lại.", Variables.ApplicationName,  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

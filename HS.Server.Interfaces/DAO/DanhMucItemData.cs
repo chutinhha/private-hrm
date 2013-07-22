@@ -16,6 +16,7 @@ namespace HS.Server.Interfaces.DAO
     [DataContract]
     public class DanhMucItemData : INotifyPropertyChanged
     {
+        private System.Guid _ID;
         private System.String _MaLoaiDanhMuc;
         private System.String _MaDanhMuc;
         private System.String _TenDanhMuc;
@@ -29,6 +30,7 @@ namespace HS.Server.Interfaces.DAO
         private System.String _StrVal1;
         private System.String _StrVal2;
         private System.String _StrVal3;
+        private System.Boolean _Active;
 
 
         #region INotifyPropertyChanged Members
@@ -46,6 +48,19 @@ namespace HS.Server.Interfaces.DAO
         {
         }
 
+        [DataMember]
+        public System.Guid ID
+        {
+            get { return _ID; }
+            set
+            {
+                if (ID != value)
+                {
+                    _ID = value;
+                    OnPropertyChanged("ID");
+                }
+            }
+        }
         [DataMember]
         public System.String MaLoaiDanhMuc
         {
@@ -212,6 +227,19 @@ namespace HS.Server.Interfaces.DAO
                 {
                     _StrVal3 = value;
                     OnPropertyChanged("StrVal3");
+                }
+            }
+        }
+        [DataMember]
+        public System.Boolean Active
+        {
+            get { return _Active; }
+            set
+            {
+                if (Active != value)
+                {
+                    _Active = value;
+                    OnPropertyChanged("Active");
                 }
             }
         }

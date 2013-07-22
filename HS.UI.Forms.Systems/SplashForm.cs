@@ -38,7 +38,10 @@ namespace HS.UI.Forms.Systems
 
         void workerLoadConfig_DoWork(object sender, DoWorkEventArgs e)
         {
-            Common.Variables.ApplicationName = System.Configuration.ConfigurationManager.AppSettings["AppName"];
+            var appSettings = System.Configuration.ConfigurationManager.AppSettings;
+
+            Common.Variables.ApplicationName = appSettings["AppName"];
+            Common.Variables.IsDebug = appSettings["Debug"].ToString() == "1";
         }
 
         private void SplashForm_Load(object sender, EventArgs e)

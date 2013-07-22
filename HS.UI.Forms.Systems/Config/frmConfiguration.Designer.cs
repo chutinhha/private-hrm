@@ -32,7 +32,7 @@
             this.tabPageDanhMuc = new System.Windows.Forms.TabPage();
             this.tabPageSystemSetting = new System.Windows.Forms.TabPage();
             this.btnClose = new System.Windows.Forms.Button();
-            this.ctrlDanhMuc1 = new HS.UI.Forms.Systems.Config.ctrlDanhMuc();
+            this.ctrlDanhMuc1 = new HS.UI.Forms.Systems.Config.DanhMuc.ctrlDanhMuc();
             this.tabControlConfig.SuspendLayout();
             this.tabPageDanhMuc.SuspendLayout();
             this.SuspendLayout();
@@ -114,6 +114,6 @@
         private System.Windows.Forms.TabPage tabPageDanhMuc;
         private System.Windows.Forms.TabPage tabPageSystemSetting;
         private System.Windows.Forms.Button btnClose;
-        private ctrlDanhMuc ctrlDanhMuc1;
+        private DanhMuc.ctrlDanhMuc ctrlDanhMuc1;
     }
 }

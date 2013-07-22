@@ -54,5 +54,14 @@ namespace HS.UI.Common
                 Base.Variables.ApplicationName = value;
             }
         }
+
+        public static bool IsDebug
+        {
+            get { return Base.Variables.IsDebug; }
+            set
+            {
+                Base.Variables.IsDebug = value;
+            }
+        }
     }
 }
