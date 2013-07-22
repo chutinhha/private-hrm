@@ -260,8 +260,8 @@ GO
 			{
 				DataRow row = _dtbColumnList.Rows[i];
 
-				if (row["COLUMN_NAME"] + "" == "ID")
-					continue;
+                //if (row["COLUMN_NAME"] + "" == "ID")
+                //    continue;
 
 				textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
 				columnDetailInsert += string.Format("      @[{0}].[{1}]{2}\n", row["TABLE_NAME"], row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");

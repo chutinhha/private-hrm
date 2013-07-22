@@ -21,14 +21,13 @@ namespace HS.UI.Base
             }
         }
 
-
         public static bool IsRelogin
         {
             get;
             set;
         }
-
-
         public static string ApplicationName { get; set; }
+
+        public static bool IsDebug { get; set; }
     }
 }

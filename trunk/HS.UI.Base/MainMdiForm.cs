@@ -25,7 +25,11 @@ namespace HS.UI.Base
 
             //Connection = ConnectionBase.Connection;
 
-            //this.Text = ConfigurationManager.AppSettings["AppName"];
+            this.Text = Variables.ApplicationName;
+            if (System.IO.File.Exists(System.IO.Path.Combine(Application.StartupPath, "Resources/Icons/App.ico")))
+            {
+                this.Icon = System.Drawing.Icon.ExtractAssociatedIcon(System.IO.Path.Combine(Application.StartupPath, "Resources/Icons/App.ico"));
+            }
         }
 
         #region Tab Events

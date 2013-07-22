@@ -56,5 +56,15 @@ namespace HS.UI.Common
         {
             Base.Methods.ShowError(functionName, ex);
         }
+
+        public static void Alert(string msg)
+        {
+            MessageBox.Show(msg, Variables.ApplicationName, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static bool Confirm(string msg)
+        {
+            return MessageBox.Show(msg, Variables.ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes;
+        }
     }
 }
