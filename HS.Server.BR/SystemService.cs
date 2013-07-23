@@ -8,7 +8,7 @@ using HS.Server.Interfaces.DAO;
 using HS.Server.Interfaces.Contracts;
 using HS.Server.DA.Systems;
 
-namespace HS.Server.BR.Entities
+namespace HS.Server.BR
 {
     public partial class IService : ISystem
     {

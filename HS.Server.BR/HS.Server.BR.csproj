@@ -69,8 +69,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DynamicDataRow.cs" />
-    <Compile Include="Services\SystemService.cs" />
+    <Compile Include="ClientService.cs" />
+    <Compile Include="SystemService.cs" />
     <Compile Include="IService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <None Include="app.config" />
