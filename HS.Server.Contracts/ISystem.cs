@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-using HS.Server.Interfaces.Contracts.Systems;
+using HS.Server.Contracts.Systems;
 using System.ServiceModel;
 
-namespace HS.Server.Interfaces.Contracts
+namespace HS.Server.Contracts
 {
     [ServiceContract]
     public interface ISystem : 
-        IDanhMucService,
-        IDanhMucItemService
+        IDanhMuc,
+        IDanhMucItem
     {
 
     }

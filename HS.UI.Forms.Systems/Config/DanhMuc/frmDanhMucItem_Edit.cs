@@ -8,8 +8,8 @@ using System.Text;
 using System.Windows.Forms;
 
 using HS.UI.Common;
-using HS.UI.Common.Service;
-using HS.UI.Connection.HSService;
+using HS.Service;
+using HS.Service.Connection.HSService;
 
 namespace HS.UI.Forms.Systems.Config.DanhMuc
 {
@@ -74,6 +74,12 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                 txtString3.Text = RefData.StrVal3;
 
                 _actions = 1;
+
+                this.Text = string.Format("Sửa danh mục - [{0}]", RefData.TenDanhMuc);
+            }
+            else
+            {
+                this.Text = "Thêm mới danh mục";
             }
         }
 

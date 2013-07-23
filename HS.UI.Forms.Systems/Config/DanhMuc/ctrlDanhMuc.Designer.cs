@@ -130,7 +130,7 @@
             // 
             // sourceDanhMuc
             // 
-            this.sourceDanhMuc.DataSource = typeof(HS.UI.Connection.HSService.DanhMucItemData);
+            this.sourceDanhMuc.DataSource = typeof(HS.Service.Connection.HSService.DanhMucItemData);
             // 
             // toolStrip1
             // 

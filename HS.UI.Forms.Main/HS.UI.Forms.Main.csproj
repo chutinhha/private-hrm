@@ -184,6 +184,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HS.Common\HS.Common.csproj">
+      <Project>{fece6484-83ce-45b3-b39d-52b7da46e671}</Project>
+      <Name>HS.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Common\HS.UI.Common.csproj">
       <Project>{166be350-1c0e-4d74-92d2-18e456460e94}</Project>
       <Name>HS.UI.Common</Name>

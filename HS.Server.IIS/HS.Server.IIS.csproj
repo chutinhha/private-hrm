@@ -79,13 +79,9 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HS.Server.BR\HS.Server.BR.csproj">
-      <Project>{6E2F6623-9D5F-4A6A-B6EB-E2BD5CC5A9D2}</Project>
-      <Name>HS.Server.BR</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HS.Server.Interfaces\HS.Server.Interfaces.csproj">
-      <Project>{ac13cc28-1a50-472f-babb-20695a98c274}</Project>
-      <Name>HS.Server.Interfaces</Name>
+    <ProjectReference Include="..\HS.Server.Service\HS.Server.Service.csproj">
+      <Project>{6e2f6623-9d5f-4a6a-b6eb-e2bd5cc5a9d2}</Project>
+      <Name>HS.Server.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

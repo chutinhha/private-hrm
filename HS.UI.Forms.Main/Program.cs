@@ -35,7 +35,7 @@ namespace HS.UI.Forms.Main
             catch (Exception ex)
             {
                 MessageBox.Show("Đã có lỗi khi chạy chương trình. Hãy thử khởi động lại.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                ErrorLog.Log("System Error: ", ex.Message);
+                HS.Common.ErrorLog.Log("System Error: ", ex.ToString());
             }
         }
     }

@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using HS.UI.Connection.HSService;
+using HS.Service;
+using HS.Service.Connection.HSService;
 using HS.UI.Common;
-using HS.UI.Common.Service;
 
 namespace HS.UI.Forms.Systems.Config.DanhMuc
 {
@@ -42,21 +42,43 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
             navInactive.Click += navInactive_Click;
 
             trvDanhMuc.AfterSelect += trvDanhMuc_AfterSelect;
-            trvDanhMuc.BeforeSelect += new TreeViewCancelEventHandler(trvDanhMuc_BeforeSelect);
+            trvDanhMuc.BeforeSelect += trvDanhMuc_BeforeSelect;
 
             workerLoadDetail = new BackgroundWorker()
             {
                 WorkerReportsProgress = true
             };
 
-            workerLoadDetail.DoWork += new DoWorkEventHandler(workerLoadDetail_DoWork);
-            workerLoadDetail.ProgressChanged += new ProgressChangedEventHandler(workerLoadDetail_ProgressChanged);
-            workerLoadDetail.RunWorkerCompleted += new RunWorkerCompletedEventHandler(workerLoadDetail_RunWorkerCompleted);
+            workerLoadDetail.DoWork += workerLoadDetail_DoWork;
+            workerLoadDetail.ProgressChanged += workerLoadDetail_ProgressChanged;
+            workerLoadDetail.RunWorkerCompleted += workerLoadDetail_RunWorkerCompleted;
+
+            sourceDanhMuc.CurrentChanged += sourceDanhMuc_CurrentChanged;
+
+            gvwDanhMuc.CellDoubleClick += gvwDanhMuc_CellDoubleClick;
+        }
+
+        void gvwDanhMuc_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            EditItem();
+        }
+
+        void sourceDanhMuc_CurrentChanged(object sender, EventArgs e)
+        {
+            if (sourceDanhMuc.Count == 0)
+            {
+                return;
+            }
+
+            var curItem = sourceDanhMuc.Current as DanhMucItemData;
+
+            navActive.Enabled = !curItem.Active;
+            navInactive.Enabled = curItem.Active;
         }
 
         void workerLoadDetail_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            trvDanhMuc.SelectedNode.Text = trvDanhMuc.SelectedNode.Text.Replace("(Loading)", "");
+            trvDanhMuc.SelectedNode.Text = trvDanhMuc.SelectedNode.Text.Replace(" (Loading)", "");
 
             toolStrip1.Enabled =
             gvwDanhMuc.Enabled = true;
@@ -160,8 +182,8 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                     }
                 }
 
+                trvDanhMuc.Refresh();
                 trvDanhMuc.ExpandAll();
-                trvDanhMuc.Select();
             }
             catch (Exception ex)
             {
@@ -188,7 +210,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
                 toolStrip1.Enabled =
                 gvwDanhMuc.Enabled = false;
 
-                trvDanhMuc.SelectedNode.Text += "(Loading)";
+                trvDanhMuc.SelectedNode.Text += " (Loading)";
 
                 workerLoadDetail.RunWorkerAsync();
             }
@@ -252,6 +274,17 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
             {
                 return;
             }
+
+            if (Common.Methods.Confirm("Chắc chắn bạn muốn Ngưng sử dụng danh mục đang chọn"))
+            {
+                var curItem = sourceDanhMuc.Current as DanhMucItemData;
+
+                curItem.Active = false;
+                if (db.ChangeDanhMucItem(curItem) > 0)
+                {
+                    LoadDanhMucItem();
+                }
+            }
         }
 
         void navActive_Click(object sender, EventArgs e)
@@ -259,6 +292,17 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
             if (sourceDanhMuc.Count == 0)
             {
                 return;
+            }
+
+            if (Common.Methods.Confirm("Chắc chắn bạn muốn Sử dụng lại danh mục đang chọn"))
+            {
+                var curItem = sourceDanhMuc.Current as DanhMucItemData;
+
+                curItem.Active = true;
+                if (db.ChangeDanhMucItem(curItem) > 0)
+                {
+                    LoadDanhMucItem();
+                }
             }
         }
 
@@ -273,11 +317,19 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
             {
                 var curItem = sourceDanhMuc.Current as DanhMucItemData;
 
-                
+                if (db.RemoveDanhMucItem(curItem) > 0)
+                {
+                    LoadDanhMucItem();
+                }
             }
         }
 
         void navEdit_Click(object sender, EventArgs e)
+        {
+            EditItem();
+        }
+
+        private void EditItem()
         {
             if (sourceDanhMuc.Count == 0)
             {
