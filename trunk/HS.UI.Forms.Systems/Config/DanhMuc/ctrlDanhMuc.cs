@@ -85,7 +85,7 @@ namespace HS.UI.Forms.Systems.Config.DanhMuc
         {
             var list = db.GetDanhMucItemsByDanhMuc(CurrentDanhMuc);
 
-            e.Result = list.OrderBy(p=>p.ThuTu).ToList();
+            e.Result = list != null ? list.OrderBy(p=>p.ThuTu).ToList() : list;
         }
 
         void trvDanhMuc_BeforeSelect(object sender, TreeViewCancelEventArgs e)
