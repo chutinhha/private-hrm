@@ -62,12 +62,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CommonFunctions.cs" />
-    <Compile Include="ErrorLog.cs" />
     <Compile Include="Methods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Variables.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HS.Base\HS.Base.csproj">
+      <Project>{c842cfec-4e0c-49ff-9239-92948a3139c9}</Project>
+      <Name>HS.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Base\HS.UI.Base.csproj">
       <Project>{46760e59-4b39-49d7-b64d-48fc7a1cc016}</Project>
       <Name>HS.UI.Base</Name>

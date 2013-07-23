@@ -67,7 +67,6 @@
     <Compile Include="ErrorForm.Designer.cs">
       <DependentUpon>ErrorForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorLog.cs" />
     <Compile Include="IEditableForm.cs" />
     <Compile Include="MainMdiForm.cs">
       <SubType>Form</SubType>
@@ -114,6 +113,16 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HS.Base\HS.Base.csproj">
+      <Project>{c842cfec-4e0c-49ff-9239-92948a3139c9}</Project>
+      <Name>HS.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HS.Common\HS.Common.csproj">
+      <Project>{fece6484-83ce-45b3-b39d-52b7da46e671}</Project>
+      <Name>HS.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

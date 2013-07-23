@@ -245,7 +245,7 @@ namespace HS.UI.Base
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("#BuildMenu", ex.Message);
+                Methods.ShowError("#BuildMenu", ex);
             }
         }
 
@@ -320,7 +320,7 @@ namespace HS.UI.Base
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("#BuildChildMenu", ex.Message);
+                Methods.ShowError("#BuildChildMenu", ex);
             }
         }
 

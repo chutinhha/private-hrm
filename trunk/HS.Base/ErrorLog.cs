@@ -6,7 +6,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Web;
 
-namespace HS.UI.Common
+namespace HS.Base
 {
     public class ErrorLog
     {

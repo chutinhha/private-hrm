@@ -157,21 +157,21 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\HS.Service.Connection\HS.Service.Connection.csproj">
+      <Project>{e759d688-3e1d-4df2-945b-df6313a8a294}</Project>
+      <Name>HS.Service.Connection</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HS.Service\HS.Service.csproj">
+      <Project>{43ffcb87-9a8c-4493-a0ee-d2421c598e6a}</Project>
+      <Name>HS.Service</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Base\HS.UI.Base.csproj">
       <Project>{46760e59-4b39-49d7-b64d-48fc7a1cc016}</Project>
       <Name>HS.UI.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HS.UI.Common.Service\HS.UI.Common.Service.csproj">
-      <Project>{43ffcb87-9a8c-4493-a0ee-d2421c598e6a}</Project>
-      <Name>HS.UI.Common.Service</Name>
-    </ProjectReference>
     <ProjectReference Include="..\HS.UI.Common\HS.UI.Common.csproj">
       <Project>{166be350-1c0e-4d74-92d2-18e456460e94}</Project>
       <Name>HS.UI.Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\HS.UI.Connection\HS.UI.Connection.csproj">
-      <Project>{e759d688-3e1d-4df2-945b-df6313a8a294}</Project>
-      <Name>HS.UI.Connection</Name>
     </ProjectReference>
     <ProjectReference Include="..\System.Windows.Forms.ExControls\ExControls.csproj">
       <Project>{9768FF46-1509-4B32-9B23-5DB183D8A348}</Project>

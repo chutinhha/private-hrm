@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1032/Service.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" />
+  <xs:import schemaLocation="http://localhost:1032/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:element name="AddDanhMuc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="data" nillable="true" type="q1:DanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDanhMucResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDanhMuc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="data" nillable="true" type="q2:DanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangeDanhMucResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDanhMuc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="data" nillable="true" type="q3:DanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveDanhMucResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucs">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucsResult" nillable="true" type="q4:ArrayOfDanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="maLoaiDanhMuc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucByIDResult" nillable="true" type="q5:DanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucByCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucByCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucByCriteriaResult" nillable="true" type="q6:ArrayOfDanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucBySizeCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="size" type="xs:int" />
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucBySizeCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucBySizeCriteriaResult" nillable="true" type="q7:ArrayOfDanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDanhMucCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="currentPage" type="xs:int" />
+        <xs:element minOccurs="0" name="sortByColumns" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucPagingResult" nillable="true" type="q8:ArrayOfDanhMucData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDanhMucItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="data" nillable="true" type="q9:DanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDanhMucItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddDanhMucItemResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDanhMucItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="data" nillable="true" type="q10:DanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangeDanhMucItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ChangeDanhMucItemResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDanhMucItem">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="data" nillable="true" type="q11:DanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveDanhMucItemResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveDanhMucItemResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemsByDanhMuc">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="maLoaiDanhMuc" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemsByDanhMucResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucItemsByDanhMucResult" nillable="true" type="q12:ArrayOfDanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItems">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucItemsResult" nillable="true" type="q13:ArrayOfDanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemByID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.microsoft.com/2003/10/Serialization/" minOccurs="0" name="iD" type="q14:guid" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemByIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucItemByIDResult" nillable="true" type="q15:DanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemByCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemByCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucItemByCriteriaResult" nillable="true" type="q16:ArrayOfDanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemBySizeCriteria">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="size" type="xs:int" />
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemBySizeCriteriaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucItemBySizeCriteriaResult" nillable="true" type="q17:ArrayOfDanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemCount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemCountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetDanhMucItemCountResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemPaging">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="whereCondition" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pageSize" type="xs:int" />
+        <xs:element minOccurs="0" name="currentPage" type="xs:int" />
+        <xs:element minOccurs="0" name="sortByColumns" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDanhMucItemPagingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" minOccurs="0" name="GetDanhMucItemPagingResult" nillable="true" type="q18:ArrayOfDanhMucItemData" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -4,18 +4,18 @@ using System.Linq;
 using System.Text;
 using System.ServiceModel;
 
-using HS.Server.Interfaces.DAO;
+using HS.Server.Data.Entities.Systems;
 
-namespace HS.Server.Interfaces.Contracts.Systems
+namespace HS.Server.Contracts.Systems
 {
     /// <summary>
-    /// IDanhMucService interface for service layer mapped table DanhMuc.
+    /// IDanhMucItemService interface for service layer mapped table DanhMuc_Item.
     /// CODE:
     ///     - Author:    BangDV
-    ///     - Generated Date:  20/07/2013 04:03:53 PM
+    ///     - Generated Date:  21/07/2013 02:35:46 PM
     /// </summary>
     [ServiceContract]
-    public interface IDanhMucService
+    public interface IDanhMucItem
     {
         /// <summary>
         /// 
@@ -23,7 +23,7 @@ namespace HS.Server.Interfaces.Contracts.Systems
         /// <param name="data"></param>
         /// <returns></returns>
         [OperationContract]
-        System.Int32 AddDanhMuc(DanhMucData data);
+        System.Int32 AddDanhMucItem(DanhMucItemData data);
 
         /// <summary>
         /// 
@@ -31,7 +31,7 @@ namespace HS.Server.Interfaces.Contracts.Systems
         /// <param name="data"></param>
         /// <returns></returns>
         [OperationContract]
-        System.Int32 ChangeDanhMuc(DanhMucData data);
+        System.Int32 ChangeDanhMucItem(DanhMucItemData data);
 
         /// <summary>
         /// 
@@ -39,14 +39,21 @@ namespace HS.Server.Interfaces.Contracts.Systems
         /// <param name="data"></param>
         /// <returns></returns>
         [OperationContract]
-        System.Int32 RemoveDanhMuc(DanhMucData data);
+        System.Int32 RemoveDanhMucItem(DanhMucItemData data);
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [OperationContract]
-        IList<DanhMucData> GetDanhMucs();
+        IList<DanhMucItemData> GetDanhMucItemsByDanhMuc(string maLoaiDanhMuc);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [OperationContract]
+        IList<DanhMucItemData> GetDanhMucItems();
 
         /// <summary>
         /// 
@@ -54,34 +61,34 @@ namespace HS.Server.Interfaces.Contracts.Systems
         /// <param name="objId"></param>
         /// <returns></returns>
         [OperationContract]
-        DanhMucData GetDanhMucByID(System.String maLoaiDanhMuc);
+        DanhMucItemData GetDanhMucItemByID(System.Guid iD);
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [OperationContract]
-        IList<DanhMucData> GetDanhMucByCriteria(System.String whereCondition);
+        IList<DanhMucItemData> GetDanhMucItemByCriteria(System.String whereCondition);
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [OperationContract]
-        IList<DanhMucData> GetDanhMucBySizeCriteria(System.Int32 size, System.String whereCondition);
+        IList<DanhMucItemData> GetDanhMucItemBySizeCriteria(System.Int32 size, System.String whereCondition);
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [OperationContract]
-        System.Int32 GetDanhMucCount(System.String whereCondition);
+        System.Int32 GetDanhMucItemCount(System.String whereCondition);
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
         [OperationContract]
-        IList<DanhMucData> GetDanhMucPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns);
+        IList<DanhMucItemData> GetDanhMucItemPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns);
     }
 }

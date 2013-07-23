@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:1032/Service.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DanhMucData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="MaLoaiDanhMuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="System" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TenLoaiDanhMuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThuTu" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DanhMucData" nillable="true" type="tns:DanhMucData" />
+  <xs:complexType name="ArrayOfDanhMucData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DanhMucData" nillable="true" type="tns:DanhMucData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDanhMucData" nillable="true" type="tns:ArrayOfDanhMucData" />
+  <xs:complexType name="DanhMucItemData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DecVal1" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DecVal2" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="DecVal3" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="ID" type="ser:guid" />
+      <xs:element minOccurs="0" name="IntVal1" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IntVal2" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="IntVal3" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaDanhMuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaLoaiDanhMuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrVal1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrVal2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StrVal3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TenDanhMuc" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ThuTu" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DanhMucItemData" nillable="true" type="tns:DanhMucItemData" />
+  <xs:complexType name="ArrayOfDanhMucItemData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DanhMucItemData" nillable="true" type="tns:DanhMucItemData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDanhMucItemData" nillable="true" type="tns:ArrayOfDanhMucItemData" />
+</xs:schema>

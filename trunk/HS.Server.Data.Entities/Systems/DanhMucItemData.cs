@@ -5,7 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Runtime.Serialization;
 
-namespace HS.Server.Interfaces.DAO
+namespace HS.Server.Data.Entities.Systems
 {
     /// <summary>
     /// DmDanhmucitemData object for Entity mapped table DM_DanhMucItem.

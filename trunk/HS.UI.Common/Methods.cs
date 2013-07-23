@@ -47,7 +47,7 @@ namespace HS.UI.Common
             }
             catch (Exception ex)
             {
-                ErrorLog.Log("#LoadMenu", ex.Message);
+                ShowError("#LoadMenu", ex);
                 return new DataTable();
             }
 
