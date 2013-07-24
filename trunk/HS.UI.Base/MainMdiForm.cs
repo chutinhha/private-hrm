@@ -30,6 +30,13 @@ namespace HS.UI.Base
             {
                 this.Icon = System.Drawing.Icon.ExtractAssociatedIcon(System.IO.Path.Combine(Application.StartupPath, "Resources/Icons/App.ico"));
             }
+
+            this.Load += MainMdiForms_Load;
+        }
+
+        void MainMdiForms_Load(object sender, EventArgs e)
+        {
+            this.toolMain.Visible = false;
         }
 
         #region Tab Events
@@ -66,11 +73,14 @@ namespace HS.UI.Base
             // không là unique Form
 
             string tabText = "";
-#if (DEBUG)
-            tabText = string.Format("{0} - {1}", childForm.Text, childForm.Name);
-#else
-            tabText = childForm.Text;
-#endif
+            if (Variables.IsDebug)
+            {
+                tabText = string.Format("{0} - {1}", childForm.Text, childForm.Name);
+            }
+            else
+            {
+                tabText = childForm.Text;
+            }
 
             // tạo tab mới
             TabPage newTabPage = new TabPage()
@@ -99,7 +109,7 @@ namespace HS.UI.Base
             // Thêm form vào contextmenu tab
             ToolStripMenuItem newMenuItem = new ToolStripMenuItem()
             {
-                Text = childForm.Text,
+                Text = tabText,
                 CheckState = System.Windows.Forms.CheckState.Checked,
                 Tag = newTabPage
             };
@@ -353,7 +363,6 @@ namespace HS.UI.Base
 
         #region Menu Item Events
 
-
         private void mnuLogin_Click(object sender, EventArgs e)
         {
             AskAndClose("Chắc chăn bạn muốn thoát ra và Đăng nhập lại?", true);
@@ -380,7 +389,6 @@ namespace HS.UI.Base
 
 
         #endregion
-
 
         #region Build ToolbarItem
 
@@ -491,11 +499,6 @@ namespace HS.UI.Base
                 toolStrip.Items.Add(button);
             }
         }
-
-        #endregion
-
-
-        #region API Tool test
 
         #endregion
 

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using HS.Service.Connection.HSService;
 
-namespace HS.Service
+namespace HS.Service.Wraper
 {
     public class SystemWraper : ServiceBase
     {
@@ -125,6 +125,104 @@ namespace HS.Service
         public List<DanhMucItemData> GetDanhMucItemPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns)
         {
             return Instant.GetDanhMucItemPaging(whereCondition, pageSize, currentPage, sortByColumns);
+        }
+
+        #endregion
+
+        #region SysAccount
+
+        public int AddSysAccount(SysAccountData obj)
+        {
+            return Instant.AddSysAccount(obj);
+        }
+
+        public int ChangeSysAccount(SysAccountData obj)
+        {
+            return Instant.ChangeSysAccount(obj);
+        }
+
+        public int RemoveSysAccount(SysAccountData obj)
+        {
+            return Instant.RemoveSysAccount(obj);
+        }
+
+        public List<SysAccountData> GetSysAccounts()
+        {
+            return Instant.GetSysAccounts();
+        }
+
+        public SysAccountData GetSysAccountByID(System.Int32 ID)
+        {
+            return Instant.GetSysAccountByID(ID);
+        }
+
+        public List<SysAccountData> GetSysAccountByCriteria(string whereCondition)
+        {
+            return Instant.GetSysAccountByCriteria(whereCondition);
+        }
+
+        public List<SysAccountData> GetSysAccountBySizeCriteria(int size, string whereCondition)
+        {
+            return Instant.GetSysAccountBySizeCriteria(size, whereCondition);
+        }
+
+        public int GetSysAccountCount(string conditionWhere)
+        {
+            return Instant.GetSysAccountCount(conditionWhere);
+        }
+
+        public List<SysAccountData> GetSysAccountPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns)
+        {
+            return Instant.GetSysAccountPaging(whereCondition, pageSize, currentPage, sortByColumns);
+        }
+
+        #endregion
+
+        #region SysGroup
+
+        public int AddSysGroup(SysGroupData obj)
+        {
+            return Instant.AddSysGroup(obj);
+        }
+
+        public int ChangeSysGroup(SysGroupData obj)
+        {
+            return Instant.ChangeSysGroup(obj);
+        }
+
+        public int RemoveSysGroup(SysGroupData obj)
+        {
+            return Instant.RemoveSysGroup(obj);
+        }
+
+        public List<SysGroupData> GetSysGroups()
+        {
+            return Instant.GetSysGroups();
+        }
+
+        public SysGroupData GetSysGroupByID(System.Int32 ID)
+        {
+            return Instant.GetSysGroupByID(ID);
+        }
+
+        public List<SysGroupData> GetSysGroupByCriteria(string whereCondition)
+        {
+            return Instant.GetSysGroupByCriteria(whereCondition);
+        }
+
+        public List<SysGroupData> GetSysGroupBySizeCriteria(int size, string whereCondition)
+        {
+            return Instant.GetSysGroupBySizeCriteria(size, whereCondition);
+        }
+
+        public int GetSysGroupCount(string conditionWhere)
+        {
+            return Instant.GetSysGroupCount(conditionWhere);
+        }
+
+        public List<SysGroupData> GetSysGroupPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns)
+        {
+            return Instant.GetSysGroupPaging(whereCondition, pageSize, currentPage, sortByColumns);
         }
 
         #endregion

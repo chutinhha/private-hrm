@@ -8,7 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 
 using HS.UI.Common;
-using HS.Service;
+using HS.Service.Wraper;
 using HS.Service.Connection.HSService;
 
 namespace HS.UI.Forms.Systems.Config.DanhMuc

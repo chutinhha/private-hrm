@@ -70,6 +70,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="Systems\SysGroupDomainObject.cs" />
+    <Compile Include="Systems\SysAccountDomainObject.cs" />
     <Compile Include="Systems\DanhMucDomainObject.cs">
       <SubType>Code</SubType>
     </Compile>

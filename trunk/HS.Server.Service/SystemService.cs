@@ -285,5 +285,265 @@ namespace HS.Server.Service
         }
 
         #endregion
+
+        #region SysAccount
+
+        public System.Int32 AddSysAccount(SysAccountData data)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.Add(data);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[AddSysAccount]", ex.Message);
+            }
+            return -1;
+        }
+
+        public System.Int32 ChangeSysAccount(SysAccountData data)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.Change(data);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[ChangeSysAccount]", ex.Message);
+            }
+            return -1;
+        }
+
+        public System.Int32 RemoveSysAccount(SysAccountData data)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.Remove(data);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[RemoveSysAccount]", ex.Message);
+            }
+            return -1;
+        }
+
+        public IList<SysAccountData> GetSysAccounts()
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.GetSysAccounts();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysAccounts]", ex.Message);
+                return null;
+            }
+        }
+
+        public SysAccountData GetSysAccountByID(System.Int32 ID)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.GetSysAccountByID(ID);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysAccountByID]", ex.Message);
+                return null;
+            }
+        }
+
+        public IList<SysAccountData> GetSysAccountByCriteria(System.String whereCondition)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.GetSysAccounts(whereCondition);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysAccountByCriteria]", ex.Message);
+                return null;
+            }
+        }
+
+        public IList<SysAccountData> GetSysAccountBySizeCriteria(System.Int32 size, System.String whereCondition)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.GetSysAccounts(size, whereCondition);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysAccountBySizeCriteria]", ex.Message);
+                return null;
+            }
+        }
+
+        public System.Int32 GetSysAccountCount(System.String whereCondition)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.GetSysAccountCount(whereCondition);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysAccountCount]", ex.Message);
+            }
+            return -1;
+        }
+
+        public IList<SysAccountData> GetSysAccountPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns)
+        {
+            try
+            {
+                var domain = new SysAccountDomainObject(ConnectionString);
+                return domain.GetSysAccountPaging(whereCondition, pageSize, currentPage, sortByColumns);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysAccountPaging]", ex.Message);
+                return new List<SysAccountData>();
+            }
+        }
+
+        #endregion
+
+        #region SysGroup
+
+        public System.Int32 AddSysGroup(SysGroupData data)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.Add(data);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[AddSysGroup]", ex.Message);
+            }
+            return -1;
+        }
+
+        public System.Int32 ChangeSysGroup(SysGroupData data)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.Change(data);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[ChangeSysGroup]", ex.Message);
+            }
+            return -1;
+        }
+
+        public System.Int32 RemoveSysGroup(SysGroupData data)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.Remove(data);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[RemoveSysGroup]", ex.Message);
+            }
+            return -1;
+        }
+
+        public IList<SysGroupData> GetSysGroups()
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.GetSysGroups();
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysGroups]", ex.Message);
+                return null;
+            }
+        }
+
+        public SysGroupData GetSysGroupByID(System.Int32 ID)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.GetSysGroupByID(ID);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysGroupByID]", ex.Message);
+                return null;
+            }
+        }
+
+        public IList<SysGroupData> GetSysGroupByCriteria(System.String whereCondition)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.GetSysGroups(whereCondition);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysGroupByCriteria]", ex.Message);
+                return null;
+            }
+        }
+
+        public IList<SysGroupData> GetSysGroupBySizeCriteria(System.Int32 size, System.String whereCondition)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.GetSysGroups(size, whereCondition);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysGroupBySizeCriteria]", ex.Message);
+                return null;
+            }
+        }
+
+        public System.Int32 GetSysGroupCount(System.String whereCondition)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.GetSysGroupCount(whereCondition);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysGroupCount]", ex.Message);
+            }
+            return -1;
+        }
+
+        public IList<SysGroupData> GetSysGroupPaging(System.String whereCondition, System.Int32 pageSize, System.Int32 currentPage, System.String sortByColumns)
+        {
+            try
+            {
+                var domain = new SysGroupDomainObject(ConnectionString);
+                return domain.GetSysGroupPaging(whereCondition, pageSize, currentPage, sortByColumns);
+            }
+            catch (Exception ex)
+            {
+                ErrorLog.Log("[GetSysGroupPaging]", ex.Message);
+                return new List<SysGroupData>();
+            }
+        }
+
+        #endregion
     }
 }

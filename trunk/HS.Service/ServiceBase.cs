@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using HS.UI.Common;
 
-namespace HS.Service
+namespace HS.Service.Wraper
 {
     public class ServiceBase
     {

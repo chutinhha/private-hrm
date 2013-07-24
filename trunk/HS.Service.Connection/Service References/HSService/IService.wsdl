@@ -822,6 +822,690 @@
       </wsp:All>
     </wsp:ExactlyOne>
   </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_AddSysAccount_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_AddSysAccount_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_ChangeSysAccount_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_ChangeSysAccount_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_RemoveSysAccount_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_RemoveSysAccount_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccounts_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccounts_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountByID_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountByID_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountByCriteria_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountByCriteria_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountBySizeCriteria_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountBySizeCriteria_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountCount_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountCount_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountPaging_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysAccountPaging_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_AddSysGroup_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_AddSysGroup_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_ChangeSysGroup_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_ChangeSysGroup_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_RemoveSysGroup_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_RemoveSysGroup_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroups_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroups_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupByID_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupByID_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupByCriteria_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupByCriteria_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupBySizeCriteria_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupBySizeCriteria_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupCount_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupCount_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupPaging_Input_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="Systems_GetSysGroupPaging_output_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:SignedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+          <sp:Header Name="To" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="From" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="FaultTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="ReplyTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="MessageID" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="RelatesTo" Namespace="http://www.w3.org/2005/08/addressing" />
+          <sp:Header Name="Action" Namespace="http://www.w3.org/2005/08/addressing" />
+        </sp:SignedParts>
+        <sp:EncryptedParts xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <sp:Body />
+        </sp:EncryptedParts>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:1032/Service.svc?xsd=xsd0" namespace="http://tempuri.org/" />
@@ -943,89 +1627,269 @@
   <wsdl:message name="ISystem_GetDanhMucItemPaging_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDanhMucItemPagingResponse" />
   </wsdl:message>
+  <wsdl:message name="ISystem_AddSysAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSysAccount" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_AddSysAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSysAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_ChangeSysAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeSysAccount" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_ChangeSysAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeSysAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_RemoveSysAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSysAccount" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_RemoveSysAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSysAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccounts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccounts" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccounts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountByID" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountByCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountByCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountByCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountByCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountBySizeCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountBySizeCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountBySizeCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountBySizeCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountCount" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountPaging" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysAccountPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysAccountPagingResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_AddSysGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSysGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_AddSysGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSysGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_ChangeSysGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeSysGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_ChangeSysGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeSysGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_RemoveSysGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSysGroup" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_RemoveSysGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSysGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroups" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupByID" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupByCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupByCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupByCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupByCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupBySizeCriteria_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupBySizeCriteria" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupBySizeCriteria_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupBySizeCriteriaResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupCount" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupPaging_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupPaging" />
+  </wsdl:message>
+  <wsdl:message name="ISystem_GetSysGroupPaging_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSysGroupPagingResponse" />
+  </wsdl:message>
   <wsdl:portType name="ISystem">
     <wsdl:operation name="AddDanhMuc">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/AddDanhMuc" message="tns:ISystem_AddDanhMuc_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/AddDanhMucResponse" message="tns:ISystem_AddDanhMuc_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/AddDanhMuc" message="tns:ISystem_AddDanhMuc_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/AddDanhMucResponse" message="tns:ISystem_AddDanhMuc_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ChangeDanhMuc">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/ChangeDanhMuc" message="tns:ISystem_ChangeDanhMuc_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/ChangeDanhMucResponse" message="tns:ISystem_ChangeDanhMuc_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/ChangeDanhMuc" message="tns:ISystem_ChangeDanhMuc_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/ChangeDanhMucResponse" message="tns:ISystem_ChangeDanhMuc_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveDanhMuc">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/RemoveDanhMuc" message="tns:ISystem_RemoveDanhMuc_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/RemoveDanhMucResponse" message="tns:ISystem_RemoveDanhMuc_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/RemoveDanhMuc" message="tns:ISystem_RemoveDanhMuc_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/RemoveDanhMucResponse" message="tns:ISystem_RemoveDanhMuc_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucs">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucs" message="tns:ISystem_GetDanhMucs_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucsResponse" message="tns:ISystem_GetDanhMucs_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucs" message="tns:ISystem_GetDanhMucs_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucsResponse" message="tns:ISystem_GetDanhMucs_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucByID">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucByID" message="tns:ISystem_GetDanhMucByID_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucByIDResponse" message="tns:ISystem_GetDanhMucByID_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucByID" message="tns:ISystem_GetDanhMucByID_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucByIDResponse" message="tns:ISystem_GetDanhMucByID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucByCriteria">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucByCriteria" message="tns:ISystem_GetDanhMucByCriteria_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucByCriteriaResponse" message="tns:ISystem_GetDanhMucByCriteria_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucByCriteria" message="tns:ISystem_GetDanhMucByCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucByCriteriaResponse" message="tns:ISystem_GetDanhMucByCriteria_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucBySizeCriteria">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucBySizeCriteria" message="tns:ISystem_GetDanhMucBySizeCriteria_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucBySizeCriteriaResponse" message="tns:ISystem_GetDanhMucBySizeCriteria_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucBySizeCriteria" message="tns:ISystem_GetDanhMucBySizeCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucBySizeCriteriaResponse" message="tns:ISystem_GetDanhMucBySizeCriteria_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucCount">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucCount" message="tns:ISystem_GetDanhMucCount_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucCountResponse" message="tns:ISystem_GetDanhMucCount_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucCount" message="tns:ISystem_GetDanhMucCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucCountResponse" message="tns:ISystem_GetDanhMucCount_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucPaging">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucPaging" message="tns:ISystem_GetDanhMucPaging_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucService/GetDanhMucPagingResponse" message="tns:ISystem_GetDanhMucPaging_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucPaging" message="tns:ISystem_GetDanhMucPaging_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMuc/GetDanhMucPagingResponse" message="tns:ISystem_GetDanhMucPaging_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddDanhMucItem">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/AddDanhMucItem" message="tns:ISystem_AddDanhMucItem_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/AddDanhMucItemResponse" message="tns:ISystem_AddDanhMucItem_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/AddDanhMucItem" message="tns:ISystem_AddDanhMucItem_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/AddDanhMucItemResponse" message="tns:ISystem_AddDanhMucItem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ChangeDanhMucItem">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/ChangeDanhMucItem" message="tns:ISystem_ChangeDanhMucItem_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/ChangeDanhMucItemResponse" message="tns:ISystem_ChangeDanhMucItem_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/ChangeDanhMucItem" message="tns:ISystem_ChangeDanhMucItem_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/ChangeDanhMucItemResponse" message="tns:ISystem_ChangeDanhMucItem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RemoveDanhMucItem">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/RemoveDanhMucItem" message="tns:ISystem_RemoveDanhMucItem_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/RemoveDanhMucItemResponse" message="tns:ISystem_RemoveDanhMucItem_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/RemoveDanhMucItem" message="tns:ISystem_RemoveDanhMucItem_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/RemoveDanhMucItemResponse" message="tns:ISystem_RemoveDanhMucItem_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemsByDanhMuc">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsByDanhMuc" message="tns:ISystem_GetDanhMucItemsByDanhMuc_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsByDanhMucResponse" message="tns:ISystem_GetDanhMucItemsByDanhMuc_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemsByDanhMuc" message="tns:ISystem_GetDanhMucItemsByDanhMuc_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemsByDanhMucResponse" message="tns:ISystem_GetDanhMucItemsByDanhMuc_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItems">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItems" message="tns:ISystem_GetDanhMucItems_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsResponse" message="tns:ISystem_GetDanhMucItems_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItems" message="tns:ISystem_GetDanhMucItems_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemsResponse" message="tns:ISystem_GetDanhMucItems_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemByID">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByID" message="tns:ISystem_GetDanhMucItemByID_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByIDResponse" message="tns:ISystem_GetDanhMucItemByID_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByID" message="tns:ISystem_GetDanhMucItemByID_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByIDResponse" message="tns:ISystem_GetDanhMucItemByID_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemByCriteria">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByCriteria" message="tns:ISystem_GetDanhMucItemByCriteria_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByCriteriaResponse" message="tns:ISystem_GetDanhMucItemByCriteria_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteria" message="tns:ISystem_GetDanhMucItemByCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteriaResponse" message="tns:ISystem_GetDanhMucItemByCriteria_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemBySizeCriteria">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemBySizeCriteria" message="tns:ISystem_GetDanhMucItemBySizeCriteria_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemBySizeCriteriaResponse" message="tns:ISystem_GetDanhMucItemBySizeCriteria_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemBySizeCriteria" message="tns:ISystem_GetDanhMucItemBySizeCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemBySizeCriteriaResponse" message="tns:ISystem_GetDanhMucItemBySizeCriteria_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemCount">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemCount" message="tns:ISystem_GetDanhMucItemCount_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemCountResponse" message="tns:ISystem_GetDanhMucItemCount_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemCount" message="tns:ISystem_GetDanhMucItemCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemCountResponse" message="tns:ISystem_GetDanhMucItemCount_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemPaging">
-      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemPaging" message="tns:ISystem_GetDanhMucItemPaging_InputMessage" />
-      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemPagingResponse" message="tns:ISystem_GetDanhMucItemPaging_OutputMessage" />
+      <wsdl:input wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemPaging" message="tns:ISystem_GetDanhMucItemPaging_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemPagingResponse" message="tns:ISystem_GetDanhMucItemPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSysAccount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/AddSysAccount" message="tns:ISystem_AddSysAccount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/AddSysAccountResponse" message="tns:ISystem_AddSysAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSysAccount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/ChangeSysAccount" message="tns:ISystem_ChangeSysAccount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/ChangeSysAccountResponse" message="tns:ISystem_ChangeSysAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSysAccount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/RemoveSysAccount" message="tns:ISystem_RemoveSysAccount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/RemoveSysAccountResponse" message="tns:ISystem_RemoveSysAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccounts">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccounts" message="tns:ISystem_GetSysAccounts_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountsResponse" message="tns:ISystem_GetSysAccounts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountByID">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountByID" message="tns:ISystem_GetSysAccountByID_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountByIDResponse" message="tns:ISystem_GetSysAccountByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountByCriteria">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountByCriteria" message="tns:ISystem_GetSysAccountByCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountByCriteriaResponse" message="tns:ISystem_GetSysAccountByCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountBySizeCriteria">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountBySizeCriteria" message="tns:ISystem_GetSysAccountBySizeCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountBySizeCriteriaResponse" message="tns:ISystem_GetSysAccountBySizeCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountCount" message="tns:ISystem_GetSysAccountCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountCountResponse" message="tns:ISystem_GetSysAccountCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountPaging">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountPaging" message="tns:ISystem_GetSysAccountPaging_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysAccountService/GetSysAccountPagingResponse" message="tns:ISystem_GetSysAccountPaging_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSysGroup">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/AddSysGroup" message="tns:ISystem_AddSysGroup_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/AddSysGroupResponse" message="tns:ISystem_AddSysGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSysGroup">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/ChangeSysGroup" message="tns:ISystem_ChangeSysGroup_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/ChangeSysGroupResponse" message="tns:ISystem_ChangeSysGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSysGroup">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/RemoveSysGroup" message="tns:ISystem_RemoveSysGroup_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/RemoveSysGroupResponse" message="tns:ISystem_RemoveSysGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroups">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroups" message="tns:ISystem_GetSysGroups_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupsResponse" message="tns:ISystem_GetSysGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupByID">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupByID" message="tns:ISystem_GetSysGroupByID_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupByIDResponse" message="tns:ISystem_GetSysGroupByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupByCriteria">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupByCriteria" message="tns:ISystem_GetSysGroupByCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupByCriteriaResponse" message="tns:ISystem_GetSysGroupByCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupBySizeCriteria">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupBySizeCriteria" message="tns:ISystem_GetSysGroupBySizeCriteria_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupBySizeCriteriaResponse" message="tns:ISystem_GetSysGroupBySizeCriteria_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupCount">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupCount" message="tns:ISystem_GetSysGroupCount_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupCountResponse" message="tns:ISystem_GetSysGroupCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupPaging">
+      <wsdl:input wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupPaging" message="tns:ISystem_GetSysGroupPaging_InputMessage" />
+      <wsdl:output wsam:Action="http://tempuri.org/ISysGroupService/GetSysGroupPagingResponse" message="tns:ISystem_GetSysGroupPaging_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Systems" type="tns:ISystem">
     <wsp:PolicyReference URI="#Systems_policy" />
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AddDanhMuc">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/AddDanhMuc" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/AddDanhMuc" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_AddDanhMuc_Input_policy" />
         <soap12:body use="literal" />
@@ -1036,7 +1900,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ChangeDanhMuc">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/ChangeDanhMuc" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/ChangeDanhMuc" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_ChangeDanhMuc_Input_policy" />
         <soap12:body use="literal" />
@@ -1047,7 +1911,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RemoveDanhMuc">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/RemoveDanhMuc" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/RemoveDanhMuc" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_RemoveDanhMuc_Input_policy" />
         <soap12:body use="literal" />
@@ -1058,7 +1922,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucs">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/GetDanhMucs" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/GetDanhMucs" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucs_Input_policy" />
         <soap12:body use="literal" />
@@ -1069,7 +1933,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucByID">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/GetDanhMucByID" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/GetDanhMucByID" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucByID_Input_policy" />
         <soap12:body use="literal" />
@@ -1080,7 +1944,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucByCriteria">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/GetDanhMucByCriteria" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/GetDanhMucByCriteria" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucByCriteria_Input_policy" />
         <soap12:body use="literal" />
@@ -1091,7 +1955,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucBySizeCriteria">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/GetDanhMucBySizeCriteria" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/GetDanhMucBySizeCriteria" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucBySizeCriteria_Input_policy" />
         <soap12:body use="literal" />
@@ -1102,7 +1966,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucCount">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/GetDanhMucCount" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/GetDanhMucCount" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucCount_Input_policy" />
         <soap12:body use="literal" />
@@ -1113,7 +1977,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucPaging">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucService/GetDanhMucPaging" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMuc/GetDanhMucPaging" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucPaging_Input_policy" />
         <soap12:body use="literal" />
@@ -1124,7 +1988,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="AddDanhMucItem">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/AddDanhMucItem" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/AddDanhMucItem" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_AddDanhMucItem_Input_policy" />
         <soap12:body use="literal" />
@@ -1135,7 +1999,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="ChangeDanhMucItem">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/ChangeDanhMucItem" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/ChangeDanhMucItem" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_ChangeDanhMucItem_Input_policy" />
         <soap12:body use="literal" />
@@ -1146,7 +2010,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="RemoveDanhMucItem">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/RemoveDanhMucItem" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/RemoveDanhMucItem" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_RemoveDanhMucItem_Input_policy" />
         <soap12:body use="literal" />
@@ -1157,7 +2021,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemsByDanhMuc">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsByDanhMuc" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemsByDanhMuc" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemsByDanhMuc_Input_policy" />
         <soap12:body use="literal" />
@@ -1168,7 +2032,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItems">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItems" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItems" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItems_Input_policy" />
         <soap12:body use="literal" />
@@ -1179,7 +2043,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemByID">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByID" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemByID" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemByID_Input_policy" />
         <soap12:body use="literal" />
@@ -1190,7 +2054,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemByCriteria">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByCriteria" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteria" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemByCriteria_Input_policy" />
         <soap12:body use="literal" />
@@ -1201,7 +2065,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemBySizeCriteria">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemBySizeCriteria" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemBySizeCriteria" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemBySizeCriteria_Input_policy" />
         <soap12:body use="literal" />
@@ -1212,7 +2076,7 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemCount">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemCount" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemCount" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemCount_Input_policy" />
         <soap12:body use="literal" />
@@ -1223,13 +2087,211 @@
       </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetDanhMucItemPaging">
-      <soap12:operation soapAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemPaging" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemPaging" style="document" />
       <wsdl:input>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemPaging_Input_policy" />
         <soap12:body use="literal" />
       </wsdl:input>
       <wsdl:output>
         <wsp:PolicyReference URI="#Systems_GetDanhMucItemPaging_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSysAccount">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/AddSysAccount" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_AddSysAccount_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_AddSysAccount_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSysAccount">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/ChangeSysAccount" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_ChangeSysAccount_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_ChangeSysAccount_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSysAccount">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/RemoveSysAccount" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_RemoveSysAccount_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_RemoveSysAccount_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccounts">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/GetSysAccounts" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysAccounts_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysAccounts_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountByID">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/GetSysAccountByID" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountByID_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountByID_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountByCriteria">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/GetSysAccountByCriteria" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountByCriteria_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountByCriteria_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountBySizeCriteria">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/GetSysAccountBySizeCriteria" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountBySizeCriteria_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountBySizeCriteria_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountCount">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/GetSysAccountCount" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountCount_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountCount_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysAccountPaging">
+      <soap12:operation soapAction="http://tempuri.org/ISysAccountService/GetSysAccountPaging" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountPaging_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysAccountPaging_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSysGroup">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/AddSysGroup" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_AddSysGroup_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_AddSysGroup_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeSysGroup">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/ChangeSysGroup" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_ChangeSysGroup_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_ChangeSysGroup_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSysGroup">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/RemoveSysGroup" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_RemoveSysGroup_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_RemoveSysGroup_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroups">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/GetSysGroups" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysGroups_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysGroups_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupByID">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/GetSysGroupByID" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupByID_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupByID_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupByCriteria">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/GetSysGroupByCriteria" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupByCriteria_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupByCriteria_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupBySizeCriteria">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/GetSysGroupBySizeCriteria" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupBySizeCriteria_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupBySizeCriteria_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupCount">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/GetSysGroupCount" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupCount_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupCount_output_policy" />
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSysGroupPaging">
+      <soap12:operation soapAction="http://tempuri.org/ISysGroupService/GetSysGroupPaging" style="document" />
+      <wsdl:input>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupPaging_Input_policy" />
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsp:PolicyReference URI="#Systems_GetSysGroupPaging_output_policy" />
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
