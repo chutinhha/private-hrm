@@ -88,17 +88,17 @@
     <Compile Include="Config\frmConfiguration.Designer.cs">
       <DependentUpon>frmConfiguration.cs</DependentUpon>
     </Compile>
-    <Compile Include="Config\frmUser.cs">
+    <Compile Include="AccountAndGroup\frmAccountAndGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Config\frmUser.Designer.cs">
-      <DependentUpon>frmUser.cs</DependentUpon>
+    <Compile Include="AccountAndGroup\frmAccountAndGroup.Designer.cs">
+      <DependentUpon>frmAccountAndGroup.cs</DependentUpon>
     </Compile>
-    <Compile Include="Config\frmUserGroup.cs">
+    <Compile Include="AccountAndGroup\frmGroup.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Config\frmUserGroup.Designer.cs">
-      <DependentUpon>frmUserGroup.cs</DependentUpon>
+    <Compile Include="AccountAndGroup\frmGroup.Designer.cs">
+      <DependentUpon>frmGroup.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -123,11 +123,11 @@
     <EmbeddedResource Include="Config\frmConfiguration.resx">
       <DependentUpon>frmConfiguration.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Config\frmUser.resx">
-      <DependentUpon>frmUser.cs</DependentUpon>
+    <EmbeddedResource Include="AccountAndGroup\frmAccountAndGroup.resx">
+      <DependentUpon>frmAccountAndGroup.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Config\frmUserGroup.resx">
-      <DependentUpon>frmUserGroup.cs</DependentUpon>
+    <EmbeddedResource Include="AccountAndGroup\frmGroup.resx">
+      <DependentUpon>frmGroup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -161,9 +161,9 @@
       <Project>{e759d688-3e1d-4df2-945b-df6313a8a294}</Project>
       <Name>HS.Service.Connection</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HS.Service\HS.Service.csproj">
+    <ProjectReference Include="..\HS.Service\HS.Service.Wraper.csproj">
       <Project>{43ffcb87-9a8c-4493-a0ee-d2421c598e6a}</Project>
-      <Name>HS.Service</Name>
+      <Name>HS.Service.Wraper</Name>
     </ProjectReference>
     <ProjectReference Include="..\HS.UI.Base\HS.UI.Base.csproj">
       <Project>{46760e59-4b39-49d7-b64d-48fc7a1cc016}</Project>

@@ -11,7 +11,9 @@ namespace HS.Server.Contracts
     [ServiceContract]
     public interface ISystem : 
         IDanhMuc,
-        IDanhMucItem
+        IDanhMucItem,
+        ISysAccountService,
+        ISysGroupService
     {
 
     }

@@ -42,4 +42,43 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfDanhMucItemData" nillable="true" type="tns:ArrayOfDanhMucItemData" />
+  <xs:complexType name="SysAccountData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AccountType" nillable="true" type="xs:unsignedByte" />
+      <xs:element minOccurs="0" name="Active" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Creator_ID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_DonViGoc" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_DonVis" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IsUpdate" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="LastAccess" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RealName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SysAccountData" nillable="true" type="tns:SysAccountData" />
+  <xs:complexType name="ArrayOfSysAccountData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SysAccountData" nillable="true" type="tns:SysAccountData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSysAccountData" nillable="true" type="tns:ArrayOfSysAccountData" />
+  <xs:complexType name="SysGroupData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Active" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Creator" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SysGroupData" nillable="true" type="tns:SysGroupData" />
+  <xs:complexType name="ArrayOfSysGroupData">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SysGroupData" nillable="true" type="tns:SysGroupData" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSysGroupData" nillable="true" type="tns:ArrayOfSysGroupData" />
 </xs:schema>

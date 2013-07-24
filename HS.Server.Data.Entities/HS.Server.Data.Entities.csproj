@@ -41,6 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Systems\SysGroupData.cs" />
+    <Compile Include="Systems\SysAccountData.cs" />
     <Compile Include="Systems\DanhMucData.cs" />
     <Compile Include="Systems\DanhMucItemData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

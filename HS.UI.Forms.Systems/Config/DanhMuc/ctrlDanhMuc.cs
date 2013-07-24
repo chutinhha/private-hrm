@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using HS.Service;
+using HS.Service.Wraper;
 using HS.Service.Connection.HSService;
 using HS.UI.Common;
 

@@ -1,6 +1,6 @@
-﻿namespace HS.UI.Forms.Config
+﻿namespace HS.UI.Forms.Systems.Config
 {
-    partial class frmUserGroup
+    partial class frmGroup
     {
         /// <summary>
         /// Required designer variable.

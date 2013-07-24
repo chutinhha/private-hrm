@@ -81,6 +81,12 @@
     <None Include="Service References\HSService\HS.Service.Connection.HSService.DanhMucItemData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\HSService\HS.Service.Connection.HSService.SysAccountData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HSService\HS.Service.Connection.HSService.SysGroupData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\HSService\IService.wsdl" />
     <None Include="Service References\HSService\Service.xsd">
       <SubType>Designer</SubType>

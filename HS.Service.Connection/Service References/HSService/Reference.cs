@@ -375,66 +375,450 @@ namespace HS.Service.Connection.HSService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysAccountData", Namespace="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems")]
+    [System.SerializableAttribute()]
+    public partial class SysAccountData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<byte> AccountTypeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> ActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> Creator_IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ID_DonViGocField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ID_DonVisField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<bool> IsUpdateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<System.DateTime> LastAccessField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string RealNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string UsernameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<byte> AccountType {
+            get {
+                return this.AccountTypeField;
+            }
+            set {
+                if ((this.AccountTypeField.Equals(value) != true)) {
+                    this.AccountTypeField = value;
+                    this.RaisePropertyChanged("AccountType");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Creator_ID {
+            get {
+                return this.Creator_IDField;
+            }
+            set {
+                if ((this.Creator_IDField.Equals(value) != true)) {
+                    this.Creator_IDField = value;
+                    this.RaisePropertyChanged("Creator_ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ID_DonViGoc {
+            get {
+                return this.ID_DonViGocField;
+            }
+            set {
+                if ((this.ID_DonViGocField.Equals(value) != true)) {
+                    this.ID_DonViGocField = value;
+                    this.RaisePropertyChanged("ID_DonViGoc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ID_DonVis {
+            get {
+                return this.ID_DonVisField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ID_DonVisField, value) != true)) {
+                    this.ID_DonVisField = value;
+                    this.RaisePropertyChanged("ID_DonVis");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<bool> IsUpdate {
+            get {
+                return this.IsUpdateField;
+            }
+            set {
+                if ((this.IsUpdateField.Equals(value) != true)) {
+                    this.IsUpdateField = value;
+                    this.RaisePropertyChanged("IsUpdate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<System.DateTime> LastAccess {
+            get {
+                return this.LastAccessField;
+            }
+            set {
+                if ((this.LastAccessField.Equals(value) != true)) {
+                    this.LastAccessField = value;
+                    this.RaisePropertyChanged("LastAccess");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Password {
+            get {
+                return this.PasswordField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PasswordField, value) != true)) {
+                    this.PasswordField = value;
+                    this.RaisePropertyChanged("Password");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string RealName {
+            get {
+                return this.RealNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.RealNameField, value) != true)) {
+                    this.RealNameField = value;
+                    this.RaisePropertyChanged("RealName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Username {
+            get {
+                return this.UsernameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.UsernameField, value) != true)) {
+                    this.UsernameField = value;
+                    this.RaisePropertyChanged("Username");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SysGroupData", Namespace="http://schemas.datacontract.org/2004/07/HS.Server.Data.Entities.Systems")]
+    [System.SerializableAttribute()]
+    public partial class SysGroupData : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private bool ActiveField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> ID_CreatorField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public bool Active {
+            get {
+                return this.ActiveField;
+            }
+            set {
+                if ((this.ActiveField.Equals(value) != true)) {
+                    this.ActiveField = value;
+                    this.RaisePropertyChanged("Active");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> ID_Creator {
+            get {
+                return this.ID_CreatorField;
+            }
+            set {
+                if ((this.ID_CreatorField.Equals(value) != true)) {
+                    this.ID_CreatorField = value;
+                    this.RaisePropertyChanged("ID_Creator");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="HSService.ISystem")]
     public interface ISystem {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/AddDanhMuc", ReplyAction="http://tempuri.org/IDanhMucService/AddDanhMucResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/AddDanhMuc", ReplyAction="http://tempuri.org/IDanhMuc/AddDanhMucResponse")]
         int AddDanhMuc(HS.Service.Connection.HSService.DanhMucData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/ChangeDanhMuc", ReplyAction="http://tempuri.org/IDanhMucService/ChangeDanhMucResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/ChangeDanhMuc", ReplyAction="http://tempuri.org/IDanhMuc/ChangeDanhMucResponse")]
         int ChangeDanhMuc(HS.Service.Connection.HSService.DanhMucData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/RemoveDanhMuc", ReplyAction="http://tempuri.org/IDanhMucService/RemoveDanhMucResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/RemoveDanhMuc", ReplyAction="http://tempuri.org/IDanhMuc/RemoveDanhMucResponse")]
         int RemoveDanhMuc(HS.Service.Connection.HSService.DanhMucData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/GetDanhMucs", ReplyAction="http://tempuri.org/IDanhMucService/GetDanhMucsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/GetDanhMucs", ReplyAction="http://tempuri.org/IDanhMuc/GetDanhMucsResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucData> GetDanhMucs();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/GetDanhMucByID", ReplyAction="http://tempuri.org/IDanhMucService/GetDanhMucByIDResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/GetDanhMucByID", ReplyAction="http://tempuri.org/IDanhMuc/GetDanhMucByIDResponse")]
         HS.Service.Connection.HSService.DanhMucData GetDanhMucByID(string maLoaiDanhMuc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/GetDanhMucByCriteria", ReplyAction="http://tempuri.org/IDanhMucService/GetDanhMucByCriteriaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/GetDanhMucByCriteria", ReplyAction="http://tempuri.org/IDanhMuc/GetDanhMucByCriteriaResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucData> GetDanhMucByCriteria(string whereCondition);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/GetDanhMucBySizeCriteria", ReplyAction="http://tempuri.org/IDanhMucService/GetDanhMucBySizeCriteriaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/GetDanhMucBySizeCriteria", ReplyAction="http://tempuri.org/IDanhMuc/GetDanhMucBySizeCriteriaResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucData> GetDanhMucBySizeCriteria(int size, string whereCondition);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/GetDanhMucCount", ReplyAction="http://tempuri.org/IDanhMucService/GetDanhMucCountResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/GetDanhMucCount", ReplyAction="http://tempuri.org/IDanhMuc/GetDanhMucCountResponse")]
         int GetDanhMucCount(string whereCondition);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucService/GetDanhMucPaging", ReplyAction="http://tempuri.org/IDanhMucService/GetDanhMucPagingResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMuc/GetDanhMucPaging", ReplyAction="http://tempuri.org/IDanhMuc/GetDanhMucPagingResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucData> GetDanhMucPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/AddDanhMucItem", ReplyAction="http://tempuri.org/IDanhMucItemService/AddDanhMucItemResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/AddDanhMucItem", ReplyAction="http://tempuri.org/IDanhMucItem/AddDanhMucItemResponse")]
         int AddDanhMucItem(HS.Service.Connection.HSService.DanhMucItemData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/ChangeDanhMucItem", ReplyAction="http://tempuri.org/IDanhMucItemService/ChangeDanhMucItemResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/ChangeDanhMucItem", ReplyAction="http://tempuri.org/IDanhMucItem/ChangeDanhMucItemResponse")]
         int ChangeDanhMucItem(HS.Service.Connection.HSService.DanhMucItemData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/RemoveDanhMucItem", ReplyAction="http://tempuri.org/IDanhMucItemService/RemoveDanhMucItemResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/RemoveDanhMucItem", ReplyAction="http://tempuri.org/IDanhMucItem/RemoveDanhMucItemResponse")]
         int RemoveDanhMucItem(HS.Service.Connection.HSService.DanhMucItemData data);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsByDanhMuc", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsByDanhMucResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemsByDanhMuc", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemsByDanhMucResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemsByDanhMuc(string maLoaiDanhMuc);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItems", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItems", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemsResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItems();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByID", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByIDResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByID", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemByIDResponse")]
         HS.Service.Connection.HSService.DanhMucItemData GetDanhMucItemByID(System.Guid iD);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByCriteria", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemByCriteriaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteria", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteriaResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemByCriteria(string whereCondition);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemBySizeCriteria", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemBySizeCriteriaResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemBySizeCriteria", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemBySizeCriteriaResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemBySizeCriteria(int size, string whereCondition);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemCount", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemCountResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemCount", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemCountResponse")]
         int GetDanhMucItemCount(string whereCondition);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItemService/GetDanhMucItemPaging", ReplyAction="http://tempuri.org/IDanhMucItemService/GetDanhMucItemPagingResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemPaging", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemPagingResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/AddSysAccount", ReplyAction="http://tempuri.org/ISysAccountService/AddSysAccountResponse")]
+        int AddSysAccount(HS.Service.Connection.HSService.SysAccountData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/ChangeSysAccount", ReplyAction="http://tempuri.org/ISysAccountService/ChangeSysAccountResponse")]
+        int ChangeSysAccount(HS.Service.Connection.HSService.SysAccountData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/RemoveSysAccount", ReplyAction="http://tempuri.org/ISysAccountService/RemoveSysAccountResponse")]
+        int RemoveSysAccount(HS.Service.Connection.HSService.SysAccountData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/GetSysAccounts", ReplyAction="http://tempuri.org/ISysAccountService/GetSysAccountsResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccounts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/GetSysAccountByID", ReplyAction="http://tempuri.org/ISysAccountService/GetSysAccountByIDResponse")]
+        HS.Service.Connection.HSService.SysAccountData GetSysAccountByID(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/GetSysAccountByCriteria", ReplyAction="http://tempuri.org/ISysAccountService/GetSysAccountByCriteriaResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccountByCriteria(string whereCondition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/GetSysAccountBySizeCriteria", ReplyAction="http://tempuri.org/ISysAccountService/GetSysAccountBySizeCriteriaResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccountBySizeCriteria(int size, string whereCondition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/GetSysAccountCount", ReplyAction="http://tempuri.org/ISysAccountService/GetSysAccountCountResponse")]
+        int GetSysAccountCount(string whereCondition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysAccountService/GetSysAccountPaging", ReplyAction="http://tempuri.org/ISysAccountService/GetSysAccountPagingResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccountPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/AddSysGroup", ReplyAction="http://tempuri.org/ISysGroupService/AddSysGroupResponse")]
+        int AddSysGroup(HS.Service.Connection.HSService.SysGroupData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/ChangeSysGroup", ReplyAction="http://tempuri.org/ISysGroupService/ChangeSysGroupResponse")]
+        int ChangeSysGroup(HS.Service.Connection.HSService.SysGroupData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/RemoveSysGroup", ReplyAction="http://tempuri.org/ISysGroupService/RemoveSysGroupResponse")]
+        int RemoveSysGroup(HS.Service.Connection.HSService.SysGroupData data);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/GetSysGroups", ReplyAction="http://tempuri.org/ISysGroupService/GetSysGroupsResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroups();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/GetSysGroupByID", ReplyAction="http://tempuri.org/ISysGroupService/GetSysGroupByIDResponse")]
+        HS.Service.Connection.HSService.SysGroupData GetSysGroupByID(int ID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/GetSysGroupByCriteria", ReplyAction="http://tempuri.org/ISysGroupService/GetSysGroupByCriteriaResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroupByCriteria(string whereCondition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/GetSysGroupBySizeCriteria", ReplyAction="http://tempuri.org/ISysGroupService/GetSysGroupBySizeCriteriaResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroupBySizeCriteria(int size, string whereCondition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/GetSysGroupCount", ReplyAction="http://tempuri.org/ISysGroupService/GetSysGroupCountResponse")]
+        int GetSysGroupCount(string whereCondition);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ISysGroupService/GetSysGroupPaging", ReplyAction="http://tempuri.org/ISysGroupService/GetSysGroupPagingResponse")]
+        System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroupPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -538,6 +922,78 @@ namespace HS.Service.Connection.HSService {
         
         public System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns) {
             return base.Channel.GetDanhMucItemPaging(whereCondition, pageSize, currentPage, sortByColumns);
+        }
+        
+        public int AddSysAccount(HS.Service.Connection.HSService.SysAccountData data) {
+            return base.Channel.AddSysAccount(data);
+        }
+        
+        public int ChangeSysAccount(HS.Service.Connection.HSService.SysAccountData data) {
+            return base.Channel.ChangeSysAccount(data);
+        }
+        
+        public int RemoveSysAccount(HS.Service.Connection.HSService.SysAccountData data) {
+            return base.Channel.RemoveSysAccount(data);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccounts() {
+            return base.Channel.GetSysAccounts();
+        }
+        
+        public HS.Service.Connection.HSService.SysAccountData GetSysAccountByID(int ID) {
+            return base.Channel.GetSysAccountByID(ID);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccountByCriteria(string whereCondition) {
+            return base.Channel.GetSysAccountByCriteria(whereCondition);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccountBySizeCriteria(int size, string whereCondition) {
+            return base.Channel.GetSysAccountBySizeCriteria(size, whereCondition);
+        }
+        
+        public int GetSysAccountCount(string whereCondition) {
+            return base.Channel.GetSysAccountCount(whereCondition);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysAccountData> GetSysAccountPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns) {
+            return base.Channel.GetSysAccountPaging(whereCondition, pageSize, currentPage, sortByColumns);
+        }
+        
+        public int AddSysGroup(HS.Service.Connection.HSService.SysGroupData data) {
+            return base.Channel.AddSysGroup(data);
+        }
+        
+        public int ChangeSysGroup(HS.Service.Connection.HSService.SysGroupData data) {
+            return base.Channel.ChangeSysGroup(data);
+        }
+        
+        public int RemoveSysGroup(HS.Service.Connection.HSService.SysGroupData data) {
+            return base.Channel.RemoveSysGroup(data);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroups() {
+            return base.Channel.GetSysGroups();
+        }
+        
+        public HS.Service.Connection.HSService.SysGroupData GetSysGroupByID(int ID) {
+            return base.Channel.GetSysGroupByID(ID);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroupByCriteria(string whereCondition) {
+            return base.Channel.GetSysGroupByCriteria(whereCondition);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroupBySizeCriteria(int size, string whereCondition) {
+            return base.Channel.GetSysGroupBySizeCriteria(size, whereCondition);
+        }
+        
+        public int GetSysGroupCount(string whereCondition) {
+            return base.Channel.GetSysGroupCount(whereCondition);
+        }
+        
+        public System.Collections.Generic.List<HS.Service.Connection.HSService.SysGroupData> GetSysGroupPaging(string whereCondition, int pageSize, int currentPage, string sortByColumns) {
+            return base.Channel.GetSysGroupPaging(whereCondition, pageSize, currentPage, sortByColumns);
         }
     }
 }
