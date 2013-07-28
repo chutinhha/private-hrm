@@ -7,7 +7,7 @@ namespace HS.UI.Base
 {
     public static class Variables
     {
-        public static MainMdiForms _mainForm;
+        private static MainMdiForms _mainForm;
         public static MainMdiForms MainForm
         {
             get

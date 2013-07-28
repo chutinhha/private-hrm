@@ -113,6 +113,7 @@ namespace GenClassForDB
             catch (SqlException ex)
             {
                 MessageBox.Show("Không kết nối tới Server. Kiểm tra lại tham số");
+                return;
             }
 
             // select all database in server
@@ -318,12 +319,18 @@ GO
             textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Update]", RegenerateTableNameForStore(tableName)));
 
             string columnDetailInsert = "";
+            string whereClause = "";
             for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
             {
                 DataRow row = _dtbColumnList.Rows[i];
 
                 textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
-                if (TablePkey.ContainsKey(row["COLUMN_NAME"].ToString())) continue;
+                if (TablePkey.ContainsKey(row["COLUMN_NAME"].ToString()))
+                {
+                    whereClause += string.Format("{0} [{1}] = @{1}", (whereClause != "" ? "\n      AND" : ""), row["COLUMN_NAME"].ToString());
+                    continue;
+                }
+
                 columnDetailInsert += string.Format("      [{1}] = @{1}{2}\n", row["TABLE_NAME"], row["COLUMN_NAME"], i < _dtbColumnList.Rows.Count - 1 ? "," : "");
             }
 
@@ -333,7 +340,7 @@ GO
 
             textStoreInsert.Append(columnDetailInsert);
 
-            textStoreInsert.AppendLine(string.Format("WHERE [ID] = @ID"));
+            textStoreInsert.AppendLine(string.Format("WHERE " + whereClause));
 
             txtCode_usp_Update.Text = textStoreInsert.ToString();
         }
@@ -363,10 +370,14 @@ GO
 
 
             textStoreInsert.AppendLine(string.Format("     ALTER PROCEDURE [dbo].[{0}_Delete]", RegenerateTableNameForStore(tableName)));
+            string whereClause = "";
 
             for (int i = 0; i < _dtbColumnList.Rows.Count; i++)
             {
                 DataRow row = _dtbColumnList.Rows[i];
+
+                if (TablePkey.ContainsKey(row["COLUMN_NAME"].ToString()))
+                    whereClause += string.Format("{0} [{1}] = @{1}", (whereClause != "" ? "\n      AND" : ""), row["COLUMN_NAME"].ToString());
 
                 textStoreInsert.AppendLine(string.Format("       @{0}  {1}{2}{3}", row["COLUMN_NAME"], row["DATA_TYPE"], row["CHARACTER_MAXIMUM_LENGTH"] != DBNull.Value ? string.Format("({0})", (row["CHARACTER_MAXIMUM_LENGTH"] + "" != "-1" ? row["CHARACTER_MAXIMUM_LENGTH"] : "MAX")) : "", i < _dtbColumnList.Rows.Count - 1 ? "," : ""));
             }
@@ -375,7 +386,7 @@ GO
 
             textStoreInsert.AppendLine(string.Format("DELETE FROM [{0}] ", tableName));
 
-            textStoreInsert.AppendLine(string.Format("WHERE [ID] = @ID"));
+            textStoreInsert.AppendLine(string.Format("WHERE " + whereClause));
 
             txtCode_usp_Delete.Text = textStoreInsert.ToString();
         }
@@ -709,7 +720,7 @@ namespace VCiStock.Data.DataAccess
 		/// </summary>
 		/// <param name=""objId""></param>
 		/// <returns></returns>
-		{2}Data Get{2}ByID("+ GetParamString() +@");
+		{2}Data Get{2}ByID(" + GetParamString() + @");
 
 		/// <summary>
 		/// 
@@ -991,11 +1002,11 @@ namespace VCiStock.Data
 
             textStoreInsert.Append(string.Format(
 @"      
-		public virtual {1}Data Get{1}ByID("+ GetParamString() +@")
+		public virtual {1}Data Get{1}ByID(" + GetParamString() + @")
 		{{
 			JDataAccess dao = new JDataAccess(ConnectionString);
 			dao.SetCommandText(SP_{0}_SELECT_BY_ID, CommandType.StoredProcedure);
-			dao.SetParameters(new IDataParameter[]{{"+
+			dao.SetParameters(new IDataParameter[]{{" +
                 GetParameterString()
 + @"          }});
 
@@ -1187,7 +1198,7 @@ namespace VCiStock.Services.Contracts.Managements.Operation
 		/// <param name=""objId""></param>
 		/// <returns></returns>
 		[OperationContract]
-		{2}Data Get{2}ByID("+ GetParamString() +@");
+		{2}Data Get{2}ByID(" + GetParamString() + @");
 
 		/// <summary>
 		/// 
@@ -1310,12 +1321,12 @@ namespace VCiStock.Services.Contracts.Managements.Operation
 			}}
 		}}
 
-		public {0}Data Get{0}ByID("+ GetParamString() +@")
+		public {0}Data Get{0}ByID(" + GetParamString() + @")
 		{{
 			try
 			{{
 				var domain = new {0}DomainObject(ConnectionString);
-				return domain.Get{0}ByID("+ GetParamInside() +@");
+				return domain.Get{0}ByID(" + GetParamInside() + @");
 			}}
 			catch (Exception ex)
 			{{
@@ -1722,7 +1733,7 @@ namespace VCiStock.Services.Contracts.Managements.Operation
             string param = "";
             foreach (var kPair in TablePkey)
             {
-                param += string.Format("\ndao.CreateParameter(\"@{0}\", {0})", kPair.Key);
+                param += string.Format("{1}\n\t\tdao.CreateParameter(\"@{0}\", {0})", kPair.Key, param != "" ? "," : "");
             }
             return param;
         }
@@ -1838,7 +1849,7 @@ namespace VCiStock.Services.Contracts.Managements.Operation
                     }
                     catch (Exception ex)
                     {
-                        tabFalse += " - " + currentTab + "\n";
+                        tabFalse += " - " + currentTab.Text + ":"+ ex.Message +"\n";
                     }
                 }
 

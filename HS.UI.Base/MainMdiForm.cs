@@ -19,6 +19,8 @@ namespace HS.UI.Base
 
         //OleDbConnection Connection;// = ConnectionBase.Connection;
 
+        private ToolStrip oldToolStrip = null;
+
         public MainMdiForms()
         {
             InitializeComponent();
@@ -98,7 +100,6 @@ namespace HS.UI.Base
             tabMDI.TabPages.Insert(0, newTabPage);
 
             // thêm Form vào Tab
-            childForm.MdiParent = this;
             childForm.Parent = newTabPage;
             childForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
@@ -143,10 +144,14 @@ namespace HS.UI.Base
             childForm.BackColor = System.Drawing.SystemColors.Window;
             CreateToolBar(toolMain, childForm.ToolbarItems);
 
-            // hiện form lên
-            childForm.Show();
+            if (childForm.MainToolStrip != null)
+            {
+                CreateToolStrip(childForm.MainToolStrip);
+            }
 
             pnlTabControl.Visible = true;
+            // hiện form lên
+            childForm.Show();
         }
 
         private void btnShowListWindow_Click(object sender, EventArgs e)
@@ -206,6 +211,11 @@ namespace HS.UI.Base
                     MdiChildForm childForm = tabMDI.SelectedTab.Controls[0] as MdiChildForm;
 
                     CreateToolBar(toolMain, childForm.ToolbarItems);
+
+                    if (childForm.MainToolStrip != null)
+                    {
+                        CreateToolStrip(childForm.MainToolStrip);
+                    }
                 }
                 else
                 {
@@ -345,6 +355,8 @@ namespace HS.UI.Base
                 {
                     var childForm = Activator.CreateInstanceFrom(menuTag[2], menuTag[3]).Unwrap() as MdiChildForm;
 
+                    childForm.MdiParent = this;
+
                     Variables.MainForm.AddFormToTab(childForm);
                 }
                 else if (menuTag[1].ToString() == "0")
@@ -353,7 +365,6 @@ namespace HS.UI.Base
 
                     childForm.ShowDialog();
                 }
-
             }
             catch (Exception ex)
             {
@@ -394,6 +405,11 @@ namespace HS.UI.Base
 
         private void CreateToolBar(ToolStrip toolStrip, List<ToolbarItem> items)
         {
+            if (items.Count == 0)
+            {
+                toolMain.Visible = false;
+                return;
+            }
             toolMain.Visible = true;
             toolStrip.Items.Clear();
 
@@ -433,6 +449,10 @@ namespace HS.UI.Base
                     case ToolbarItem.InActive:
                         imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\inactive.png");
                         buttonText = "Khóa";
+                        break;
+                    case ToolbarItem.Delete:
+                        imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\cancel.png");
+                        buttonText = "Xóa bỏ";
                         break;
                     case ToolbarItem.Print:
                         imagePath = System.IO.Path.Combine(Application.StartupPath, "Resources\\Icons\\print.png");
@@ -484,6 +504,9 @@ namespace HS.UI.Base
                         case ToolbarItem.InActive:
                             currentActiveForm.DoInActive();
                             break;
+                        case ToolbarItem.Delete:
+                            currentActiveForm.DoDelete();
+                            break;
                         case ToolbarItem.Print:
                             currentActiveForm.DoPrint();
                             break;
@@ -500,7 +523,41 @@ namespace HS.UI.Base
             }
         }
 
+        private void CreateToolStrip(ToolStrip toolStrip)
+        {
+            if (oldToolStrip != null)
+            {
+                int controlIndex = toolStripContainer1.TopToolStripPanel.Controls.GetChildIndex(oldToolStrip);
+                toolStripContainer1.TopToolStripPanel.Controls.RemoveAt(controlIndex);
+            }
+
+            toolStripContainer1.TopToolStripPanel.Controls.Add(toolStrip);
+            oldToolStrip = toolStrip;
+        }
+
+        public void SetStatusToolStrip(Dictionary<ToolbarItem, bool> toolStripItemStatus)
+        {
+            foreach (KeyValuePair<ToolbarItem, bool> kPair in toolStripItemStatus)
+            {
+                foreach (var item in toolMain.Items)
+                {
+                    if (item is ToolStripSeparator) continue;
+
+                    if (item is ToolStripButton && ((ToolStripButton)item).Tag.Equals(kPair.Key))
+                    {
+                        ((ToolStripButton)item).Enabled = kPair.Value;
+                        break;
+                    }
+                }
+            }
+
+
+        }
         #endregion
 
+        public void SetStatus(string currentStatus)
+        {
+            lblCurrentStatus.Text = currentStatus;
+        }
     }
 }

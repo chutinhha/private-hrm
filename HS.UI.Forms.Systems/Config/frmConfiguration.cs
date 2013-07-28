@@ -20,7 +20,7 @@ namespace HS.UI.Forms.Systems.Config
 
         void frmConfiguration_Load(object sender, EventArgs e)
         {
-            ctrlDanhMuc1.InitControl();
+            //ctrlDanhMuc1.InitControl();
         }
     }
 }

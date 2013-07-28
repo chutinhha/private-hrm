@@ -214,16 +214,17 @@ namespace HS.Server.Service
             }
         }
 
-        public DanhMucItemData GetDanhMucItemByID(System.Guid iD)
+
+        public DanhMucItemData GetDanhMucItemByID(System.Int32 ID, System.String MaLoaiDanhMuc)
         {
             try
             {
                 var domain = new DanhMucItemDomainObject(ConnectionString);
-                return domain.GetDanhMucItemByID(iD);
+                return domain.GetDanhMucItemByID(ID, MaLoaiDanhMuc);
             }
             catch (Exception ex)
             {
-                ErrorLog.WebLog("[GetDanhMucItemByID]", ex.Message);
+                ErrorLog.Log("[GetDanhMucItemByID]", ex.Message);
                 return null;
             }
         }

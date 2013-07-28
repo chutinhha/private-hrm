@@ -23,12 +23,19 @@ namespace HS.UI.Base
             }
         }
 
+        public MdiChildForm()
+        {
+            if (MainToolStrip != null)
+            {
+                MainToolStrip.Visible = false;
+            }
+        }
+
         /// <summary>
         /// Form này chỉ hiển thị duy nhất 1 form trên MDIParentForm
         /// </summary>
         public bool IsUniqueForm = false;
-
-
+        
         public virtual void DoAdd() { }
         public virtual void DoEdit() { }
         public virtual void DoPrint() { }
@@ -38,7 +45,8 @@ namespace HS.UI.Base
         public virtual void DoInActive() { }
         public virtual void DoCancel() { }
         public virtual void DoSave() { }
-
+        
+        public System.Windows.Forms.ToolStrip MainToolStrip = null;
     }
 
 }

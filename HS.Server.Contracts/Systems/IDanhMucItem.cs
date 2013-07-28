@@ -61,7 +61,7 @@ namespace HS.Server.Contracts.Systems
         /// <param name="objId"></param>
         /// <returns></returns>
         [OperationContract]
-        DanhMucItemData GetDanhMucItemByID(System.Guid iD);
+        DanhMucItemData GetDanhMucItemByID(System.Int32 ID, System.String MaLoaiDanhMuc);
 
         /// <summary>
         /// 

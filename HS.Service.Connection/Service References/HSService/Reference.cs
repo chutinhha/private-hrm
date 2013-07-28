@@ -128,7 +128,7 @@ namespace HS.Service.Connection.HSService {
         private System.Nullable<decimal> DecVal3Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Guid IDField;
+        private int IDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> IntVal1Field;
@@ -144,6 +144,9 @@ namespace HS.Service.Connection.HSService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string MaLoaiDanhMucField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MoTaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StrVal1Field;
@@ -223,7 +226,7 @@ namespace HS.Service.Connection.HSService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Guid ID {
+        public int ID {
             get {
                 return this.IDField;
             }
@@ -296,6 +299,19 @@ namespace HS.Service.Connection.HSService {
                 if ((object.ReferenceEquals(this.MaLoaiDanhMucField, value) != true)) {
                     this.MaLoaiDanhMucField = value;
                     this.RaisePropertyChanged("MaLoaiDanhMuc");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string MoTa {
+            get {
+                return this.MoTaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MoTaField, value) != true)) {
+                    this.MoTaField = value;
+                    this.RaisePropertyChanged("MoTa");
                 }
             }
         }
@@ -752,7 +768,7 @@ namespace HS.Service.Connection.HSService {
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItems();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByID", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemByIDResponse")]
-        HS.Service.Connection.HSService.DanhMucItemData GetDanhMucItemByID(System.Guid iD);
+        HS.Service.Connection.HSService.DanhMucItemData GetDanhMucItemByID(int ID, string MaLoaiDanhMuc);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteria", ReplyAction="http://tempuri.org/IDanhMucItem/GetDanhMucItemByCriteriaResponse")]
         System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemByCriteria(string whereCondition);
@@ -904,8 +920,8 @@ namespace HS.Service.Connection.HSService {
             return base.Channel.GetDanhMucItems();
         }
         
-        public HS.Service.Connection.HSService.DanhMucItemData GetDanhMucItemByID(System.Guid iD) {
-            return base.Channel.GetDanhMucItemByID(iD);
+        public HS.Service.Connection.HSService.DanhMucItemData GetDanhMucItemByID(int ID, string MaLoaiDanhMuc) {
+            return base.Channel.GetDanhMucItemByID(ID, MaLoaiDanhMuc);
         }
         
         public System.Collections.Generic.List<HS.Service.Connection.HSService.DanhMucItemData> GetDanhMucItemByCriteria(string whereCondition) {
