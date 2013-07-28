@@ -96,16 +96,31 @@ namespace HS.Service.Wraper
             return Instant.GetDanhMucItems();
         }
 
-        public DanhMucItemData GetDanhMucItemByID(Guid iD)
+        public DanhMucItemData GetDanhMucItemByID(System.Int32 ID, System.String MaLoaiDanhMuc)
         {
-            return Instant.GetDanhMucItemByID(iD);
+            return Instant.GetDanhMucItemByID(ID, MaLoaiDanhMuc);
         }
 
         public List<DanhMucItemData> GetDanhMucItemsByDanhMuc(string maLoaiDanhMuc)
         {
+            List<DanhMucItemData> tempList = new List<DanhMucItemData>();
+            string whereCondition = string.Format(" AND MaLoaiDanhMuc = '{0}'", maLoaiDanhMuc);
+            int itemCount = GetDanhMucItemCount(whereCondition);
+            int pageSize = 50;
+            decimal pageCount = Math.Ceiling((decimal)itemCount / pageSize);
 
+            if (pageCount >= 1)
+            {
+                int page = 1;
+                while (page <= pageCount)
+                {
+                    tempList.AddRange(GetDanhMucItemPaging(whereCondition, pageSize, page, "ThuTu, TenDanhMuc"));
 
-            return Instant.GetDanhMucItemsByDanhMuc(maLoaiDanhMuc);
+                    page++;
+                }
+            }
+
+            return tempList;
         }
         public List<DanhMucItemData> GetDanhMucItemByCriteria(string whereCondition)
         {

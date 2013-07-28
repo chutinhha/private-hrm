@@ -26,7 +26,7 @@ namespace HS.Server.Data.Systems
         private const System.String SP_DANHMUCITEM_SELECT_COUNT = "[dbo].[DANHMUCITEM_SELECT_COUNT]";
         private const System.String SP_DANHMUCITEM_SELECT_PAGING = "[dbo].[DANHMUCITEM_SELECT_PAGING]";
         #endregion
-        
+
         #region Properties
 
         private System.String _ConnectionString = "";
@@ -71,21 +71,23 @@ namespace HS.Server.Data.Systems
 
             DanhMucItemData obj = new DanhMucItemData();
 
-            obj.ID = Guid.Parse(System.Convert.ToString(data.ID));
+            obj.ID = System.Convert.ToInt32(data.ID);
             obj.MaLoaiDanhMuc = System.Convert.ToString(data.MaLoaiDanhMuc);
             obj.MaDanhMuc = System.Convert.ToString(data.MaDanhMuc);
             obj.TenDanhMuc = System.Convert.ToString(data.TenDanhMuc);
+            obj.MoTa = System.Convert.ToString(data.MoTa);
             obj.ThuTu = System.Convert.ToInt32(data.ThuTu);
-            obj.IntVal1 = data.IntVal1 != null ? System.Convert.ToInt32(data.IntVal1) : null;
-            obj.IntVal2 = data.IntVal2 != null ? System.Convert.ToInt32(data.IntVal2) : null;
-            obj.IntVal3 = data.IntVal3 != null ? System.Convert.ToInt32(data.IntVal3) : null;
-            obj.DecVal1 = data.DecVal1 != null ? System.Convert.ToDecimal(data.DecVal1) : null;
-            obj.DecVal2 = data.DecVal2 != null ? System.Convert.ToDecimal(data.DecVal2) : null;
-            obj.DecVal3 = data.DecVal3 != null ? System.Convert.ToDecimal(data.DecVal3) : null;
+            obj.IntVal1 = System.Convert.ToInt32(data.IntVal1);
+            obj.IntVal2 = System.Convert.ToInt32(data.IntVal2);
+            obj.IntVal3 = System.Convert.ToInt32(data.IntVal3);
+            obj.DecVal1 = System.Convert.ToDecimal(data.DecVal1);
+            obj.DecVal2 = System.Convert.ToDecimal(data.DecVal2);
+            obj.DecVal3 = System.Convert.ToDecimal(data.DecVal3);
             obj.StrVal1 = System.Convert.ToString(data.StrVal1);
             obj.StrVal2 = System.Convert.ToString(data.StrVal2);
             obj.StrVal3 = System.Convert.ToString(data.StrVal3);
             obj.Active = System.Convert.ToBoolean(data.Active);
+
 
             return obj;
         }
@@ -103,6 +105,7 @@ namespace HS.Server.Data.Systems
                 dao.CreateParameter("@MaLoaiDanhMuc", obj.MaLoaiDanhMuc),
                 dao.CreateParameter("@MaDanhMuc", obj.MaDanhMuc),
                 dao.CreateParameter("@TenDanhMuc", obj.TenDanhMuc),
+                dao.CreateParameter("@MoTa", obj.MoTa),
                 dao.CreateParameter("@ThuTu", obj.ThuTu),
                 dao.CreateParameter("@IntVal1", obj.IntVal1),
                 dao.CreateParameter("@IntVal2", obj.IntVal2),
@@ -127,6 +130,7 @@ namespace HS.Server.Data.Systems
                 dao.CreateParameter("@MaLoaiDanhMuc", obj.MaLoaiDanhMuc),
                 dao.CreateParameter("@MaDanhMuc", obj.MaDanhMuc),
                 dao.CreateParameter("@TenDanhMuc", obj.TenDanhMuc),
+                dao.CreateParameter("@MoTa", obj.MoTa),
                 dao.CreateParameter("@ThuTu", obj.ThuTu),
                 dao.CreateParameter("@IntVal1", obj.IntVal1),
                 dao.CreateParameter("@IntVal2", obj.IntVal2),
@@ -152,6 +156,7 @@ namespace HS.Server.Data.Systems
                 dao.CreateParameter("@MaLoaiDanhMuc", obj.MaLoaiDanhMuc),
                 dao.CreateParameter("@MaDanhMuc", obj.MaDanhMuc),
                 dao.CreateParameter("@TenDanhMuc", obj.TenDanhMuc),
+                dao.CreateParameter("@MoTa", obj.MoTa),
                 dao.CreateParameter("@ThuTu", obj.ThuTu),
                 dao.CreateParameter("@IntVal1", obj.IntVal1),
                 dao.CreateParameter("@IntVal2", obj.IntVal2),
@@ -187,12 +192,13 @@ namespace HS.Server.Data.Systems
             return new List<DanhMucItemData>();
         }
 
-        public virtual DanhMucItemData GetDanhMucItemByID(Guid iD)
+        public virtual DanhMucItemData GetDanhMucItemByID(System.Int32 ID, System.String MaLoaiDanhMuc)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);
             dao.SetCommandText(SP_DANHMUCITEM_SELECT_BY_ID, CommandType.StoredProcedure);
             dao.SetParameters(new IDataParameter[]{
-                dao.CreateParameter("@ID", iD)
+		        dao.CreateParameter("@ID", ID),
+		        dao.CreateParameter("@MaLoaiDanhMuc", MaLoaiDanhMuc)          
             });
 
             DataTable table = dao.ExecuteQuery();
@@ -203,7 +209,7 @@ namespace HS.Server.Data.Systems
 
             return default(DanhMucItemData);
         }
-        
+
         public virtual IList<DanhMucItemData> GetDanhMucItems(System.String whereCondition)
         {
             JDataAccess dao = new JDataAccess(ConnectionString);

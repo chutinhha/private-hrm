@@ -87,14 +87,14 @@
     <None Include="Service References\HSService\HS.Service.Connection.HSService.SysGroupData.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\HSService\IService.wsdl" />
-    <None Include="Service References\HSService\Service.xsd">
+    <None Include="Service References\HSService\IService1.wsdl" />
+    <None Include="Service References\HSService\Service3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\HSService\Service1.xsd">
+    <None Include="Service References\HSService\Service31.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\HSService\Service2.xsd">
+    <None Include="Service References\HSService\Service32.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -103,9 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\HSService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\HSService\Service.disco" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\HSService\configuration91.svcinfo" />
@@ -118,6 +115,9 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\HSService\Service1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

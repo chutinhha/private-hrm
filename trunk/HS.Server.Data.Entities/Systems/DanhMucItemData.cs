@@ -8,18 +8,19 @@ using System.Runtime.Serialization;
 namespace HS.Server.Data.Entities.Systems
 {
     /// <summary>
-    /// DmDanhmucitemData object for Entity mapped table DM_DanhMucItem.
+    /// DanhMucItemData object for Entity mapped table DanhMuc_Item.
     /// CODE:
     ///     - Author:    BangDV
-    ///     - Generated Date:  19/07/2013 04:37:32 PM
+    ///     - Generated Date:  28/07/2013 09:31:15 AM
     /// </summary>
     [DataContract]
     public class DanhMucItemData : INotifyPropertyChanged
     {
-        private System.Guid _ID;
+        private System.Int32 _ID;
         private System.String _MaLoaiDanhMuc;
         private System.String _MaDanhMuc;
         private System.String _TenDanhMuc;
+        private System.String _MoTa;
         private System.Int32? _ThuTu;
         private System.Int32? _IntVal1;
         private System.Int32? _IntVal2;
@@ -47,9 +48,8 @@ namespace HS.Server.Data.Entities.Systems
         public DanhMucItemData()
         {
         }
-
         [DataMember]
-        public System.Guid ID
+        public System.Int32 ID
         {
             get { return _ID; }
             set
@@ -97,6 +97,19 @@ namespace HS.Server.Data.Entities.Systems
                 {
                     _TenDanhMuc = value;
                     OnPropertyChanged("TenDanhMuc");
+                }
+            }
+        }
+        [DataMember]
+        public System.String MoTa
+        {
+            get { return _MoTa; }
+            set
+            {
+                if (MoTa != value)
+                {
+                    _MoTa = value;
+                    OnPropertyChanged("MoTa");
                 }
             }
         }
