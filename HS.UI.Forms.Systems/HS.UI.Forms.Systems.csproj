@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HS.UI.Forms.Systems</RootNamespace>
-    <AssemblyName>HS.UI.Forms.Systems</AssemblyName>
+    <AssemblyName>HSSystem</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>

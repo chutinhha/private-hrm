@@ -37,12 +37,8 @@ namespace HS.UI.Base
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuPhanQuyen = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuConfiguration = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDanhMuc = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTOOL = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuHELP = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewDocument = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCheckUpdate = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +69,6 @@ namespace HS.UI.Base
             this.mnuMain.Dock = System.Windows.Forms.DockStyle.None;
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSYSTEM,
-            this.mnuTOOL,
             this.mnuHELP});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
@@ -117,29 +112,18 @@ namespace HS.UI.Base
             // mnuPhanQuyen
             // 
             this.mnuPhanQuyen.Name = "mnuPhanQuyen";
-            this.mnuPhanQuyen.Size = new System.Drawing.Size(163, 22);
-            this.mnuPhanQuyen.Tag = "0|1|HS.UI.Forms.Systems.dll|HS.UI.Forms.Systems.AccountAndGroup.frmAccountAndGrou" +
-                "p|1";
-            this.mnuPhanQuyen.Text = "Phân Quyền";
+            this.mnuPhanQuyen.Size = new System.Drawing.Size(195, 22);
+            this.mnuPhanQuyen.Tag = "0|1|HSSystem.dll|HS.UI.Forms.Systems.AccountAndGroup.frmAccountAndGroup|1";
+            this.mnuPhanQuyen.Text = "Tài Khoản Người Dùng";
             this.mnuPhanQuyen.Click += new System.EventHandler(this.mnuItem_Click);
             // 
             // mnuConfiguration
             // 
-            this.mnuConfiguration.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuDanhMuc});
             this.mnuConfiguration.Name = "mnuConfiguration";
-            this.mnuConfiguration.Size = new System.Drawing.Size(163, 22);
-            this.mnuConfiguration.Tag = "0|0|HS.UI.Forms.Systems.dll|HS.UI.Forms.Systems.Config.frmConfiguration|1";
-            this.mnuConfiguration.Text = "Thiết Lập";
+            this.mnuConfiguration.Size = new System.Drawing.Size(195, 22);
+            this.mnuConfiguration.Tag = "0|1|HSSystem.dll|HS.UI.Forms.Systems.DanhMuc.frmDanhMuc|1";
+            this.mnuConfiguration.Text = "Thiết Lập Danh Mục";
             this.mnuConfiguration.Click += new System.EventHandler(this.mnuItem_Click);
-            // 
-            // mnuDanhMuc
-            // 
-            this.mnuDanhMuc.Name = "mnuDanhMuc";
-            this.mnuDanhMuc.Size = new System.Drawing.Size(129, 22);
-            this.mnuDanhMuc.Tag = "0|1|HS.UI.Forms.Systems.dll|HS.UI.Forms.Systems.DanhMuc.frmDanhMuc|1";
-            this.mnuDanhMuc.Text = "&Danh Mục";
-            this.mnuDanhMuc.Click += new System.EventHandler(this.mnuItem_Click);
             // 
             // toolStripSeparator3
             // 
@@ -153,27 +137,6 @@ namespace HS.UI.Base
             this.mnuExit.Size = new System.Drawing.Size(163, 22);
             this.mnuExit.Text = "Thoát Ra";
             this.mnuExit.Click += new System.EventHandler(this.mnuExit_Click);
-            // 
-            // mnuTOOL
-            // 
-            this.mnuTOOL.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5,
-            this.toolStripSeparator2});
-            this.mnuTOOL.Name = "mnuTOOL";
-            this.mnuTOOL.Size = new System.Drawing.Size(67, 20);
-            this.mnuTOOL.Tag = "_998";
-            this.mnuTOOL.Text = "TIỆN ÍCH";
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(180, 22);
-            this.toolStripMenuItem5.Text = "toolStripMenuItem5";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
             // 
             // mnuHELP
             // 
@@ -190,25 +153,26 @@ namespace HS.UI.Base
             // mnuViewDocument
             // 
             this.mnuViewDocument.Name = "mnuViewDocument";
-            this.mnuViewDocument.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.mnuViewDocument.Size = new System.Drawing.Size(229, 22);
+            this.mnuViewDocument.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.mnuViewDocument.Size = new System.Drawing.Size(202, 22);
             this.mnuViewDocument.Text = "Hướng Dẫn Sử Dụng";
             // 
             // mnuCheckUpdate
             // 
             this.mnuCheckUpdate.Name = "mnuCheckUpdate";
-            this.mnuCheckUpdate.Size = new System.Drawing.Size(229, 22);
+            this.mnuCheckUpdate.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.mnuCheckUpdate.Size = new System.Drawing.Size(202, 22);
             this.mnuCheckUpdate.Text = "Kiểm Tra Cập Nhật";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(199, 6);
             // 
             // mnuAbout
             // 
             this.mnuAbout.Name = "mnuAbout";
-            this.mnuAbout.Size = new System.Drawing.Size(229, 22);
+            this.mnuAbout.Size = new System.Drawing.Size(202, 22);
             this.mnuAbout.Text = "Giới Thiệu";
             // 
             // statusMain
@@ -224,7 +188,7 @@ namespace HS.UI.Base
             // lblCurrentStatus
             // 
             this.lblCurrentStatus.Name = "lblCurrentStatus";
-            this.lblCurrentStatus.Size = new System.Drawing.Size(545, 17);
+            this.lblCurrentStatus.Size = new System.Drawing.Size(576, 17);
             this.lblCurrentStatus.Spring = true;
             this.lblCurrentStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -367,7 +331,6 @@ namespace HS.UI.Base
         private System.Windows.Forms.MenuStrip mnuMain;
         private System.Windows.Forms.ToolStripStatusLabel lblCurrentStatus;
         private System.Windows.Forms.ToolStripMenuItem mnuSYSTEM;
-        private System.Windows.Forms.ToolStripMenuItem mnuTOOL;
         private System.Windows.Forms.ToolStripMenuItem mnuHELP;
         private System.Windows.Forms.ToolStripMenuItem mnuViewDocument;
         private System.Windows.Forms.ToolStripMenuItem mnuCheckUpdate;
@@ -376,13 +339,10 @@ namespace HS.UI.Base
         private System.Windows.Forms.ToolStripMenuItem mnuLogin;
         private System.Windows.Forms.ToolStripMenuItem mnuPhanQuyen;
         private System.Windows.Forms.ToolStripMenuItem mnuChangePassword;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem mnuConfiguration;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem mnuExit;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
-        private System.Windows.Forms.ToolStripMenuItem mnuDanhMuc;
     }
 }
