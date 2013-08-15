@@ -1,4 +1,0 @@
-D:\Works\private-hrm\HS.Web.UI.Base\bin\Debug\HS.Web.UI.Base.dll
-D:\Works\private-hrm\HS.Web.UI.Base\bin\Debug\HS.Web.UI.Base.pdb
-D:\Works\private-hrm\HS.Web.UI.Base\obj\Debug\HS.Web.UI.Base.dll
-D:\Works\private-hrm\HS.Web.UI.Base\obj\Debug\HS.Web.UI.Base.pdb
