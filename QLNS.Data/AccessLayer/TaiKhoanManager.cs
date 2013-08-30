@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using QLNS.Common;
 
 namespace QLNS.Data.DataAccessLayer
 {
@@ -106,7 +107,7 @@ namespace QLNS.Data.DataAccessLayer
             {
                 MainDataContext context = new MainDataContext(ConnectionString);
 
-                var taiKhoan= context.TaiKhoans.SingleOrDefault(p => p.ID == ID);
+                var taiKhoan = context.TaiKhoans.SingleOrDefault(p => p.ID == ID);
 
                 context.Connection.Close();
 
@@ -118,23 +119,35 @@ namespace QLNS.Data.DataAccessLayer
             }
         }
 
-        public bool Login(string TaiKhoan, string MatKhau)
+        public bool Login(string TaiKhoan, string MatKhau, ref string error)
         {
             try
             {
                 MainDataContext context = new MainDataContext(ConnectionString);
 
-                var taiKhoan = context.TaiKhoans.SingleOrDefault(p => p.TenTaiKhoan == TaiKhoan && p.MatKhau == MatKhau);
+                var taiKhoan = context.TaiKhoans.SingleOrDefault(p => p.TenTaiKhoan == TaiKhoan && p.MatKhau == MatKhau.MD5());
+                if (taiKhoan == null)
+                {
+                    error = "Tài khoản không tồn tại HOẶC Thông tin đăng nhập không chính xác.";
+                    return false;
+                }
+
+                if (taiKhoan.TrangThai == 0)
+                {
+                    error = "Tài khoản đã bị khóa.";
+                    return false;
+                }
 
                 taiKhoan.LastLogin = DateTime.Now;
 
                 context.SubmitChanges();
                 context.Connection.Close();
 
-                return taiKhoan != null;
+                return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                error = ex.Message;
                 return false;
             }
         }
