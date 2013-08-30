@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using Telerik.WinControls.UI;
 
 namespace QLNS.Main
@@ -15,6 +16,10 @@ namespace QLNS.Main
         public frmMain()
         {
             InitializeComponent();
+
+            ThemeResolutionService.ApplicationThemeName = "VisualStudio2012Light";
+            //ThemeResolutionService.ApplicationThemeName = "ControlDefault";
+            lblLoginName.Text = string.Format("Tài khoản: {0}", Program.Username);
         }
 
         private void tabMain_PageRemoving(object sender, RadPageViewCancelEventArgs e)
@@ -36,7 +41,7 @@ namespace QLNS.Main
             }
 
             string tabTag = "";
-            UserControl control = null;
+            BaseControl.ControlBase control = null;
 
             switch (tag.ToString())
             {
@@ -59,8 +64,9 @@ namespace QLNS.Main
             AddPageToTab(tabTag, control);
         }
 
-        private void AddPageToTab(string tabTag, UserControl control)
+        public void AddPageToTab(string tabTag, BaseControl.ControlBase control)
         {
+            if (control == null) return;
             RadPageViewPage pageView = null;
             foreach (RadPageViewPage page in tabMain.Pages)
             {
@@ -80,7 +86,7 @@ namespace QLNS.Main
                 RadPageViewPage newPage = new RadPageViewPage()
                 {
                     Tag = tabTag,
-                    Text = control.Text
+                    Text = control.PageCaption
                 };
 
                 tabMain.Pages.Add(newPage);
@@ -125,6 +131,17 @@ namespace QLNS.Main
                 tabMain.SelectedPage = newPage;
 
             }
+        }
+
+        public void SetStatus(string message)
+        {
+            lblMainStatus.Text = message;
+        }
+
+        public void CloseCurrentTab() {
+            tabMain.Pages.Remove(tabMain.SelectedPage);
+
+            tabMain.SelectedPage = pageMain;
         }
     }
 }
