@@ -26,9 +26,9 @@
             Use this area to provide additional information.
         </p>
         <ul>
-            <li><a runat="server" href="~/">Home</a></li>
-            <li><a runat="server" href="~/About">About</a></li>
-            <li><a runat="server" href="~/Contact">Contact</a></li>
+            <li><a runat="server" href="~/vn/">Home</a></li>
+            <li><a runat="server" href="~/vn/gioi-thieu">About</a></li>
+            <li><a runat="server" href="~/vn/lien-he">Contact</a></li>
         </ul>
     </aside>
 </asp:Content>

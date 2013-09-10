@@ -13,6 +13,11 @@ namespace WebCMS
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.EnableFriendlyUrls();
+
+            routes.MapPageRoute("Home", "{lang}/", "~/Default.aspx");
+            routes.MapPageRoute("About", "{lang}/gioi-thieu", "~/About.aspx");
+            routes.MapPageRoute("Contact", "{lang}/lien-he", "~/Contact.aspx");
+            routes.MapPageRoute("News", "{lang}/tin-tuc/{cat}/{tag}", "~/News.aspx");
         }
     }
 }
