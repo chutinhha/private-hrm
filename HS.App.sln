@@ -67,6 +67,30 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS.Data", "QLNS.Data\QLNS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QLNS.Common", "QLNS.Common\QLNS.Common.csproj", "{E3B643EE-820F-4141-B96D-734F75BD09F6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web CMS", "Web CMS", "{93306CB3-E334-4ED1-B17B-38D7C3F3EC8C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebCMS", "http://localhost:44167", "{043FC569-10C2-49EB-ADB2-137419CC1819}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_44167"
+		Debug.AspNetCompiler.PhysicalPath = "WebCMS\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_44167\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_44167"
+		Release.AspNetCompiler.PhysicalPath = "WebCMS\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_44167\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "WebCMS\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -295,6 +319,16 @@ Global
 		{E3B643EE-820F-4141-B96D-734F75BD09F6}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{E3B643EE-820F-4141-B96D-734F75BD09F6}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{E3B643EE-820F-4141-B96D-734F75BD09F6}.Release|x86.ActiveCfg = Release|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{043FC569-10C2-49EB-ADB2-137419CC1819}.Release|x86.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -327,6 +361,7 @@ Global
 		{4753C542-2244-424F-A067-95EECED96A29} = {5F77FC5A-F449-4B04-AF2E-ABB61DA35E3D}
 		{5ACDB8F9-5197-4EC8-A0E0-088549D97E69} = {5F77FC5A-F449-4B04-AF2E-ABB61DA35E3D}
 		{E3B643EE-820F-4141-B96D-734F75BD09F6} = {5F77FC5A-F449-4B04-AF2E-ABB61DA35E3D}
+		{043FC569-10C2-49EB-ADB2-137419CC1819} = {93306CB3-E334-4ED1-B17B-38D7C3F3EC8C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		VisualSVNWorkingCopyRoot = .
